@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Media extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name', 'description', 'path', 'category_id', 'image_uri', 'thumbnail_uri', 'duration',
+    ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
