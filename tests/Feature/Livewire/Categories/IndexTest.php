@@ -32,4 +32,13 @@ class IndexTest extends TestCase
             $test->assertSee($name);
         }
     }
+    /** @test */
+    public function sends_2_categories_to_view()
+    {
+        Category::factory()->count(2)->create();
+        Livewire::test(Index::class)->assertViewHas('categories', function
+        ($categories) {
+            return count($categories) == 2;
+        });
+    }
 }
