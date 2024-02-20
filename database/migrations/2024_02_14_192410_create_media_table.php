@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('description')->max(500);
             $table->string('path', 255);
 
-            $table->foreignId('category_id')->constrained('categories');
+            $table->foreignId('category_id')->constrained('categories')->nullable();//TODO treure nullable
 
             $table->string('image_uri', 255)->nullable();
             $table->string('thumbnail_uri', 255)->nullable();

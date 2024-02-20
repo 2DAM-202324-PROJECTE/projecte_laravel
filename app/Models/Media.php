@@ -13,8 +13,8 @@ class Media extends Model
         'name', 'description', 'path', 'category_id', 'image_uri', 'thumbnail_uri', 'duration',
     ];
 
-    public function category()
+    public function categoria()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Categoria::class);
     }
 }
