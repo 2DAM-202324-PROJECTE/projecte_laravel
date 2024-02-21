@@ -8,18 +8,18 @@ use Livewire\Component;
 
 class Createorupdate extends Component
 {
-    public $nom = '';
+    public $name = '';
     public ?Category $category;
     public bool $isCreation;
 
     public function save(){
-        Category::create($this->only(['nom']));
+        Category::create($this->only(['name']));
         return $this->redirectRoute('categories');
     }
     public function update()
     {
         $this->category->update(
-            $this->only(['nom'])
+            $this->only(['name'])
         );
         return $this->redirectRoute('categories');
     }
@@ -27,7 +27,7 @@ class Createorupdate extends Component
     {
         $category = Category::findOrFail($id);
         $this->category = $category;
-        $this->nom = $category->nom;
+        $this->name = $category->name;
     }
 
     public function mount($id = null)

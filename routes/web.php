@@ -33,5 +33,7 @@ Route::middleware([
 Route::get('/categories', Index::class)->name('categories');
 
 Route::get('/categories/create', Createorupdate::class);
-Route::get('/categories/update/{id}', Createorupdate::class);
+Route::get('/categories/update/{id}', Createorupdate::class)->name('categories.update');
+
+
 

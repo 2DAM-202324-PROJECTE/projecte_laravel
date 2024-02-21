@@ -1,7 +1,7 @@
 <div>
-    <form wire:submit="save">
-        <label for="nom">Nom:</label>
-        <input type="text" id="title" wire:model="nom">
+    <form wire:submit.prevent="{{ $isCreation ? 'save' : 'update' }}">
+        <label for="name">Nom:</label>
+        <input type="text" id="title" wire:model="name">
         <button type="submit">Save</button>
         @if (session()->has('message'))
             <div class="alert alert-success">
@@ -12,8 +12,5 @@
                 {{ session('message-danger') }}
             </div>
         @endif
-        <form wire:submit="{{ $isCreation ? 'save' : 'update' }}">
-        </form>
     </form>
 </div>
-
