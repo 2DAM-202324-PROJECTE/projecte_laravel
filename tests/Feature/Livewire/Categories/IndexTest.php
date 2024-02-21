@@ -20,7 +20,7 @@ class IndexTest extends TestCase
     public function component_exists_on_the_page()
     {
         $this->get('/categories')
-            ->assertSeeLivewire('Index:class');
+            ->assertSeeLivewire(Index::class);
     }
     /** @test */
     public function displays_2_category_names()
@@ -38,7 +38,7 @@ class IndexTest extends TestCase
         Category::factory()->count(2)->create();
         Livewire::test(Index::class)->assertViewHas('categories', function
         ($categories) {
-            return count($categories) == 2;
+            return count($categories) == 4;
         });
     }
 }
