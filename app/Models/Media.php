@@ -10,11 +10,17 @@ class Media extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'description', 'path', 'category_id', 'image_uri', 'thumbnail_uri', 'duration',
+        'name',
+        'description',
+        'path',
+        'category_id',
+        'image_uri',
+        'thumbnail_uri',
+        'duration',
     ];
 
-    public function categoria()
+    public function Media()
     {
-        return $this->belongsTo(Categoria::class);
+        return $this->belongsTo(Media::class);
     }
 }

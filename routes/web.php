@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Medias\Index;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/medias', Index::class);
+
