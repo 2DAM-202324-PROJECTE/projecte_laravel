@@ -12,4 +12,8 @@ class Category extends Model
         'name', 'description',
     ];
     use HasFactory;
+    public function media()
+    {
+        return $this->hasMany(Media::class);
+    }
 }
