@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoriesController;
 use App\Livewire\Categories\Createorupdate;
 use App\Livewire\Categories\Index;
+//use App\Livewire\Medias\Index;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,4 +37,5 @@ Route::get('/categories/create', Createorupdate::class);
 Route::get('/categories/update/{id}', Createorupdate::class)->name('categories.update');
 
 
+Route::get('/medias', Index::class);
 

@@ -19,7 +19,7 @@ class Image extends Base
     /**
      * @var array
      *
-     * @deprecated Categories are no longer used as a list in the placeholder API but referenced as string instead
+     * @deprecated Media are no longer used as a list in the placeholder API but referenced as string instead
      */
     protected static $categories = [
         'abstract', 'animals', 'business', 'cats', 'city', 'food', 'nightlife',
