@@ -5,7 +5,7 @@ namespace App\Livewire\Medias;
 use App\Models\Media;
 use Livewire\Component;
 
-class Index extends Component
+class IndexMedias extends Component
 {
     public $medias;
     public function mount()

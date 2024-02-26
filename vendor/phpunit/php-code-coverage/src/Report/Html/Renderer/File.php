@@ -286,7 +286,7 @@ final class File extends Renderer
                 'testedMethodsPercentAsString'    => $node->percentageOfTestedFunctionsAndMethods()->asString(),
                 'testedClassesPercent'            => $node->percentageOfTestedClassesAndTraits()->asFloat(),
                 'testedClassesPercentAsString'    => $node->percentageOfTestedClassesAndTraits()->asString(),
-                'crap'                            => '<abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr>',
+                'crap'                            => '<abbr title="Change Risk Anti-Patterns (CRAP) IndexMedias">CRAP</abbr>',
             ]
         );
 

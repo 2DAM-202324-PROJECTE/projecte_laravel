@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Livewire\Medias;
 
-use App\Livewire\Medias\Index;
+use App\Livewire\Medias\IndexMedias;
 use App\Models\Media;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -14,7 +14,7 @@ class IndexTest extends TestCase
     /** @test */
     public function renders_successfully()
     {
-        Livewire::test(Index::class)
+        Livewire::test(IndexMedias::class)
             ->assertStatus(200);
     }
 
@@ -22,7 +22,7 @@ class IndexTest extends TestCase
     public function component_exists_on_the_page()
     {
         $this->get('/medias')
-            ->assertSeeLivewire(Index::class);
+            ->assertSeeLivewire(IndexMedias::class);
     }
 
     /** @test */
@@ -30,7 +30,7 @@ class IndexTest extends TestCase
     {
         $medias = Media::factory()->count(5)->create();
         $names = $medias->pluck('name');
-        $test = Livewire::test(Index::class);
+        $test = Livewire::test(IndexMedias::class);
             foreach ($names as $name) {
                 $test->assertSee($name);
             }
@@ -40,7 +40,7 @@ class IndexTest extends TestCase
     public function sends_2_medias_to_view()
     {
         Media::factory()->count(2)->create();
-        Livewire::test(Index::class)->assertViewHas('medias', function ($medias) {
+        Livewire::test(IndexMedias::class)->assertViewHas('medias', function ($medias) {
             var_dump($medias);
             return count($medias) == 2;
         });

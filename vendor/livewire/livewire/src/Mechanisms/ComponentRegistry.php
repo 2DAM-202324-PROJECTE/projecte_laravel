@@ -95,7 +95,7 @@ class ComponentRegistry extends Mechanism
 
             // If class can't be found, see if there is an index component in a subfolder...
             if(! class_exists($class)) {
-                $class = $class . '\\Index';
+                $class = $class . '\\IndexMedias';
             }
 
             if(! class_exists($class)) {

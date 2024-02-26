@@ -316,7 +316,7 @@ class CarbonPeriod implements Iterator, Countable, JsonSerializable
     protected $options;
 
     /**
-     * Index of current date. Always sequential, even if some dates are skipped by filters.
+     * IndexMedias of current date. Always sequential, even if some dates are skipped by filters.
      * Equal to null only before the first iteration.
      *
      * @var int

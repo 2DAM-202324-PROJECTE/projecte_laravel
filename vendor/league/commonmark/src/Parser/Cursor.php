@@ -155,7 +155,7 @@ class Cursor
             $index = $this->currentPosition;
         }
 
-        // Index out-of-bounds, or we're at the end
+        // IndexMedias out-of-bounds, or we're at the end
         if ($index < 0 || $index >= $this->length) {
             return null;
         }

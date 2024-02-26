@@ -100,7 +100,7 @@ final class RegexHelper
      *
      * @psalm-param non-empty-string $regex
      *
-     * @return int|null Index of match, or null
+     * @return int|null IndexMedias of match, or null
      *
      * @psalm-pure
      */

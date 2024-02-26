@@ -499,7 +499,7 @@ class SQLiteGrammar extends Grammar
         $index = Arr::get($indexes, $command->from);
 
         if (! $index) {
-            throw new RuntimeException("Index [{$command->from}] does not exist.");
+            throw new RuntimeException("IndexMedias [{$command->from}] does not exist.");
         }
 
         $newIndex = new Index(
