@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\CategoriesController;
-use App\Livewire\Categories\Createorupdate;
+
+use App\Livewire\Categories\CreateorupdateCategories;
 use App\Livewire\Categories\Index;
 use App\Livewire\Medias\IndexMedias;
 use Illuminate\Support\Facades\Route;
@@ -33,8 +33,8 @@ Route::middleware([
 
 Route::get('/categories', Index::class)->name('categories');
 
-Route::get('/categories/create', Createorupdate::class);
-Route::get('/categories/update/{id}', Createorupdate::class)->name('categories.update');
+Route::get('/categories/create', CreateorupdateCategories::class);
+Route::get('/categories/update/{id}', CreateorupdateCategories::class)->name('categories.update');
 
 
 Route::get('/medias', IndexMedias::class);

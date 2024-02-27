@@ -6,7 +6,7 @@ use App\Models\Category;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Livewire\Component;
 
-class Createorupdate extends Component
+class CreateorupdateCategories extends Component
 {
     public $name = '';
     public ?Category $category;

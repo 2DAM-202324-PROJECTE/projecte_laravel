@@ -1,8 +1,8 @@
-<div>Category list
+<div class="bg-slate-400 text-red-400">Category list
     <br/>
     @foreach ($categories as $category)
         {{$category}}
-        <button type="button">
+        <button class="rounded" type="button">
             <a href="{{ route('categories.update',['id'=> $category->id]) }}">Edit</a>
         </button>
         <button type="button" wire:click="delete({{ $category->id }})"
@@ -21,3 +21,4 @@
         </div>
     @endif
 </div>
+
