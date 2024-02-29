@@ -16,7 +16,6 @@ class Index extends Component
     }
 
 
-
     public function cridaCreate()
     {
         return redirect()->to('/categories/create');

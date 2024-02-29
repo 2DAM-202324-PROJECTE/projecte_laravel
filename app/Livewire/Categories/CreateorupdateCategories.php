@@ -9,20 +9,33 @@ use Livewire\Component;
 class CreateorupdateCategories extends Component
 {
     public $name = '';
+    public $description = '';
+
     public ?Category $category;
-    public bool $isCreation;
+    public bool $isCreation = true;
 
     public function create()
     {
-        Category::create($this->only(['name']));
+        Category::create([
+            'name' => $this->name,
+            'description' => $this->description,
+        ]);
         return $this->redirectRoute('categories');
 
+    }
+
+    public function cancel()
+    {
+        return redirect()->to('/categories');
     }
 
 
     public function update()
     {
-        $this->category->update(['name' => $this->name]);
+        $this->category->update([
+            'name' => $this->name,
+            'description' => $this->description,
+        ]);
         return redirect()->route('categories');
     }
 
