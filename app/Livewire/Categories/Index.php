@@ -15,6 +15,18 @@ class Index extends Component
         $this->categories = Category::all();
     }
 
+
+
+    public function cridaCreate()
+    {
+        return redirect()->to('/categories/create');
+    }
+
+    public function cridaUpdate($id)
+    {
+        return redirect()->route('categories.update', ['id' => $id]);
+    }
+
     public function deleteSelected()
     {
         foreach ($this->selectedRows as $id) {
@@ -23,8 +35,9 @@ class Index extends Component
                 $category->delete();
             }
         }
-        session()->flash('message', 'Categoría(s) eliminada(s) con éxito.');
+        session()->flash('message', 't');
         $this->selectedRows = [];
+        $this->mount();
     }
 
     public function selectAll()

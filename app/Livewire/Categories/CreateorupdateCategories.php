@@ -12,21 +12,18 @@ class CreateorupdateCategories extends Component
     public ?Category $category;
     public bool $isCreation;
 
-    public function save()
+    public function create()
     {
-        Category::create(['name' => $this->name]);
-        session()->flash('message', 'Categoría creada con éxito.');
-        $this->resetForm();
+        Category::create($this->only(['name']));
+        return $this->redirectRoute('categories');
+
     }
+
 
     public function update()
     {
-        if (!empty($this->selectedRows)) {
-            $id = $this->selectedRows[0];
-            return redirect()->route('categories.update', ['id' => $id]);
-        } else {
-            session()->flash('message-danger', 'Por favor, seleccione una categoría para modificar.');
-        }
+        $this->category->update(['name' => $this->name]);
+        return redirect()->route('categories');
     }
 
     public function setCategory($id)
@@ -42,7 +39,7 @@ class CreateorupdateCategories extends Component
             try {
                 $this->setCategory($id);
             } catch (ModelNotFoundException $e) {
-                session()->flash('message-danger', 'Categoría no encontrada.');
+                session()->flash('message-danger', 'C');
             }
         } else {
             $this->isCreation = true;

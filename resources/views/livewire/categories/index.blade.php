@@ -6,9 +6,16 @@
         <h1 class="text-3xl py-4 border-b mb-10">Categories</h1>
 
         <div class="mb-4 flex grid-rows gap-x-2 justify-end">
-            <button class="border px-6 py-2 rounded-md text-xs tracking-wide hover:shadow hover:text-gray-800" style="outline: none" wire:click="save" @if(empty($selectedRows)) disabled @endif>Crear</button>
-            <button class="border px-6 py-2 rounded-md text-xs tracking-wide hover:shadow hover:text-gray-800" style="outline: none" wire:click="deleteSelected" @if(empty($selectedRows)) disabled @endif>Borrar</button>
-            <button class="border px-6 py-2 rounded-md text-xs tracking-wide hover:shadow hover:text-gray-800" style="outline: none" wire:click="categories.createorupdate', 'update')" @if(empty($selectedRows)) disabled @endif>Modificar</button>
+            @if (empty($selectedRows))
+                <button class="border px-6 py-2 rounded-md text-xs tracking-wide hover:shadow hover:text-gray-800" style="outline: none" wire:click="cridaCreate">Crear</button>
+            @endif
+            @if (!empty($selectedRows))
+                <button class="border px-6 py-2 rounded-md text-xs tracking-wide hover:shadow hover:text-gray-800" style="outline: none" wire:click="deleteSelected">Borrar</button>
+            @endif
+            @if (count($selectedRows) === 1)
+                <button class="border px-6 py-2 rounded-md text-xs tracking-wide hover:shadow hover:text-gray-800" style="outline: none" wire:click="cridaUpdate({{ $selectedRows[0] }})">Modificar</button>
+            @endif
+
         </div>
 
         <div class="overflow-x-auto bg-white rounded-lg shadow overflow-y-auto relative"
