@@ -15,12 +15,12 @@ class CategoriesSeeder extends Seeder
     {
         Category::create([
             'name' => 'Categoria 1',
-            'description' => 'Descripción de la categoría 1',
+            'description' => 'Descripció de la categoría 1',
         ]);
 
         Category::create([
             'name' => 'Categoria 2',
-            'description' => 'Descripción de la categoría 2',
+            'description' => 'Descripció de la categoría 2',
         ]);
     }
 }

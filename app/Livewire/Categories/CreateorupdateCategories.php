@@ -12,36 +12,48 @@ class CreateorupdateCategories extends Component
     public ?Category $category;
     public bool $isCreation;
 
-    public function save(){
-        Category::create($this->only(['name']));
-        return $this->redirectRoute('categories');
+    public function save()
+    {
+        Category::create(['name' => $this->name]);
+        session()->flash('message', 'Categoría creada con éxito.');
+        $this->resetForm();
     }
+
     public function update()
     {
-        $this->category->update(
-            $this->only(['name'])
-        );
-        return $this->redirectRoute('categories');
+        if (!empty($this->selectedRows)) {
+            $id = $this->selectedRows[0];
+            return redirect()->route('categories.update', ['id' => $id]);
+        } else {
+            session()->flash('message-danger', 'Por favor, seleccione una categoría para modificar.');
+        }
     }
+
     public function setCategory($id)
     {
-        $category = Category::findOrFail($id);
-        $this->category = $category;
-        $this->name = $category->name;
+        $this->category = Category::findOrFail($id);
+        $this->name = $this->category->name;
     }
 
     public function mount($id = null)
     {
-        if($id != null){
+        if ($id !== null) {
             $this->isCreation = false;
-            try{
+            try {
                 $this->setCategory($id);
-            }catch (ModelNotFoundException $e){
-                session()->flash('message-danger', 'Category not found');
+            } catch (ModelNotFoundException $e) {
+                session()->flash('message-danger', 'Categoría no encontrada.');
             }
-        }else{
+        } else {
             $this->isCreation = true;
         }
+    }
+
+    protected function resetForm()
+    {
+        $this->name = '';
+        $this->category = null;
+        $this->isCreation = true;
     }
 
     public function render()

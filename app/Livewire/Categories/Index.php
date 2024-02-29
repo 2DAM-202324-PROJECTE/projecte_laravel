@@ -8,21 +8,37 @@ use Livewire\Component;
 class Index extends Component
 {
     public $categories;
+    public $selectedRows = [];
+
     public function mount()
     {
         $this->categories = Category::all();
     }
-    public function delete($id){
-        $category = Category::findOrFail($id);
-        if ($category) {
-            $category->delete();
-            $this->categories = $this->categories
-                ->filter(fn ($cat) => $cat->id !== $id);
-            session()->flash('message', 'Category was successfully deleted.');
+
+    public function deleteSelected()
+    {
+        foreach ($this->selectedRows as $id) {
+            $category = Category::find($id);
+            if ($category) {
+                $category->delete();
+            }
+        }
+        session()->flash('message', 'Categoría(s) eliminada(s) con éxito.');
+        $this->selectedRows = [];
+    }
+
+    public function selectAll()
+    {
+        if (count($this->selectedRows) < count($this->categories)) {
+            $this->selectedRows = $this->categories->pluck('id')->map(function ($id) {
+                return (string) $id;
+            })->toArray();
         } else {
-            session()->flash('message-danger', 'Can not find the category to be deleted.');
+            $this->selectedRows = [];
         }
     }
+
+
     public function render()
     {
         return view('livewire.categories.index');
