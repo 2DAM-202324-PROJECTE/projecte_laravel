@@ -21,6 +21,6 @@ class Media extends Model
 
     public function Media()
     {
-        return $this->belongsTo(Media::class);
+        return $this->belongsTo(Category::class);
     }
 }
