@@ -10,12 +10,12 @@
                 <input type="text" id="name" wire:model="name" class="text-gray-700 text-sm font-bold rounded-md title bg-gray-100 border border-gray-300 p-2 outline-none w-full mb-4" spellcheck="false" placeholder="Introdueix el nom..">
             </div>
             <div>
-                <label for="description" class="text-gray-700 text-sm font-bold block">Description:</label>
+                <label for="description" class="text-gray-700 text-sm font-bold block mb-2">Description:</label>
                 <textarea id="description" wire:model="description" class="text-gray-700 text-sm font-bold description bg-gray-100 sec p-3 h-60 border border-gray-300 outline-none w-full" spellcheck="false" placeholder="Descriu la nova categoria.."></textarea>
             </div>
             <div class="buttons flex">
-                <button type="button" class="btn border border-gray-300 p-1 px-4 font-semibold cursor-pointer text-gray-500 ml-auto rounded-md text-sm" wire:click="cancel">Cancel·lar</button>
-                <button type="submit" class="btn border border-indigo-500 p-1 px-4 font-semibold cursor-pointer text-gray-200 rounded-md ml-2 text-sm bg-indigo-500">{{ $isCreation ? 'Crear' : 'Guardar' }}</button>
+                <button type="button" class="btn border border-gray-300 p-1 px-4 font-semibold cursor-pointer text-gray-500 ml-auto rounded-md text-sm" wire:click="cancel" style="outline: none">Cancel·lar</button>
+                <button type="submit" class="btn border border-indigo-500 p-1 px-4 font-semibold cursor-pointer text-gray-200 rounded-md ml-2 text-sm bg-indigo-500" style="outline: none">{{ $isCreation ? 'Crear' : 'Guardar' }}</button>
             </div>
         </form>
     </div>

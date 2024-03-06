@@ -26,15 +26,15 @@ class Index extends Component
         return redirect()->route('categories.update', ['id' => $id]);
     }
 
-    public function deleteSelected()
+    public function delete()
     {
         foreach ($this->selectedRows as $id) {
             $category = Category::find($id);
             if ($category) {
                 $category->delete();
+                session()->flash('message', 'Category was successfully deleted.');
             }
         }
-        session()->flash('message', 't');
         $this->selectedRows = [];
         $this->mount();
     }

@@ -10,7 +10,7 @@
                 <button class="border px-6 py-2 rounded-md text-xs tracking-wide hover:shadow hover:text-gray-800" style="outline: none" wire:click="cridaCreate">Crear</button>
             @endif
             @if (!empty($selectedRows))
-                <button class="border px-6 py-2 rounded-md text-xs tracking-wide hover:shadow hover:text-gray-800" style="outline: none" wire:click="deleteSelected">Borrar</button>
+                <button class="border px-6 py-2 rounded-md text-xs tracking-wide hover:shadow hover:text-gray-800" style="outline: none" wire:click="delete">Borrar</button>
             @endif
             @if (count($selectedRows) === 1)
                 <button class="border px-6 py-2 rounded-md text-xs tracking-wide hover:shadow hover:text-gray-800" style="outline: none" wire:click="cridaUpdate({{ $selectedRows[0] }})">Modificar</button>

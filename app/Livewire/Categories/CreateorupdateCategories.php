@@ -43,6 +43,7 @@ class CreateorupdateCategories extends Component
     {
         $this->category = Category::findOrFail($id);
         $this->name = $this->category->name;
+        $this->description = $this->category->description;
     }
 
     public function mount($id = null)

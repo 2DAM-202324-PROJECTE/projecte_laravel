@@ -16,12 +16,14 @@ class IndexTest extends TestCase
         Livewire::test(Index::class)
             ->assertStatus(200);
     }
+
     /** @test */
     public function component_exists_on_the_page()
     {
         $this->get('/categories')
             ->assertSeeLivewire(Index::class);
     }
+
     /** @test */
     public function displays_2_category_names()
     {
@@ -32,12 +34,12 @@ class IndexTest extends TestCase
             $test->assertSee($name);
         }
     }
+
     /** @test */
     public function sends_2_categories_to_view()
     {
         Category::factory()->count(2)->create();
-        Livewire::test(Index::class)->assertViewHas('categories', function
-        ($categories) {
+        Livewire::test(Index::class)->assertViewHas('categories', function ($categories) {
             return count($categories) == 4;
         });
     }
