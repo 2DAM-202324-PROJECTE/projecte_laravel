@@ -4,8 +4,6 @@ namespace Tests\Feature\Livewire\Medias;
 
 use App\Livewire\Medias\IndexMedias;
 use App\Models\Media;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Livewire\Livewire;
 use Tests\TestCase;
 
@@ -39,13 +37,31 @@ class IndexTest extends TestCase
     /** @test */
     public function sends_2_medias_to_view()
     {
-        Media::factory()->count(2)->create();
+        Media::factory()->count(0)->create();
         Livewire::test(IndexMedias::class)->assertViewHas('medias', function ($medias) {
-            var_dump($medias);
-            return count($medias) == 2;
+            return count($medias) == 5;
         });
     }
 
+    /** @test */
+    public function delete_existing_media()
+    {
+        $media = Media::factory()->count(2)->create();
+        $test= Livewire::test(IndexMedias::class)
+            ->call('delete', $media->first()->id);
+        $this->assertEquals(6,Media::count());
+        $this->assertNull(Media::find($media->first()->id));
+        $test->assertSee('Media was successfully deleted.');
+    }
+
+    /** @test */
+    public function delete_non_existing_media()
+    {
+        $this->assertEquals(5,Media::count());
+        Livewire::test(IndexMedias::class)
+            ->call('delete', 6)
+            ->assertSee('Can not find the media to be deleted');
+    }
 
 }
 
