@@ -1,24 +1,53 @@
-<div>
-    @if (session()->has('message'))
-        <div class="alert alert-success">
-            {{ session('message') }}
-        </div>
-    @elseif (session()->has('message-danger'))
-        <div class="alert alert-danger">
-            {{ session('message-danger') }}
-        </div>
-    @endif
+{{--<div>--}}
+{{--    @if (session()->has('message'))--}}
+{{--        <div class="alert alert-success">--}}
+{{--            {{ session('message') }}--}}
+{{--        </div>--}}
+{{--    @elseif (session()->has('message-danger'))--}}
+{{--        <div class="alert alert-danger">--}}
+{{--            {{ session('message-danger') }}--}}
+{{--        </div>--}}
+{{--    @endif--}}
 
-    <form wire:submit="{{ $isCreation ? 'save' : 'update' }}">
-        <label for="name">Name:</label>
-        <input type="text" id="name" wire:model="name">
-        @error('name') {{ $message }} @enderror
-        <label for="description">Description:</label>
-        <input type="text" id="description" wire:model="description">
-        @error('description') {{ $message }} @enderror
-        <label for="path">Path:</label>
-        <input type="text" id="path" wire:model="path">
-        @error('path') {{ $message }} @enderror
-        <button type="submit">Save</button>
-    </form>
+{{--    <form wire:submit="{{ $isCreation ? 'save' : 'update' }}">--}}
+{{--        <label for="name">Name:</label>--}}
+{{--        <input type="text" id="name" wire:model="name">--}}
+{{--        @error('name') {{ $message }} @enderror--}}
+{{--        <label for="description">Description:</label>--}}
+{{--        <input type="text" id="description" wire:model="description">--}}
+{{--        @error('description') {{ $message }} @enderror--}}
+{{--        <label for="path">Path:</label>--}}
+{{--        <input type="text" id="path" wire:model="path">--}}
+{{--        @error('path') {{ $message }} @enderror--}}
+{{--        <button type="submit">Save</button>--}}
+{{--    </form>--}}
+{{--</div>--}}
+
+
+<div class="bg-gray-200 h-screen ">
+    <div class="container mx-auto">
+        <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
+        <div class="editor mx-auto w-10/12 flex flex-col text-gray-800 border border-gray-300 bg-gray-50 p-4 shadow-lg max-w-2xl mt-20">
+            <div class="heading text-center font-bold text-2xl m-5 text-gray-700">Nova Media</div>
+
+            <form wire:submit.prevent="{{ $isCreation ? 'create' : 'update' }}" class="space-y-4">
+                <div>
+                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2 mt-4">Name:</label>
+                    <input type="text" id="name" wire:model="name" class="text-gray-700 text-sm font-bold rounded-md title bg-gray-100 border border-gray-300 p-2 outline-none w-full mb-4" spellcheck="false" placeholder="Introdueix el nom..">
+                </div>
+                <div>
+                    <label for="description" class="text-gray-700 text-sm font-bold block mb-2">Description:</label>
+                    <textarea id="description" wire:model="description" class="text-gray-700 text-sm font-bold description bg-gray-100 sec p-3 h-60 border border-gray-300 outline-none w-full" spellcheck="false" placeholder="Descriu la nova media.."></textarea>
+                </div>
+                <div>
+                    <label for="description" class="text-gray-700 text-sm font-bold block mb-2">Path:</label>
+                    <textarea id="description" wire:model="description" class="text-gray-700 text-sm font-bold description bg-gray-100 sec p-3 h-60 border border-gray-300 outline-none w-full" spellcheck="false" placeholder="Descriu la nova media.."></textarea>
+                </div>
+                <div class="buttons flex">
+                    <button type="button" class="btn border border-gray-300 p-1 px-4 font-semibold cursor-pointer text-gray-500 ml-auto rounded-md text-sm" wire:click="cancel" style="outline: none">Cancel·lar</button>
+                    <button type="submit" class="btn border border-indigo-500 p-1 px-4 font-semibold cursor-pointer text-gray-200 rounded-md ml-2 text-sm bg-indigo-500" style="outline: none">{{ $isCreation ? 'Crear' : 'Guardar' }}</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

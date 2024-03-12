@@ -61,4 +61,6 @@ class Createorupdatemedias extends Component
     {
         return view('livewire.medias.createorupdatemedias');
     }
+
+
 }
