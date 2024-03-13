@@ -18,7 +18,7 @@ class Createorupdatemedias extends Component
     public ?Media $media;
     public bool $isCreation;
 
-    public function save(){
+    public function create(){
         $this->validate();
         Media::create($this->only(['name', 'description', 'path']));
         return $this->redirectRoute('medias');
