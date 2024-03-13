@@ -32,7 +32,8 @@
 
             <form wire:submit.prevent="{{ $isCreation ? 'save' : 'update' }}" class="space-y-4">
                 <div>
-                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2 mt-4">Name:</label>
+                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2 mt-4">
+                        Name:</label>
                     <input type="text" id="name" wire:model="name" class="text-gray-700 text-sm font-bold rounded-md title bg-gray-100 border border-gray-300 p-2 outline-none w-full mb-4" spellcheck="false" placeholder="Introdueix el nom..">
                 </div>
                 <div>

@@ -20,6 +20,7 @@ class Createorupdatemedias extends Component
     public ?Media $media;
     public bool $isCreation;
 
+
     protected $rules = [
         'name' => 'required|max:100',
         'description' => 'required|max:500',
