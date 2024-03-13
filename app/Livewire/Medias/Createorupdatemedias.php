@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Medias;
 
+use App\Models\Category;
 use App\Models\Media;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Livewire\Attributes\Validate;
@@ -15,12 +16,25 @@ class Createorupdatemedias extends Component
     public $description = '';
     #[Validate('required|max:100')]
     public $path = '';
+    public $category_id;
     public ?Media $media;
     public bool $isCreation;
 
+    protected $rules = [
+        'name' => 'required|max:100',
+        'description' => 'required|max:500',
+        'path' => 'required|max:100',
+        'category_id' => 'required|exists:categories,id',
+    ];
+
     public function save(){
         $this->validate();
-        Media::create($this->only(['name', 'description', 'path']));
+        Media::create($this->only([
+            'name',
+            'description',
+            'path',
+            'category_id'
+        ]));
         return $this->redirectRoute('medias');
     }
 
@@ -28,7 +42,11 @@ class Createorupdatemedias extends Component
     {
         $this->validate();
         $this->media->update(
-            $this->only(['name', 'description', 'path'])
+            $this->only([
+                'name',
+                'description',
+                'path',
+                'category_id'])
         );
         return $this->redirectRoute('medias');
     }
@@ -40,6 +58,7 @@ class Createorupdatemedias extends Component
         $this->name = $media->name;
         $this->description = $media->description;
         $this->path = $media->path;
+        $this->category_id = $media->category_id;
     }
 
     public function mount($id = null)
@@ -59,7 +78,10 @@ class Createorupdatemedias extends Component
 
     public function render()
     {
-        return view('livewire.medias.createorupdatemedias');
+        $categories = Category::all();
+        return view('livewire.medias.createorupdatemedias', [
+            'categories' => $categories
+        ]);
     }
 
 

@@ -48,15 +48,9 @@ class IndexMedias extends Component
 
     public function selectAll()
     {
-        if (count($this->selectedRows) < count($this->medias)) {
-            $this->selectedRows = $this->medias->pluck('id')->map(function ($id) {
-                return (string) $id;
-            })->toArray();
-        } else {
-            $this->selectedRows = [];
-        }
+        $this->selectedRows = Media::pluck('id')->map(function ($id) {
+            return (string) $id;
+        })->toArray();
     }
-
-
 
 }

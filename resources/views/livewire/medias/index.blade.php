@@ -26,10 +26,16 @@
                     <th class="py-2 px-3 sticky top-0 border-b border-gray-200 bg-gray-100">
                         <input type="checkbox" class="form-checkbox rowCheckbox focus:outline-none focus:shadow-outline rounded" wire:click="selectAll">
                     </th>
-                    <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">Media ID</th>
-                    <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">Name</th>
-                    <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">Description</th>
-                    <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">Path</th>
+                    <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">
+                        Media ID</th>
+                    <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">
+                        Name</th>
+                    <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">
+                        Description</th>
+                    <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">
+                        Path</th>
+                    <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">
+                        Category</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -39,16 +45,24 @@
                             <input type="checkbox" class="form-checkbox rowCheckbox focus:outline-none focus:shadow-outline rounded" wire:model.live="selectedRows" value="{{ $media->id }}">
                         </td>
                         <td class="border-dashed border-t border-gray-200">
-                            <span class="text-gray-700 px-6 py-3 flex items-center text-sm">{{ $media->id }}</span>
+                            <span class="text-gray-700 px-6 py-3 flex items-center text-sm">
+                                {{ $media->id }}</span>
                         </td>
                         <td class="border-dashed border-t border-gray-200">
-                            <span class="text-gray-700 px-6 py-3 flex items-center text-sm">{{ $media->name }}</span>
+                            <span class="text-gray-700 px-6 py-3 flex items-center text-sm">
+                                {{ $media->name }}</span>
                         </td>
                         <td class="border-dashed border-t border-gray-200">
-                            <span class="text-gray-700 px-6 py-3 flex items-center text-sm">{{ $media->description }}</span>
+                            <span class="text-gray-700 px-6 py-3 flex items-center text-sm">
+                                {{ $media->description }}</span>
                         </td>
                         <td class="border-dashed border-t border-gray-200">
-                            <span class="text-gray-700 px-6 py-3 flex items-center text-sm">{{ $media->path }}</span>
+                            <span class="text-gray-700 px-6 py-3 flex items-center text-sm">
+                                {{ $media->path }}</span>
+                        </td>
+                        <td class="border-dashed border-t border-gray-200">
+                            <span class="text-gray-700 px-6 py-3 flex items-center text-sm">
+                                {{ $media->category ? $media->category->name : 'N/A' }}</span>
                         </td>
                     </tr>
                 @endforeach
