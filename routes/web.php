@@ -5,6 +5,8 @@ use App\Livewire\Categories\CreateorupdateCategories;
 use App\Livewire\Categories\Index;
 use App\Livewire\Medias\Createorupdatemedias;
 use App\Livewire\Medias\IndexMedias;
+use App\Livewire\Xats\Createorupdatexat;
+use App\Livewire\Xats\IndexXat;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,3 +43,10 @@ Route::get('/categories/update/{id}', CreateorupdateCategories::class)->name('ca
 Route::get('/medias', IndexMedias::class)->name('medias');
 Route::get('/medias/create', Createorupdatemedias::class)->name('medias.create');
 Route::get('/medias/update/{id}', Createorupdatemedias::class)->name('medias.update');
+
+
+
+Route::get('/xats', IndexXat::class)->name('xats');
+Route::get('/xats/create', Createorupdatexat::class)->name('xats.create');
+Route::get('/xats/update/{id}', Createorupdatexat::class)->name('xats.update');
+
