@@ -34,10 +34,19 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::get('/categories', Index::class)->name('categories');
+Route::get('/categories', function(){
+    return view('categories.index');
+})->name('categories');
 
-Route::get('/categories/create', CreateorupdateCategories::class)->name('categories.create');
-Route::get('/categories/update/{id}', CreateorupdateCategories::class)->name('categories.update');
+Route::get('/categories/create', function () {
+    return view('categories.createorupdate');
+})-> name ('categories.create') ;
+
+Route::get('/categories/update/{id}', function ($id) {
+    return view('categories.createorupdate')->with([
+        'id' => $id,
+    ]);
+})-> name ('categories.update') ;
 
 
 Route::get('/medias', IndexMedias::class)->name('medias');
