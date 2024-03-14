@@ -2,7 +2,7 @@
     <div class="container mx-auto">
         <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
         <div class="editor mx-auto w-10/12 flex flex-col text-gray-800 border border-gray-300 bg-gray-50 p-4 shadow-lg max-w-2xl mt-20">
-            <div class="heading text-center font-bold text-2xl m-5 text-gray-700">Nou Xat</div>
+            <div class="heading text-center font-bold text-2xl m-5 text-gray-700">Modificar Xat</div>
             <form wire:submit.prevent="{{ $isCreation ? 'create' : 'update' }}" class="space-y-4">
                 <div>
                     <label for="nom" class="block text-gray-700 text-sm font-bold mb-2 mt-4">Nom:</label>

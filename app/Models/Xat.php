@@ -25,6 +25,6 @@ class Xat extends Model
 
     public function users()
     {
-        return $this->belongsTo(User::class, 'usuari_id');
+        return $this->belongsToMany(User::class, 'user_xat', 'xat_id', 'user_id');
     }
 }

@@ -3,7 +3,11 @@
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
 
     <div class="container mx-auto py-6 px-4">
-        <h1 class="text-3xl py-4 border-b mb-10">Crea xat nou</h1>
+
+        <h1 class="text-3xl py-4 border-b mb-10">Sala de xats</h1>
+
+            @include('livewire.xats.xat-list')
+
 
         <div class="mb-4 flex grid-rows gap-x-2 justify-end">
             @if (empty($selectedRows))

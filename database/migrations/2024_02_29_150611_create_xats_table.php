@@ -21,13 +21,14 @@ return new class extends Migration
             $table->string('tipus')->nullable();
             $table->string('privacitat')->nullable();
             $table->string('idioma')->nullable();
-            $table->unsignedInteger('usuari_id')->nullable();
+            $table->unsignedBigInteger('media_id')->nullable();
+            $table->unsignedBigInteger('usuari_id');
             $table->timestamps();
+
+            $table->foreign('media_id')->references('id')->on('media')
+                ->onDelete('set null'); // Si una película es eliminada, se establece a null en lugar de borrar el chat.
             $table->foreign('usuari_id')->references('id')->on('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-
-
+                ->onDelete('cascade'); // Si un usuario es eliminado, se eliminan todos sus chats.
         });
     }
 

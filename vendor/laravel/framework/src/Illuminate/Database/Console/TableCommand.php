@@ -220,7 +220,7 @@ class TableCommand extends DatabaseInspectionCommand
         }
 
         if ($indexes->isNotEmpty()) {
-            $this->components->twoColumnDetail('<fg=green;options=bold>IndexMedias</>');
+            $this->components->twoColumnDetail('<fg=green;options=bold>Index</>');
 
             $indexes->each(function ($index) {
                 $this->components->twoColumnDetail(
