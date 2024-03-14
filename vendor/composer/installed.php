@@ -420,11 +420,9 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-<<<<<<< Updated upstream
+
             'reference' => '68879c05910a7ea4345bae8b4e9253198b678fa1',
-=======
-            'reference' => 'dba318609ac9171322c23d724cd87ebe0eb2d8e9',
->>>>>>> Stashed changes
+
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
