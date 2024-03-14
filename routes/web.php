@@ -34,6 +34,8 @@ Route::middleware([
     })->name('dashboard');
 });
 
+/////////////////////
+
 Route::get('/categories', function(){
     return view('categories.index');
 })->name('categories');
@@ -48,12 +50,23 @@ Route::get('/categories/update/{id}', function ($id) {
     ]);
 })-> name ('categories.update') ;
 
+///////////////////////////
 
-Route::get('/medias', IndexMedias::class)->name('medias');
-Route::get('/medias/create', Createorupdatemedias::class)->name('medias.create');
-Route::get('/medias/update/{id}', Createorupdatemedias::class)->name('medias.update');
+Route::get('/medias', function(){
+    return view('medias.index');
+})->name('medias');
 
+Route::get('/medias/create', function () {
+    return view('medias.createorupdatemedias');
+})-> name ('medias.create') ;
 
+Route::get('/medias/update/{id}', function ($id) {
+    return view('medias.createorupdatemedias')->with([
+        'id' => $id,
+    ]);
+})-> name ('medias.update') ;
+
+///////////////////////////
 
 Route::get('/xats', IndexXat::class)->name('xats');
 Route::get('/xats/create', Createorupdatexat::class)->name('xats.create');
