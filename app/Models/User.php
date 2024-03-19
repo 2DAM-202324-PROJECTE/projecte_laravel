@@ -58,4 +58,15 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function conversations()
+    {
+
+        return $this->hasMany(Conversation::class, 'sender_id')->orWhere('receiver_id', $this->id);
+    }
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
+
 }

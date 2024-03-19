@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('medias', function (Blueprint $table) {
+        Schema::create('media', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('name', 150)->unique();
             $table->text('description')->max(500);
             $table->string('path', 255);
-            $table->foreignId('category_id')->constrained('medias');
+            $table->foreignId('category_id')->constrained('media');
             $table->string('image_uri', 255)->nullable();
             $table->string('thumbnail_uri', 255)->nullable();
             $table->integer('duration')->nullable();
