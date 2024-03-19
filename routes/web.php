@@ -4,7 +4,7 @@
 use App\Livewire\Categories\CreateorupdateCategories;
 use App\Livewire\Categories\Index;
 use App\Livewire\Medias\Createorupdatemedias;
-use App\Livewire\Medias\IndexMedias;
+use App\Livewire\Medias\Index;
 use App\Livewire\Xats\Createorupdatexat;
 use App\Livewire\Xats\IndexXat;
 use Illuminate\Support\Facades\Route;
@@ -56,9 +56,9 @@ Route::get('/medias', function(){
     return view('medias.index');
 })->name('medias');
 
-Route::get('/medias/create', function () {
+Route::get('/medias/save', function () {
     return view('medias.createorupdatemedias');
-})-> name ('medias.create') ;
+})-> name ('medias.save') ;
 
 Route::get('/medias/update/{id}', function ($id) {
     return view('medias.createorupdatemedias')->with([
