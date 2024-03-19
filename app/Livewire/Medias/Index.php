@@ -48,9 +48,13 @@ class Index extends Component
 
     public function selectAll()
     {
-        $this->selectedRows = Media::pluck('id')->map(function ($id) {
-            return (string) $id;
-        })->toArray();
+        if (count($this->selectedRows) < count($this->medias)) {
+            $this->selectedRows = $this->medias->pluck('id')->map(function ($id) {
+                return (string)$id;
+            })->toArray();
+        } else {
+            $this->selectedRows = [];
+        }
     }
 
 }
