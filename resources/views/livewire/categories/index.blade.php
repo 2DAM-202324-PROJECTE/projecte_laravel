@@ -1,19 +1,29 @@
-<div class="antialiased sans-serif bg-gray-200 h-screen">
+
+<div class="antialiased bg-gray-200 pb-32 pt-12 px-6">
 
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
 
     <div class="container mx-auto py-6 px-4">
-        <h1 class="text-3xl py-4 border-b mb-10">Categories</h1>
+        <h1 class="text-3xl py-4 border-b mb-10 tracking-wide">Categories</h1>
 
         <div class="mb-4 flex grid-rows gap-x-2 justify-end">
             @if (empty($selectedRows))
-                <button class="border px-6 py-2 rounded-md text-xs tracking-wide hover:shadow hover:text-gray-800" style="outline: none" wire:click="cridaCreate">Crear</button>
+                <button class="block rounded-md bg-indigo-600 px-3 py-2 text-center
+            text-sm font-semibold text-white shadow-sm hover:bg-indigo-500
+            focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
+            focus-visible:outline-indigo-600" style="outline: none" wire:click="cridaCreate">Crear</button>
             @endif
             @if (!empty($selectedRows))
-                <button class="border px-6 py-2 rounded-md text-xs tracking-wide hover:shadow hover:text-gray-800" style="outline: none" wire:click="delete">Borrar</button>
+                <button class="block rounded-md bg-indigo-600 px-3 py-2 text-center
+            text-sm font-semibold text-white shadow-sm hover:bg-indigo-500
+            focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
+            focus-visible:outline-indigo-600" style="outline: none" wire:click="delete">Borrar</button>
             @endif
             @if (count($selectedRows) === 1)
-                <button class="border px-6 py-2 rounded-md text-xs tracking-wide hover:shadow hover:text-gray-800" style="outline: none" wire:click="cridaUpdate({{ $selectedRows[0] }})">Modificar</button>
+                <button class="block rounded-md bg-indigo-600 px-3 py-2 text-center
+            text-sm font-semibold text-white shadow-sm hover:bg-indigo-500
+            focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
+            focus-visible:outline-indigo-600" style="outline: none" wire:click="cridaUpdate({{ $selectedRows[0] }})">Modificar</button>
             @endif
 
         </div>
@@ -57,3 +67,4 @@
         </div>
     </div>
 </div>
+

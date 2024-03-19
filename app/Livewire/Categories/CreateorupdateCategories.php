@@ -69,6 +69,6 @@ class CreateorupdateCategories extends Component
 
     public function render()
     {
-        return view('livewire.categories.createorupdate');
+        return view('livewire.categories.createorupdateCategories');
     }
 }

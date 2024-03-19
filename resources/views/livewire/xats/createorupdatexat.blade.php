@@ -1,5 +1,5 @@
 <div class="bg-gray-200 h-screen">
-    <div class="container mx-auto">
+    <div class="container mx-auto py-20">
         <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
         <div class="editor mx-auto w-10/12 flex flex-col text-gray-800 border border-gray-300 bg-gray-50 p-4 shadow-lg max-w-2xl mt-20">
             <div class="heading text-center font-bold text-2xl m-5 text-gray-700">Modificar Xat</div>

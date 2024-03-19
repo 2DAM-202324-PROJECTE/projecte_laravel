@@ -85,5 +85,11 @@ class Createorupdatemedias extends Component
         ]);
     }
 
+    public function cancel()
+    {
+        return redirect()->to('/medias');
+    }
+
+
 
 }
