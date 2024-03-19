@@ -4,11 +4,14 @@ namespace App\Livewire\Categories;
 
 use App\Models\Category;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 class CreateorupdateCategories extends Component
 {
+    #[Validate('required|max:50')]
     public $name = '';
+    #[Validate('required|max:500')]
     public $description = '';
 
     public ?Category $category;
