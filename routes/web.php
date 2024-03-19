@@ -4,7 +4,6 @@
 use App\Livewire\Categories\CreateorupdateCategories;
 use App\Livewire\Categories\Index;
 use App\Livewire\Medias\Createorupdatemedias;
-use App\Livewire\Medias\Index;
 use App\Livewire\Xats\Createorupdatexat;
 use App\Livewire\Xats\IndexXat;
 use Illuminate\Support\Facades\Route;
