@@ -19,7 +19,7 @@ class Index extends Component
 
     public function cridaSave()
     {
-        return redirect()->to('/medias/create');
+        return redirect()->to('/medias/save');
     }
 
     public function cridaUpdate($id)
