@@ -4,12 +4,12 @@ namespace App\Livewire\Users;
 
 use Livewire\Component;
 
-class User extends Component
+class Users extends Component
 {
     public function render()
     {
         return view('livewire.users.user', [
-            'users' => User::all()
+            'users' => Users::all()
         ]);
     }
 }
