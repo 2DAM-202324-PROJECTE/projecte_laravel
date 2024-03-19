@@ -1,13 +1,12 @@
 <?php
 
 
-use App\Livewire\Categories\CreateorupdateCategories;
-use App\Livewire\Medias\Createorupdatemedias;
 use App\Livewire\Persona\Persones;
+use App\Livewire\SalaXat\Xat;
+use App\Livewire\SalaXat\XatInteractiu;
 use App\Livewire\Users\User;
 use App\Livewire\Xats\Createorupdatexat;
 use App\Livewire\Xats\IndexXat;
-use App\Livewire\Xats\Xat;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -72,9 +71,9 @@ Route::get('/medias/update/{id}', function ($id) {
 Route::get('/xats', IndexXat::class)->name('xats');
 Route::get('/xats/create', Createorupdatexat::class)->name('xats.create');
 Route::get('/xats/update/{id}', Createorupdatexat::class)->name('xats.update');
-Route::get('/xats/{query}', Xat::class)->name('xat');
+Route::get('/salaxat/xatinteractiu/{query}', XatInteractiu::class)->name('xat');
 
-Route::get('/user', \App\Livewire\Users\User::class)->name('user');
+//Route::get('/user', \App\Livewire\Users\User::class)->name('user');
 
 Route::get('/persones', Persones::class)->name('persones');
 
