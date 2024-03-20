@@ -3,19 +3,14 @@
 namespace App\Livewire\Medias;
 
 use App\Models\Media;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Index extends Component
 {
-    public $medias;
+    use WithPagination;
 
     public $selectedRows = [];
-
-    public function mount()
-    {
-        $this->medias = Media::all();
-    }
 
     public function cridaSave()
     {
@@ -25,12 +20,6 @@ class Index extends Component
     public function cridaUpdate($id)
     {
         return redirect()->route('medias.update', ['id' => $id]);
-    }
-
-
-    public function render()
-    {
-        return view('livewire.medias.index');
     }
 
     public function delete()
@@ -43,15 +32,21 @@ class Index extends Component
             }
         }
         $this->selectedRows = [];
-        $this->mount();
+        $this->render();
+    }
+
+    public function render()
+    {
+        $medias = Media::paginate(10);
+        return view('livewire.medias.index', ['medias' => $medias]);
     }
 
     public function selectAll()
     {
-        if (count($this->selectedRows) < count($this->medias)) {
-            $this->selectedRows = $this->medias->pluck('id')->map(function ($id) {
-                return (string)$id;
-            })->toArray();
+        $allMediaIds = Media::pluck('id')->toArray();
+
+        if (count($this->selectedRows) < count($allMediaIds)) {
+            $this->selectedRows = $allMediaIds;
         } else {
             $this->selectedRows = [];
         }
