@@ -15,6 +15,17 @@
                     @error('descripcio') <span class="text-red-500">{{ $message }}</span> @enderror
                 </div>
                 <div>
+                    <label for="creador" class="text-gray-700 text-sm font-bold block mb-2">Creadores:</label>
+                    <select id="creador" wire:model="creador_id" class="text-gray-700 text-sm font-bold rounded-md title bg-gray-100 border border-gray-300 p-2 outline-none w-full mb-4">
+                        <option value="">Selecciona el usuari creador</option>
+                        @foreach($users as $user)
+                            <option value="{{ $user->id }}">
+                                {{ $user->name.$user->id.$creador_id }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+                <div>
                     <label for="url" class="text-gray-700 text-sm font-bold block mb-2">URL:</label>
                     <input type="text" id="url" wire:model="url" class="text-gray-700 text-sm font-bold rounded-md bg-gray-100 border border-gray-300 p-2 outline-none w-full mb-4" placeholder="URL del xat..." required>
                     @error('url') <span class="text-red-500">{{ $message }}</span> @enderror

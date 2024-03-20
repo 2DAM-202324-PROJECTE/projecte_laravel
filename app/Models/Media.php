@@ -24,4 +24,9 @@ class Media extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function xats()
+    {
+        return $this->hasMany(Xat::class);
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Xats;
 
+use App\Models\User;
 use App\Models\Xat;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Livewire\Component;
@@ -10,7 +11,7 @@ use Livewire\Component;
 class Createorupdatexat extends Component
 {
 
-    public $nom, $descripcio, $url, $password, $foto, $tipus, $privacitat, $idioma;
+    public $nom, $creador_id, $descripcio, $url, $password, $foto, $tipus, $privacitat, $idioma;
     public $isCreation = true;
     public ?Xat $xat;
 
@@ -18,32 +19,31 @@ class Createorupdatexat extends Component
     protected $rules = [
         'nom' => 'required|string|max:255',
         'descripcio' => 'required|string',
-        'url' => 'required|url',
-        'password' => 'required',
-        'tipus' => 'required',
-        'privacitat' => 'required',
-        'idioma' => 'required',
+        'creador_id' => 'required|exists:users,id',
+        'url' => 'url',
+        'media' => 'required|exists:media,id',
+
     ];
 
-    public function save()
-    {
-        $this->validate();
-
-        if ($this->isCreation) {
-            Xat::create($this->getModelData());
-        } else {
-            $this->xat->update($this->getModelData());
-        }
-
-        return redirect()->route('xats');
-    }
+//    public function save()
+//    {
+//        $this->validate();
+//
+//        if ($this->isCreation) {
+//            Xat::create($this->getModelData());
+//        } else {
+//            $this->xat->update($this->getModelData());
+//        }
+//
+//        return redirect()->route('xats');
+//    }
 
     public function create()
     {
         Xat::create([
             'nom' => $this->nom,
             'descripcio' => $this->descripcio,
-            //'usuari_id' => $this->usuari_id,
+            'creador_id' => $this->creador_id,
             'url' => $this->url, // Asegúrate de que 'url' es una propiedad pública en tu componente
             'password' => $this->password, // Asegúrate de manejar esto con cuidado por razones de seguridad
             'foto' => $this->foto,
@@ -67,6 +67,7 @@ class Createorupdatexat extends Component
             $this->xat->update([
                 'nom' => $this->nom,
                 'descripcio' => $this->descripcio,
+                'creador_id' => $this->creador_id,
                 'url' => $this->url,
                 'password' => $this->password,
                 'foto' => $this->foto,
@@ -105,6 +106,7 @@ class Createorupdatexat extends Component
     {
         $this->xat = Xat::findOrFail($id);
         $this->nom = $this->xat->nom;
+        $this->creador_id = $this->xat->creador_id;
         $this->descripcio = $this->xat->descripcio;
         $this->url = $this->xat->url;
         $this->password = $this->xat->password;
@@ -139,8 +141,13 @@ class Createorupdatexat extends Component
     }
 
 
+
     public function render()
     {
-        return view('livewire.xats.createorupdatexat');
+        $users = User::all();
+        return view('livewire.xats.createorupdatexat', [
+            'users' => $users
+        ]);
     }
 }
+
