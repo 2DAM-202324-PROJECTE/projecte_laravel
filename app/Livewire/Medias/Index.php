@@ -11,6 +11,8 @@ class Index extends Component
     use WithPagination;
 
     public $selectedRows = [];
+    public $search = '';
+    public $filter = '';
 
     public function cridaSave()
     {
@@ -37,8 +39,23 @@ class Index extends Component
 
     public function render()
     {
-        $medias = Media::paginate(10);
+        // Applying search query if available
+        $query = Media::query();
+        if (!empty($this->search)) {
+            $query->where('name', 'like', '%' . $this->search . '%')
+                ->orWhere('description', 'like', '%' . $this->search . '%');
+        }
+
+        // Applying pagination after search
+        $medias = $query->paginate(10);
+
         return view('livewire.medias.index', ['medias' => $medias]);
+    }
+
+    public function executeSearch()
+    {
+        // Refresh pagination to the first page when searching
+        $this->resetPage();
     }
 
     public function selectAll()
@@ -53,3 +70,7 @@ class Index extends Component
     }
 
 }
+
+
+
+

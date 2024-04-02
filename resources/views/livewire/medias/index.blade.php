@@ -5,6 +5,7 @@
     <div class="container mx-auto py-6 px-4">
         <h1 class="text-3xl py-4 border-b mb-10">Medias</h1>
 
+        <!-- Buttons -->
         <div class="mb-4 flex grid-rows gap-x-2 justify-end">
             @if (empty($selectedRows))
                 <button class="block rounded-md bg-indigo-600 px-3 py-2 text-center
@@ -24,11 +25,19 @@
             focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
             focus-visible:outline-indigo-600" style="outline: none" wire:click="cridaUpdate({{ $selectedRows[0] }})">Modificar</button>
             @endif
-
         </div>
 
+        <!-- Search bar -->
+        <div class="mb-4">
+            <input wire:model.debounce.300ms="search" type="text" class="w-full border px-3 py-2 mb-2 rounded-lg" placeholder="Search by name or description...">
+            <button class="px-3 py-2 bg-indigo-600 text-white rounded-md ml-2" wire:click="executeSearch">Search</button>
+        </div>
+
+
+        <!-- Media table -->
         <div class="overflow-x-auto bg-white rounded-lg shadow overflow-y-auto relative" style="height: 550px;">
             <table class="border-collapse table-auto w-full whitespace-no-wrap bg-white table-striped relative">
+                <!-- Table header -->
                 <thead>
                 <tr class="text-left">
                     <th class="py-2 px-3 sticky top-0 border-b border-gray-200 bg-gray-100">
@@ -46,6 +55,7 @@
                         Category</th>
                 </tr>
                 </thead>
+                <!-- Table body -->
                 <tbody>
                 @foreach ($medias as $media)
                     <tr class="hover:bg-gray-50">
@@ -76,6 +86,7 @@
                 @endforeach
                 </tbody>
             </table>
+            <!-- Pagination -->
             {{ $medias->links() }}
         </div>
     </div>
