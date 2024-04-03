@@ -29,4 +29,6 @@ class Media extends Model
     {
         return $this->hasMany(Xat::class);
     }
+
+
 }

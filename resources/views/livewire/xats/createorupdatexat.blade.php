@@ -2,7 +2,7 @@
     <div class="container mx-auto py-20">
         <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
         <div class="editor mx-auto w-10/12 flex flex-col text-gray-800 border border-gray-300 bg-gray-50 p-4 shadow-lg max-w-2xl mt-20">
-            <div class="heading text-center font-bold text-2xl m-5 text-gray-700">Modificar Xat</div>
+            <div class="heading text-center font-bold text-2xl m-5 text-gray-700">{{ $isCreation ? 'Crear' : 'Modificar' }} Xat</div>
             <form wire:submit.prevent="{{ $isCreation ? 'create' : 'update' }}" class="space-y-4">
                 <div>
                     <label for="nom" class="block text-gray-700 text-sm font-bold mb-2 mt-4">Nom:</label>
@@ -14,17 +14,38 @@
                     <textarea id="descripcio" wire:model="descripcio" class="text-gray-700 text-sm font-bold description bg-gray-100 sec p-3 h-60 border border-gray-300 outline-none w-full" spellcheck="false" placeholder="Descriu el xat..." required></textarea>
                     @error('descripcio') <span class="text-red-500">{{ $message }}</span> @enderror
                 </div>
-                <div>
-                    <label for="creador" class="text-gray-700 text-sm font-bold block mb-2">Creadores:</label>
-                    <select id="creador" wire:model="creador_id" class="text-gray-700 text-sm font-bold rounded-md title bg-gray-100 border border-gray-300 p-2 outline-none w-full mb-4">
-                        <option value="">Selecciona el usuari creador</option>
-                        @foreach($users as $user)
-                            <option value="{{ $user->id }}">
-                                {{ $user->name.$user->id.$creador_id }}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
+                @auth
+                    <div>
+                        <label for="creador" class="text-gray-700 text-sm font-bold block mb-2">Creadores:</label>
+                        <select id="creador" wire:model="creador_id" class="text-gray-700 text-sm font-bold rounded-md title bg-gray-100 border border-gray-300 p-2 outline-none w-full mb-4">
+                            <option value="">Selecciona el usuari creador</option>
+                            @foreach($users as $user)
+                                <option value="{{ $user->id }}">
+                                    {{ $user->name.$user->id.$creador_id }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="media_id" class="text-gray-700 text-sm font-bold block mb-2">Media:</label>
+                        <select id="media_id" wire:model="media_id" class="text-gray-700 text-sm font-bold rounded-md bg-gray-100 border border-gray-300 p-2 outline-none w-full mb-4">
+                            <option value="">Selecciona una película</option>
+                            @foreach($medias as $media)
+                                <option value="{{ $media->id }}">
+                                    {{ $media->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                        @error('media_id') <span class="text-red-500">{{ $message }}</span> @enderror
+                    </div>
+                @endauth
+
+                @guest
+                    <p>Por favor <a href="{{ route('login') }}">inicia sesión</a> o <a href="{{ route('register') }}">regístrate</a> para continuar.</p>
+                @endguest
+
+
                 <div>
                     <label for="url" class="text-gray-700 text-sm font-bold block mb-2">URL:</label>
                     <input type="text" id="url" wire:model="url" class="text-gray-700 text-sm font-bold rounded-md bg-gray-100 border border-gray-300 p-2 outline-none w-full mb-4" placeholder="URL del xat..." required>

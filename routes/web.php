@@ -67,10 +67,12 @@ Route::get('/medias/update/{id}', function ($id) {
 })-> name ('medias.update') ;
 
 ///////////////////////////
-
+Route::middleware(['auth'])->group(function () {
 Route::get('/xats', IndexXat::class)->name('xats');
 Route::get('/xats/create', Createorupdatexat::class)->name('xats.create');
 Route::get('/xats/update/{id}', Createorupdatexat::class)->name('xats.update');
+});
+
 Route::get('/salaxat/xatinteractiu/{query}', XatInteractiu::class)->name('xat');
 
 //Route::get('/user', \App\Livewire\Users\User::class)->name('user');
