@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Persona;
 
-use App\Livewire\Users\Users;
+use App\Livewire\Users\User;
 use Livewire\Component;
 
 class Persones extends Component

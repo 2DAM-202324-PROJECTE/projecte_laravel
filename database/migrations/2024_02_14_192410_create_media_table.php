@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name', 150)->unique();
             $table->text('description');
             $table->string('path', 255);
-            $table->foreignId('category_id')->constrained('media');
+            $table->foreignId('category_id')->constrained('categories');
             $table->string('image_uri', 255)->nullable();
             $table->string('thumbnail_uri', 255)->nullable();
             $table->integer('duration')->nullable();

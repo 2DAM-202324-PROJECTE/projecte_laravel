@@ -3,19 +3,16 @@
 namespace App\Livewire\Medias;
 
 use App\Models\Media;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Index extends Component
 {
-    public $medias;
+    use WithPagination;
 
     public $selectedRows = [];
-
-    public function mount()
-    {
-        $this->medias = Media::all();
-    }
+    public $search = '';
+    public $filter = '';
 
     public function cridaSave()
     {
@@ -25,12 +22,6 @@ class Index extends Component
     public function cridaUpdate($id)
     {
         return redirect()->route('medias.update', ['id' => $id]);
-    }
-
-
-    public function render()
-    {
-        return view('livewire.medias.index');
     }
 
     public function delete()
@@ -43,14 +34,43 @@ class Index extends Component
             }
         }
         $this->selectedRows = [];
-        $this->mount();
+        $this->render();
+    }
+
+    public function render()
+    {
+        // Applying search query if available
+        $query = Media::query();
+        if (!empty($this->search)) {
+            $query->where('name', 'like', '%' . $this->search . '%')
+                ->orWhere('description', 'like', '%' . $this->search . '%');
+        }
+
+        // Applying pagination after search
+        $medias = $query->paginate(10);
+
+        return view('livewire.medias.index', ['medias' => $medias]);
+    }
+
+    public function executeSearch()
+    {
+        // Refresh pagination to the first page when searching
+        $this->resetPage();
     }
 
     public function selectAll()
     {
-        $this->selectedRows = Media::pluck('id')->map(function ($id) {
-            return (string) $id;
-        })->toArray();
+        $allMediaIds = Media::pluck('id')->toArray();
+
+        if (count($this->selectedRows) < count($allMediaIds)) {
+            $this->selectedRows = $allMediaIds;
+        } else {
+            $this->selectedRows = [];
+        }
     }
 
 }
+
+
+
+
