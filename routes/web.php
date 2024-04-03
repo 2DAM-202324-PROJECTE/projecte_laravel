@@ -35,7 +35,7 @@ Route::middleware([
 });
 
 /////////////////////
-
+Route::middleware(['auth'])->group(function () {
 Route::get('/categories', function(){
     return view('categories.index');
 })->name('categories');
@@ -49,9 +49,10 @@ Route::get('/categories/update/{id}', function ($id) {
         'id' => $id,
     ]);
 })-> name ('categories.update') ;
+});
 
 ///////////////////////////
-
+Route::middleware(['auth'])->group(function () {
 Route::get('/medias', function(){
     return view('medias.index');
 })->name('medias');
@@ -65,6 +66,7 @@ Route::get('/medias/update/{id}', function ($id) {
         'id' => $id,
     ]);
 })-> name ('medias.update') ;
+});
 
 ///////////////////////////
 Route::middleware(['auth'])->group(function () {
