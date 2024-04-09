@@ -37,7 +37,7 @@
                     <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">Contrasenya</th>
                     <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">Foto</th>
                     <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">Tipus</th>
-                    <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">Privacitat</th>
+                    {{--<th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">Privacitat</th>--}}
                     <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">Idioma</th>
                     <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">Creador</th>
                     <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">Data de creació</th>
@@ -65,9 +65,9 @@
                             <span class="text-gray-700 px-6 py-3 flex items-center text-sm">{{ $xat->foto }}</span>
                         </td> <td class="border-dashed border-t border-gray-200">
                             <span class="text-gray-700 px-6 py-3 flex items-center text-sm">{{ $xat->tipus }}</span>
-                        </td> <td class="border-dashed border-t border-gray-200">
+                        </td> {{--<td class="border-dashed border-t border-gray-200">
                             <span class="text-gray-700 px-6 py-3 flex items-center text-sm">{{ $xat->privacitat }}</span>
-                        </td> <td class="border-dashed border-t border-gray-200">
+                        </td>--}} <td class="border-dashed border-t border-gray-200">
                             <span class="text-gray-700 px-6 py-3 flex items-center text-sm">{{ $xat->idioma }}</span>
                         </td>
                         <td class="border-dashed border-t border-gray-200">

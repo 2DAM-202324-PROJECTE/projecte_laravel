@@ -52,26 +52,28 @@
                     @error('url') <span class="text-red-500">{{ $message }}</span> @enderror
                 </div>
                 <div>
-                    <label for="password" class="text-gray-700 text-sm font-bold block mb-2">Contraseña:</label>
-                    <input type="password" id="password" wire:model="password" class="text-gray-700 text-sm font-bold rounded-md bg-gray-100 border border-gray-300 p-2 outline-none w-full mb-4" placeholder="Contraseña del xat..." required>
-                    @error('password') <span class="text-red-500">{{ $message }}</span> @enderror
-                </div>
-                <div>
                     <label for="foto" class="text-gray-700 text-sm font-bold block mb-2">Foto:</label>
                     <input type="text" id="foto" wire:model="foto" class="text-gray-700 text-sm font-bold rounded-md bg-gray-100 border border-gray-300 p-2 outline-none w-full mb-4" spellcheck="false" placeholder="URL de la foto..." required>
                     @error('foto') <span class="text-red-500">{{ $message }}</span> @enderror
                 </div>
+
                 <div>
                     <label for="tipus" class="text-gray-700 text-sm font-bold block mb-2">Tipus:</label>
                     <select id="tipus" wire:model="tipus" class="text-gray-700 text-sm font-bold rounded-md bg-gray-100 border border-gray-300 p-2 outline-none w-full mb-4" required>
                         <option value="">Selecciona una opció...</option>
                         <option value="general">General</option>
                         <option value="privat">Privat</option>
-                        <!-- Añade más opciones según sea necesario -->
                     </select>
                     @error('tipus') <span class="text-red-500">{{ $message }}</span> @enderror
                 </div>
-                <div>
+
+                    <div>
+                        <label for="password" class="text-gray-700 text-sm font-bold block mb-2">Contraseña:</label>
+                        <input type="password" id="password" wire:model="password" class="text-gray-700 text-sm font-bold rounded-md bg-gray-100 border border-gray-300 p-2 outline-none w-full mb-4" placeholder="Contraseña del xat..." required>
+                        @error('password') <span class="text-red-500">{{ $message }}</span> @enderror
+                    </div>
+
+                {{--<div>
                     <label for="privacitat" class="text-gray-700 text-sm font-bold block mb-2">Privacitat:</label>
                     <select id="privacitat" wire:model="privacitat" class="text-gray-700 text-sm font-bold rounded-md bg-gray-100 border border-gray-300 p-2 outline-none w-full mb-4" required>
                         <option value="">Selecciona una opció...</option>
@@ -80,7 +82,7 @@
                         <!-- Añade más opciones según sea necesario -->
                     </select>
                     @error('privacitat') <span class="text-red-500">{{ $message }}</span> @enderror
-                </div>
+                </div>--}}
                 <div>
                     <label for="idioma" class="text-gray-700 text-sm font-bold block mb-2">Idioma:</label>
                     <select id="idioma" wire:model="idioma" class="text-gray-700 text-sm font-bold rounded-md bg-gray-100 border border-gray-300 p-2 outline-none w-full mb-4" required>
