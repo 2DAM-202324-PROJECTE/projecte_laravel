@@ -104,8 +104,7 @@ class Createorupdatexat extends Component
 
     public function mount($id = null)
     {
-        $this->users = User::all();
-        $this->medias = Media::all(); // Asegúrate de que $medias esté definido en tu componente
+
         if ($id !== null) {
             $this->isCreation = false;
             try {
@@ -160,10 +159,12 @@ class Createorupdatexat extends Component
 
     public function render()
     {
+       $users = User::all();
+        $medias = Media::all();
         // Pasamos las variables $users y $medias a la vista.
         return view('livewire.xats.createorupdatexat', [
-            'users' => $this->users,
-            'medias' => $this->medias, // Asegúrate de pasar la variable $medias a la vista.
+            'users' => $users,
+            'medias' => $medias, // Asegúrate de pasar la variable $medias a la vista.
         ]);
     }
 }
