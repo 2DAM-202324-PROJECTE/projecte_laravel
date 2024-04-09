@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->text('descripcio')->nullable();
-            $table->string('nom');
-            $table->timestamps();
+            $table->string('name', 20)->unique();
+            $table->text('description')->nullable()->max(200);
+            $table->timestamps(); //registra data i hora de creació
+
+
+
         });
     }
 
@@ -24,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categorias');
+        Schema::dropIfExists('categories');
     }
 };
