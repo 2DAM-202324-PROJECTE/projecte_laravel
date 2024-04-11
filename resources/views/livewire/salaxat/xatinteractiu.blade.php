@@ -1,12 +1,12 @@
+
 <div class="w-full overflow-hidden">
 
     <div class="border-b flex flex-col overflow-y-scroll grow h-full">
 
 
     {{-- header --}}
-    <header class="w-full sticky inset-x-0 flex pb-[5px] pt-[5px] top-0 z-10 bg-white border-b ">
-
-        <div class="flex w-full items-center px-2 lg:px-4 gap-2 md:gap-5">
+        <header class="w-full sticky top-0 z-10 bg-white border-b shadow">
+            <div class="flex items-center justify-between max-w-5xl mx-auto p-4">
 
             <a class="shrink-0 lg:hidden" href="#">
 
@@ -29,6 +29,36 @@
 
 
             <h6 class="font-bold truncate"> {{$nom}} </h6>
+
+            <div>
+                <p>Total de xats relacionats amb aquest vídeo: {{ $xatsCount }}</p>
+            </div>
+
+
+            @foreach($xatsRelacionats ?? [] as $xat)
+                <div class="p-4 border-b">
+                    <!-- Mostrar detalles del chat aquí -->
+                    <p><strong>ID:</strong> {{ $xat->id }}</p>
+                    <p><strong>Nombre:</strong> {{ $xat->nom }}</p>
+                    <p><strong>Descripción:</strong> {{ $xat->descripcio }}</p>
+                    <p><strong>Media:</strong> {{ $xat->media_id }}</p>
+                    <!-- Enlace para acceder al xat interactivo -->
+                    <!-- Enlace para acceder al xat interactivo -->
+
+                    <!-- Añadir más información del chat si es necesario -->
+                    @if ($xat->url)
+                        <p><strong>URL:</strong> <a href="{{ $xat->url }}" target="_blank">Enllaç</a></p>
+                    @endif
+                    @if ($xat->tipus)
+                        <p><strong>Tipo:</strong> {{ $xat->tipus }}</p>
+                    @endif
+                    @if ($xat->privacitat)
+                        <p><strong>Privacidad:</strong> {{ $xat->privacitat }}</p>
+                    @endif
+
+
+                </div>
+            @endforeach
 
 
 

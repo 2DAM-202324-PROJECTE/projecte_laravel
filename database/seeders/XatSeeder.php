@@ -30,6 +30,7 @@ class XatSeeder extends Seeder
 
 
         ]);
+
         Xat::create([
             'nom' => 'Xat de prova2',
             'descripcio' => 'Xat de prova2',
@@ -58,5 +59,7 @@ class XatSeeder extends Seeder
             'xatinteractiu_id' => XatInteractiu::create([])->id, // Asignar el ID del XatInteractiu
 
         ]);
+
     }
+
 }

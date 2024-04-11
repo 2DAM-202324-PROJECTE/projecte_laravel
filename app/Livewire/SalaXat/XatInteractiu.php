@@ -2,6 +2,7 @@
 
 namespace App\Livewire\SalaXat;
 
+use App\Models\Media;
 use App\Models\Xat;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Livewire\Component;
@@ -10,11 +11,20 @@ class XatInteractiu extends Component
 {
     public $nom, $creador_id, $media_id, $descripcio, $url, $password, $foto, $tipus, $privacitat, $idioma;
     public ?Xat $xat;
+    public $xatsRelacionats;
+    public $xatsCount = 0;
+    public $chat;
 
-    public function mount($id = null)
+
+    public function mount($id = null, $media_id = null)
     {
 
-        if ($id !== null) {
+        $this->xatsRelacionats = collect();
+
+        if ($media_id !== null) {
+            $this->media_id = $media_id;
+            $this->loadXatsRelacionados();
+        } elseif ($id !== null) {
             try {
                 $this->setXat($id);
             } catch (ModelNotFoundException $e) {
@@ -22,6 +32,20 @@ class XatInteractiu extends Component
             }
         }
     }
+
+    public function loadXatsRelacionados()
+    {
+        $media = Media::with('xats')->find($this->media_id);
+        if ($media) {
+            $this->xatsRelacionats = $media->xats;
+            $this->xatsCount = $media->xats->count();
+        } else {
+            $this->xatsRelacionats = collect();
+            $this->xatsCount = 0;
+        }
+    }
+
+
 
 
 
@@ -42,6 +66,8 @@ class XatInteractiu extends Component
 
     public function render()
     {
-        return view('livewire.salaxat.xatinteractiu');
+        return view('livewire.salaxat.xatinteractiu', [
+            'chat' => $this->chat
+        ]);
     }
 }

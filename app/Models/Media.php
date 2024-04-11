@@ -27,7 +27,7 @@ class Media extends Model
 
     public function xats()
     {
-        return $this->hasMany(Xat::class);
+        return $this->hasMany(Xat::class, 'media_id');
     }
 
 
