@@ -2,12 +2,15 @@
 
 
 use App\Livewire\Persona\Persones;
+use App\Livewire\SalaMedia\LligarMedia;
 use App\Livewire\SalaXat\Xat;
 use App\Livewire\SalaXat\XatInteractiu;
 use App\Livewire\Users\User;
 use App\Livewire\Xats\Createorupdatexat;
 use App\Livewire\Xats\IndexXat;
 use Illuminate\Support\Facades\Route;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -77,9 +80,18 @@ Route::get('/xats/update/{id}', Createorupdatexat::class)->name('xats.update');
 
 Route::get('/salaxat/xatinteractiu/{query}', XatInteractiu::class)->name('xat');
 
+Route::get('/customer/xatmedia/{id}', function ($id) {
+    return view('customer.xatmedia')->with([
+        'id' => $id,
+    ]);
+})-> name ('customer.xatmedia');
+
+
 //Route::get('/user', \App\Livewire\Users\User::class)->name('user');
 
 Route::get('/persones', Persones::class)->name('persones');
+
+Route::get('/xatinamedia', LligarMedia::class)->name('xatinamedia');
 
 
 

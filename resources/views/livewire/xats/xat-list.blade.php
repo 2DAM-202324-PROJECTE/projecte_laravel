@@ -52,6 +52,7 @@
                         <div class="flex justify-between w-full items-center">
 
                             <h6 class="truncate font-medium tracking-wider text-gray-500">
+
                                 Dani y Jordi
                             </h6>
 
@@ -84,7 +85,7 @@
 
 
                             <p class="grow truncate text-sm font-[100]">
-                                lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                lorem ipsum dolor sit amet, consectetur adipiscing elit.twetre
                             </p>
 
                             {{-- unread count--}}

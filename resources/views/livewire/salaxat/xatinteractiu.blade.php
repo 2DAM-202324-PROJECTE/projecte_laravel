@@ -28,7 +28,10 @@
             </div>
 
 
-            <h6 class="font-bold truncate"> {{fake()->name()}} </h6>
+            <h6 class="font-bold truncate"> {{$nom}} </h6>
+
+
+
 
 
         </div>

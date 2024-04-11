@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('xats', function (Blueprint $table) {
+        Schema::create('xat_interactius', function (Blueprint $table) {
             $table->id();
-            $table->string('name',150);
-            $table->string('description',400);
-            $table->string('url',255)->nullable();
             $table->timestamps();
-
         });
     }
 
@@ -26,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('xats');
+        Schema::dropIfExists('xat_interactius');
     }
 };

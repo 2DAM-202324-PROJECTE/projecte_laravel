@@ -14,7 +14,7 @@ class Xat extends Model
     use HasFactory;
     protected $guarded = [];
 
-    protected $table = 'xat';
+
 
     protected $fillable = [
         'nom',
@@ -27,6 +27,9 @@ class Xat extends Model
         'idioma',
         'media_id',
         'creador_id',
+        'xatinteractiu_id',
+
+
     ];
 
     public function users()
@@ -42,5 +45,10 @@ class Xat extends Model
     public function media()
     {
         return $this->belongsTo(Media::class);
+    }
+
+    public function xatInteractiu()
+    {
+        return $this->belongsTo(XatInteractiu::class);
     }
 }

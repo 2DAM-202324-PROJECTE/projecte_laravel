@@ -3,14 +3,20 @@
 namespace Database\Seeders;
 
 use App\Models\Xat;
+use App\Models\XatInteractiu;
 use Illuminate\Database\Seeder;
 
 class XatSeeder extends Seeder
 {
     public function run(): void
     {
+
+
+
+
         Xat::create([
             'nom' => 'Xat de prova',
+
             'descripcio' => 'Xat de prova',
             'media_id' => 1,
             'creador_id' => 1,
@@ -20,6 +26,9 @@ class XatSeeder extends Seeder
             'tipus' => 'general', // Asume un valor predeterminado, ajusta según tus necesidades
             'privacitat' => 'pública', // Asume un valor predeterminado, ajusta según tus necesidades
             'idioma' => 'Catala', // Asume un valor predeterminado, ajusta según tus necesidades
+            'xatinteractiu_id' => XatInteractiu::create([])->id, // Asignar el ID del XatInteractiu
+
+
         ]);
         Xat::create([
             'nom' => 'Xat de prova2',
@@ -32,6 +41,7 @@ class XatSeeder extends Seeder
             'tipus' => 'general', // Asume un valor predeterminado, ajusta según tus necesidades
             'privacitat' => 'pública', // Asume un valor predeterminado, ajusta según tus necesidades
             'idioma' => 'Catala', // Asume un valor predeterminado, ajusta según tus necesidades
+            'xatinteractiu_id' => XatInteractiu::create([])->id, // Asignar el ID del XatInteractiu
         ]);
 
         Xat::create([
@@ -45,6 +55,7 @@ class XatSeeder extends Seeder
             'tipus' => 'general', // Asume un valor predeterminado, ajusta según tus necesidades
             'privacitat' => 'pública', // Asume un valor predeterminado, ajusta según tus necesidades
             'idioma' => 'Catala', // Asume un valor predeterminado, ajusta según tus necesidades
+            'xatinteractiu_id' => XatInteractiu::create([])->id, // Asignar el ID del XatInteractiu
 
         ]);
     }

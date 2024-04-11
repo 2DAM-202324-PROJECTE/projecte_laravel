@@ -5,6 +5,7 @@ namespace App\Livewire\Xats;
 use App\Models\Media;
 use App\Models\User;
 use App\Models\Xat;
+use App\Models\XatInteractiu;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Livewire\Component;
 
@@ -42,6 +43,17 @@ class Createorupdatexat extends Component
 
     public function create()
     {
+        $xatInteractiuCreat = XatInteractiu::create([
+
+
+        ]);
+
+        //ddd($xatInteractiuCreat);
+        //ddd($xatInteractiuCreat->id);
+
+
+
+
       Xat::create([
 
             'nom' => $this->nom,
@@ -54,6 +66,7 @@ class Createorupdatexat extends Component
             'tipus' => $this->tipus, // Asegúrate de que 'tipus' es una propiedad pública en tu componente
             'privacitat' => $this->privacitat, // Asegúrate de que 'privacitat' es una propiedad pública en tu componente
             'idioma' => $this->idioma, // Asegúrate de que 'idioma' es una propiedad pública en tu componente
+            'xatinteractiu_id' => $xatInteractiuCreat->id, // Asegúrate de que 'xatinteractiu_id' es una propiedad pública en tu componente
         ]);
 
       Media::all();

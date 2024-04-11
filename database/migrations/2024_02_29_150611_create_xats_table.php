@@ -7,7 +7,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('xat', function (Blueprint $table) {
+        Schema::create('xats', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
             $table->string('descripcio');
@@ -22,12 +22,14 @@ return new class extends Migration
                 ->onDelete('set null'); // Cambia onDelete a set null
             $table->foreignId('creador_id')->constrained('users')
                 ->onDelete('cascade'); // Si un usuario es eliminado, se eliminan todos sus chats.
+            $table->unsignedBigInteger('xatinteractiu_id')->unique(); // Asegúrate de que es única para garantizar una relación 1 a 1
+            $table->foreign('xatinteractiu_id')->references('id')->on('xat_interactius')->onDelete('cascade');
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('xat');
+        Schema::dropIfExists('xats');
     }
 };
