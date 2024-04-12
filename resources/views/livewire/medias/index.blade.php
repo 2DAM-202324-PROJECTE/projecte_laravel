@@ -11,26 +11,32 @@
                 <button class="block rounded-md bg-indigo-600 px-3 py-2 text-center
             text-sm font-semibold text-white shadow-sm hover:bg-indigo-500
             focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
-            focus-visible:outline-indigo-600" style="outline: none" wire:click="cridaSave">Crear</button>
+            focus-visible:outline-indigo-600" style="outline: none" wire:click="cridaSave">Crear
+                </button>
             @endif
             @if (!empty($selectedRows))
                 <button class="block rounded-md bg-indigo-600 px-3 py-2 text-center
             text-sm font-semibold text-white shadow-sm hover:bg-indigo-500
             focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
-            focus-visible:outline-indigo-600" style="outline: none" wire:click="delete">Eliminar</button>
+            focus-visible:outline-indigo-600" style="outline: none" wire:click="delete">Eliminar
+                </button>
             @endif
             @if (count($selectedRows) === 1)
                 <button class="block rounded-md bg-indigo-600 px-3 py-2 text-center
             text-sm font-semibold text-white shadow-sm hover:bg-indigo-500
             focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
-            focus-visible:outline-indigo-600" style="outline: none" wire:click="cridaUpdate({{ $selectedRows[0] }})">Modificar</button>
+            focus-visible:outline-indigo-600" style="outline: none" wire:click="cridaUpdate({{ $selectedRows[0] }})">
+                    Modificar
+                </button>
             @endif
         </div>
 
         <!-- Search bar -->
         <div class="mb-4">
-            <input wire:model.debounce.300ms="search" type="text" class="w-full border px-3 py-2 mb-2 rounded-lg" placeholder="Search by name or description...">
-            <button class="px-3 py-2 bg-indigo-600 text-white rounded-md ml-2" wire:click="executeSearch">Search</button>
+            <input wire:model.debounce.300ms="search" type="text" class="w-full border px-3 py-2 mb-2 rounded-lg"
+                   placeholder="Search by name or description...">
+            <button class="px-3 py-2 bg-indigo-600 text-white rounded-md ml-2" wire:click="executeSearch">Search
+            </button>
         </div>
 
 
@@ -41,55 +47,83 @@
                 <thead>
                 <tr class="text-left">
                     <th class="py-2 px-3 sticky top-0 border-b border-gray-200 bg-gray-100">
-                        <input type="checkbox" class="form-checkbox rowCheckbox focus:outline-none focus:shadow-outline rounded" wire:click="selectAll">
+                        <input type="checkbox"
+                               class="form-checkbox rowCheckbox focus:outline-none focus:shadow-outline rounded"
+                               wire:click="selectAll">
                     </th>
                     <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">
-                        Media ID</th>
+                        Media ID
+                    </th>
                     <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">
-                        Name</th>
+                        Name
+                    </th>
                     <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">
-                        Description</th>
+                        Description
+                    </th>
                     <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">
-                        Path</th>
+                        Path
+                    </th>
                     <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">
-                        Category</th>
+                        Category
+                    </th>
+                    <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">
+                        Preview
+                    </th>
                 </tr>
                 </thead>
                 <!-- Table body -->
                 <tbody>
                 @foreach ($medias as $media)
                     <tr class="hover:bg-gray-50">
+                        <!-- Checkbox column -->
                         <td class="border-dashed border-t border-gray-200 px-3">
-                            <input type="checkbox" class="form-checkbox rowCheckbox focus:outline-none focus:shadow-outline rounded" wire:model.live="selectedRows" value="{{ $media->id }}">
+                            <input type="checkbox"
+                                   class="form-checkbox rowCheckbox focus:outline-none focus:shadow-outline rounded"
+                                   wire:model.live="selectedRows" value="{{ $media->id }}">
                         </td>
+                        <!-- Media ID column -->
                         <td class="border-dashed border-t border-gray-200">
-                            <span class="text-gray-700 px-6 py-3 flex items-center text-sm">
-                                {{ $media->id }}</span>
+                            <span class="text-gray-700 px-6 py-3 flex items-center text-sm">{{ $media->id }}</span>
                         </td>
+                        <!-- Name column -->
                         <td class="border-dashed border-t border-gray-200">
-                            <span class="text-gray-700 px-6 py-3 flex items-center text-sm">
-                                {{ $media->name }}</span>
+                            <span class="text-gray-700 px-6 py-3 flex items-center text-sm">{{ $media->name }}</span>
                         </td>
+                        <!-- Description column -->
                         <td class="border-dashed border-t border-gray-200">
-                            <span class="text-gray-700 px-6 py-3 flex items-center text-sm">
-                                {{ $media->description }}</span>
+                            <span
+                                class="text-gray-700 px-6 py-3 flex items-center text-sm">{{ $media->description }}</span>
                         </td>
+                        <!-- Path column -->
                         <td class="border-dashed border-t border-gray-200">
-                            <span class="text-gray-700 px-6 py-3 flex items-center text-sm">
-                                {{ $media->path }}</span>
+                            <span class="text-gray-700 px-6 py-3 flex items-center text-sm">{{ $media->path }}</span>
                         </td>
+                        <!-- Category column -->
                         <td class="border-dashed border-t border-gray-200">
-                            <span class="text-gray-700 px-6 py-3 flex items-center text-sm">
-                                {{ $media->category ? $media->category->name : 'N/A' }}</span>
+                            <span
+                                class="text-gray-700 px-6 py-3 flex items-center text-sm">{{ $media->category ? $media->category->name : 'N/A' }}</span>
+                        </td>
+                        <!-- Button column -->
+                        <td class="border-dashed border-t border-gray-200">
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                    wire:click="showOrHideModal({{ $media->id }})">
+                                Modal
+                            </button>
                         </td>
                     </tr>
                 @endforeach
+
+                @if($isModalVisible)
+                    <livewire:customer.media-modal :mediaId="$modalMediaId"/>
+                @endif
+
                 </tbody>
             </table>
             <!-- Pagination -->
             {{ $medias->links() }}
         </div>
     </div>
+
 </div>
 
 
