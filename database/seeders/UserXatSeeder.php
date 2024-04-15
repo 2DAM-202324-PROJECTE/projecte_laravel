@@ -13,11 +13,11 @@ class UserXatSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('user_xat')->insert([
-            'user_id' => 1,
-            'xat_id' => 1,
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
+//        DB::table('user_xat')->insert([
+//            'user_id' => 1,
+//            'xat_id' => 1,
+//            'created_at' => now(),
+//            'updated_at' => now(),
+//        ]);
     }
 }

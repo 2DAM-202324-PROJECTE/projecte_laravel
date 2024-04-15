@@ -37,43 +37,43 @@ Route::middleware([
 
 /////////////////////
 Route::middleware(['auth'])->group(function () {
-    Route::get('/categories', function(){
-        return view('categories.index');
-    })->name('categories');
+Route::get('/categories', function(){
+    return view('categories.index');
+})->name('categories');
 
-    Route::get('/categories/create', function () {
-        return view('categories.createorupdate');
-    })-> name ('categories.create') ;
+Route::get('/categories/create', function () {
+    return view('categories.createorupdate');
+})-> name ('categories.create') ;
 
-    Route::get('/categories/update/{id}', function ($id) {
-        return view('categories.createorupdate')->with([
-            'id' => $id,
-        ]);
-    })-> name ('categories.update') ;
+Route::get('/categories/update/{id}', function ($id) {
+    return view('categories.createorupdate')->with([
+        'id' => $id,
+    ]);
+})-> name ('categories.update') ;
 });
 
 ///////////////////////////
 Route::middleware(['auth'])->group(function () {
-    Route::get('/medias', function(){
-        return view('medias.index');
-    })->name('medias');
+Route::get('/medias', function(){
+    return view('medias.index');
+})->name('medias');
 
-    Route::get('/medias/save', function () {
-        return view('medias.createorupdatemedias');
-    })-> name ('medias.save') ;
+Route::get('/medias/save', function () {
+    return view('medias.createorupdatemedias');
+})-> name ('medias.save') ;
 
-    Route::get('/medias/update/{id}', function ($id) {
-        return view('medias.createorupdatemedias')->with([
-            'id' => $id,
-        ]);
-    })-> name ('medias.update') ;
+Route::get('/medias/update/{id}', function ($id) {
+    return view('medias.createorupdatemedias')->with([
+        'id' => $id,
+    ]);
+})-> name ('medias.update') ;
 });
 
 ///////////////////////////
 Route::middleware(['auth'])->group(function () {
-    Route::get('/xats', IndexXat::class)->name('xats');
-    Route::get('/xats/create', Createorupdatexat::class)->name('xats.create');
-    Route::get('/xats/update/{id}', Createorupdatexat::class)->name('xats.update');
+Route::get('/xats', IndexXat::class)->name('xats');
+Route::get('/xats/create', Createorupdatexat::class)->name('xats.create');
+Route::get('/xats/update/{id}', Createorupdatexat::class)->name('xats.update');
 });
 
 Route::get('/salaxat/xatinteractiu/{query}', XatInteractiu::class)->name('xat');
