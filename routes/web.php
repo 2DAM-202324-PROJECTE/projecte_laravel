@@ -1,6 +1,11 @@
 <?php
 
 
+<<<<<<< HEAD
+=======
+
+use App\Livewire\Customer\Cataleg;
+>>>>>>> main
 use App\Livewire\Customer\MediaPreview;
 use App\Livewire\Persona\Persones;
 use App\Livewire\SalaXat\Xat;
@@ -36,7 +41,7 @@ Route::middleware([
 });
 
 /////////////////////
-
+Route::middleware(['auth'])->group(function () {
 Route::get('/categories', function(){
     return view('categories.index');
 })->name('categories');
@@ -50,9 +55,10 @@ Route::get('/categories/update/{id}', function ($id) {
         'id' => $id,
     ]);
 })-> name ('categories.update') ;
+});
 
 ///////////////////////////
-
+Route::middleware(['auth'])->group(function () {
 Route::get('/medias', function(){
     return view('medias.index');
 })->name('medias');
@@ -66,17 +72,24 @@ Route::get('/medias/update/{id}', function ($id) {
         'id' => $id,
     ]);
 })-> name ('medias.update') ;
+});
 
 ///////////////////////////
-
+Route::middleware(['auth'])->group(function () {
 Route::get('/xats', IndexXat::class)->name('xats');
 Route::get('/xats/create', Createorupdatexat::class)->name('xats.create');
 Route::get('/xats/update/{id}', Createorupdatexat::class)->name('xats.update');
+});
+
 Route::get('/salaxat/xatinteractiu/{query}', XatInteractiu::class)->name('xat');
 
 //Route::get('/user', \App\Livewire\Users\User::class)->name('user');
 
 Route::get('/persones', Persones::class)->name('persones');
+
+Route::get('/cataleg', Cataleg::class)->name('cataleg');
+
+Route::get('/media-preview/{id}', MediaPreview::class)->name('media-preview');
 
 
 Route::get('/media-preview/{id}', MediaPreview::class)->name('media-preview');

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name', 150)->unique();
-            $table->text('description')->max(500);
+            $table->text('description');
             $table->string('path', 255);
             $table->foreignId('category_id')->constrained('categories');
             $table->string('image_uri', 255)->nullable();

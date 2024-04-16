@@ -12,36 +12,39 @@ class XatSeeder extends Seeder
         Xat::create([
             'nom' => 'Xat de prova',
             'descripcio' => 'Xat de prova',
-            'usuari_id' => 1,
+            'media_id' => 1,
+            'creador_id' => 1,
             'url' => null, // O asigna un valor si corresponde
             'password' => null, // O asigna un valor si corresponde
             'foto' => null, // O asigna un valor si corresponde
             'tipus' => 'general', // Asume un valor predeterminado, ajusta según tus necesidades
             'privacitat' => 'pública', // Asume un valor predeterminado, ajusta según tus necesidades
-            'idioma' => 'Català', // Asume un valor predeterminado, ajusta según tus necesidades
+            'idioma' => 'Catala', // Asume un valor predeterminado, ajusta según tus necesidades
         ]);
         Xat::create([
             'nom' => 'Xat de prova2',
             'descripcio' => 'Xat de prova2',
-            'usuari_id' => 2,
+            'media_id' => 1, // Asegúrate de que 'media_id' es una propiedad pública en tu componente
+            'creador_id' => 2,
             'url' => null, // O asigna un valor si corresponde
             'password' => null, // O asigna un valor si corresponde
             'foto' => null, // O asigna un valor si corresponde
             'tipus' => 'general', // Asume un valor predeterminado, ajusta según tus necesidades
             'privacitat' => 'pública', // Asume un valor predeterminado, ajusta según tus necesidades
-            'idioma' => 'Català', // Asume un valor predeterminado, ajusta según tus necesidades
+            'idioma' => 'Catala', // Asume un valor predeterminado, ajusta según tus necesidades
         ]);
 
         Xat::create([
             'nom' => 'Xat de prova1',
             'descripcio' => 'Xat de prova1',
-            'usuari_id' => 1,
+            'media_id' => 1,
+            'creador_id' => 1,
             'url' => null, // O asigna un valor si corresponde
             'password' => null, // O asigna un valor si corresponde
             'foto' => null, // O asigna un valor si corresponde
             'tipus' => 'general', // Asume un valor predeterminado, ajusta según tus necesidades
             'privacitat' => 'pública', // Asume un valor predeterminado, ajusta según tus necesidades
-            'idioma' => 'Català', // Asume un valor predeterminado, ajusta según tus necesidades
+            'idioma' => 'Catala', // Asume un valor predeterminado, ajusta según tus necesidades
 
         ]);
     }

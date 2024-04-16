@@ -28,5 +28,10 @@ class UserSeeder extends Seeder
             'email' => 'admin@teamflix.com',
             'password' => Hash::make('admin')]);
 
+        User::create([
+            'name' => 'sergio',
+            'email' => 'sergio@teamflix.com',
+            'password' => Hash::make('sergio')]);
+
     }
 }

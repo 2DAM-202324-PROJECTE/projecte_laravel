@@ -69,4 +69,14 @@ class User extends Authenticatable
         return $this->hasMany(Message::class);
     }
 
+    public function xats()
+    {
+        return $this->belongsToMany(Xat::class, 'user_xat', 'user_id', 'xat_id');
+    }
+
+    public function xatsCreats()
+    {
+        return $this->hasMany(Xat::class);
+    }
+
 }

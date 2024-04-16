@@ -14,12 +14,12 @@ class CategoriesSeeder extends Seeder
     public function run(): void
     {
         Category::create([
-            'name' => 'Categoria 1',
+            'name' => 'Pel·lícules',
             'description' => 'Descripció de la categoría 1',
         ]);
 
         Category::create([
-            'name' => 'Categoria 2',
+            'name' => 'Documentals',
             'description' => 'Descripció de la categoría 2',
         ]);
     }
