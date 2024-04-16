@@ -6,7 +6,7 @@
 
         <h1 class="text-3xl py-4 border-b mb-10">Sala de xats</h1>
 
-            <livewire:xats.xat-list/>
+{{--            //<livewire:xats.xat-list/>--}}
 
 
         <div class="mb-4 flex grid-rows gap-x-2 justify-end">

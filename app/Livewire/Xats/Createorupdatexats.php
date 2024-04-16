@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Livewire\Component;
 
 
-class Createorupdatexat extends Component
+class Createorupdatexats extends Component
 {
 
     public $nom, $creador_id, $media_id, $descripcio, $url, $password, $foto, $tipus, $privacitat, $idioma;
@@ -175,7 +175,7 @@ class Createorupdatexat extends Component
        $users = User::all();
         $medias = Media::all();
         // Pasamos las variables $users y $medias a la vista.
-        return view('livewire.xats.createorupdatexat', [
+        return view('livewire.xats.createorupdatexats', [
             'users' => $users,
             'medias' => $medias, // Asegúrate de pasar la variable $medias a la vista.
         ]);

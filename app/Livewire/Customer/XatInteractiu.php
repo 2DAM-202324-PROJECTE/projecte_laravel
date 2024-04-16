@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\SalaXat;
+namespace App\Livewire\Customer;
 
 use App\Models\Media;
 use App\Models\Xat;
@@ -66,7 +66,7 @@ class XatInteractiu extends Component
 
     public function render()
     {
-        return view('livewire.salaxat.xatinteractiu', [
+        return view('livewire.customer.xatinteractiu', [
             'chat' => $this->chat
         ]);
     }

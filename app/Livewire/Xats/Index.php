@@ -5,7 +5,7 @@ namespace App\Livewire\Xats;
 use App\Models\Xat;
 use Livewire\Component;
 
-class IndexXat extends Component
+class Index extends Component
 {
     public $xats;
     public $selectedRows = [];
@@ -52,6 +52,6 @@ class IndexXat extends Component
 
     public function render()
     {
-        return view('livewire.xats.index-xat');
+        return view('livewire.xats.index');
     }
 }

@@ -1,15 +1,13 @@
 <?php
 
 
+use App\Livewire\Customer\XatInteractiu;
 use App\Livewire\Persona\Persones;
 use App\Livewire\SalaMedia\LligarMedia;
 use App\Livewire\SalaXat\Xat;
-use App\Livewire\SalaXat\XatInteractiu;
-use App\Livewire\Users\User;
 use App\Livewire\Xats\Createorupdatexat;
 use App\Livewire\Xats\IndexXat;
 use Illuminate\Support\Facades\Route;
-
 
 
 /*
@@ -72,11 +70,29 @@ Route::get('/medias/update/{id}', function ($id) {
 });
 
 ///////////////////////////
+///
+///
+///
 Route::middleware(['auth'])->group(function () {
-Route::get('/xats', IndexXat::class)->name('xats');
-Route::get('/xats/create', Createorupdatexat::class)->name('xats.create');
-Route::get('/xats/update/{id}', Createorupdatexat::class)->name('xats.update');
+    Route::get('/xats', function(){
+        return view('xats.index');
+    })->name('xats');
+
+    Route::get('/xats/create', function () {
+        return view('xats.createorupdatexats');
+    })-> name ('xats.create') ;
+
+    Route::get('/xats/update/{id}', function ($id) {
+        return view('xats.createorupdatexats')->with([
+            'id' => $id,
+        ]);
+    })-> name ('xats.update') ;
 });
+//Route::middleware(['auth'])->group(function () {
+//Route::get('/xats', IndexXat::class)->name('xats');
+//Route::get('/xats/create', Createorupdatexat::class)->name('xats.create');
+//Route::get('/xats/update/{id}', Createorupdatexat::class)->name('xats.update');
+//});
 
 Route::get('/salaxat/xatinteractiu/{query}', XatInteractiu::class)->name('xat');
 
