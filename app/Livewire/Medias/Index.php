@@ -13,6 +13,9 @@ class Index extends Component
     public $selectedRows = [];
     public $search = '';
     public $filter = '';
+    public $isModalVisible = false;
+    public $modalMediaId;
+
 
     public function cridaSave()
     {
@@ -36,6 +39,20 @@ class Index extends Component
         $this->selectedRows = [];
         $this->render();
     }
+
+    public function showOrHideModal($mediaId)
+    {
+        $this->isModalVisible = true;
+        $this->modalMediaId = $mediaId;
+    }
+
+    protected $listeners = ['closeModal'];
+
+    public function closeModal()
+    {
+        $this->isModalVisible = false;
+    }
+
 
     public function render()
     {
@@ -68,6 +85,8 @@ class Index extends Component
             $this->selectedRows = [];
         }
     }
+
+
 
 }
 

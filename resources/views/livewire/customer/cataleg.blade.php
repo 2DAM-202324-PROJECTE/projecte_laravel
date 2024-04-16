@@ -64,10 +64,15 @@
         <div id="pelisContainer" class="overflow-hidden flex rounded-lg bg-yellow-900 sm:px-12 lg:px-6 py-4 sm:mx-12 md:mx-40" style="background: #907761">
             @foreach($pelis as $peli)
                 <div class="movie flex-shrink-0">
-                    <img class="rounded-lg shadow-lg " src="{{ $peli['image_uri'] }}" alt="{{ $peli['name'] }}" /> <!-- Ajusta el tamaño de la imagen aquí -->
+                    <button wire:click="showOrHideModal({{ $peli['id'] }})">
+                        <img class="rounded-lg shadow-lg " src="{{ $peli['image_uri'] }}" alt="{{ $peli['name'] }}" /> <!-- Ajusta el tamaño de la imagen aquí -->
+                    </button>
                     <p class="text-sm flex justify-center font-medium mt-2 text-gray-300 movie-name" style="font-family: 'Biryani', sans-serif;">{{ $peli['name'] }}</p>
                 </div>
             @endforeach
+                @if($isModalVisible)
+                    <livewire:customer.media-modal :mediaId="$modalMediaId"/>
+                @endif
         </div>
 
 
@@ -130,7 +135,9 @@
         <div id="documentalsContainer" class="overflow-hidden flex rounded-lg bg-yellow-900 sm:px-12 lg:px-6 py-4 sm:mx-12 md:mx-40" style="background: #907761">
             @foreach($documentals as $documental)
                 <div class="documental flex-shrink-0"> <!-- Agrega relleno aquí -->
-                    <img class="rounded-lg shadow-lg " src="{{ $documental['image_uri'] }}" alt="{{ $documental['name'] }}" /> <!-- Ajusta el tamaño de la imagen aquí -->
+                    <button wire:click="showOrHideModal({{ $documental['id'] }})">
+                        <img class="rounded-lg shadow-lg " src="{{ $documental['image_uri'] }}" alt="{{ $documental['name'] }}" /> <!-- Ajusta el tamaño de la imagen aquí -->
+                    </button>
                     <p class="text-sm flex justify-center font-medium mt-2 text-gray-300 documental-name" style="font-family: 'Biryani', sans-serif;">{{ $documental['name'] }}</p>
                 </div>
             @endforeach

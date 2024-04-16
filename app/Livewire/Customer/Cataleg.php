@@ -13,6 +13,8 @@ class Cataleg extends Component
     public array $documentals = [];
     public $search;
     public $filter = '';
+    public $isModalVisible = false;
+    public $modalMediaId;
 
 
     public function pelis(){
@@ -31,8 +33,7 @@ class Cataleg extends Component
         return $this->documentals;
     }
 
-    public function render(Request $request)
-    {
+    public function render(Request $request){
         $this->documentals();
         $this->pelis();
 
@@ -55,5 +56,18 @@ class Cataleg extends Component
             'documentals' => $documentals,
             'search' => $searchTerm,
         ]);
+    }
+
+    public function showOrHideModal($mediaId)
+    {
+        $this->isModalVisible = true;
+        $this->modalMediaId = $mediaId;
+    }
+
+    protected $listeners = ['closeModal'];
+
+    public function closeModal()
+    {
+        $this->isModalVisible = false;
     }
 }
