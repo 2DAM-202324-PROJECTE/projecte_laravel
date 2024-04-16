@@ -37,15 +37,12 @@
 
             @foreach($xatsRelacionats ?? [] as $xat)
                 <div class="p-4 border-b">
-                    <!-- Mostrar detalles del chat aquí -->
+                    <!-- Mostrar detalls del xat -->
                     <p><strong>ID:</strong> {{ $xat->id }}</p>
                     <p><strong>Nombre:</strong> {{ $xat->nom }}</p>
                     <p><strong>Descripción:</strong> {{ $xat->descripcio }}</p>
                     <p><strong>Media:</strong> {{ $xat->media_id }}</p>
-                    <!-- Enlace para acceder al xat interactivo -->
-                    <!-- Enlace para acceder al xat interactivo -->
-
-                    <!-- Añadir más información del chat si es necesario -->
+                    <p><strong>Fecha de creació:</strong> {{ $xat->created_at }}</p>
                     @if ($xat->url)
                         <p><strong>URL:</strong> <a href="{{ $xat->url }}" target="_blank">Enllaç</a></p>
                     @endif
