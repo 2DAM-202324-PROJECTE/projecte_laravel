@@ -1,7 +1,10 @@
 <?php
 
 
+
 use App\Livewire\Customer\XatInteractiu;
+use App\Livewire\Customer\Cataleg;
+use App\Livewire\Customer\MediaPreview;
 use App\Livewire\Persona\Persones;
 use App\Livewire\SalaMedia\LligarMedia;
 use App\Livewire\SalaXat\Xat;
@@ -107,7 +110,13 @@ Route::get('/customer/xatmedia/{id}', function ($id) {
 
 Route::get('/persones', Persones::class)->name('persones');
 
+
 Route::get('/xatinamedia', LligarMedia::class)->name('xatinamedia');
+
+Route::get('/cataleg', Cataleg::class)->name('cataleg');
+
+Route::get('/media-preview/{id}', MediaPreview::class)->name('media-preview');
+
 
 
 

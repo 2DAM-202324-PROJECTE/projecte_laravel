@@ -13,6 +13,7 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <script defer src="https://unpkg.com/alpinejs@2.8.2/dist/alpine.min.js"></script>
 
         <!-- Styles -->
         @livewireStyles
@@ -41,5 +42,6 @@
         @stack('modals')
 
         @livewireScripts
+        @livewire('wire-elements-modal')
     </body>
 </html>
