@@ -2,20 +2,16 @@
 
 namespace App\Livewire\Customer;
 
-
 use App\Models\Media;
-use Illuminate\Http\Request;
 use Livewire\Component;
 
-class Cataleg extends Component
+class HomePage extends Component
 {
     public array $pelis = [];
     public array $documentals = [];
-    public $search;
-    public $filter = '';
+
     public $isModalVisible = false;
     public $modalMediaId;
-
 
     public function pelis(){
         $this->pelis=[];
@@ -25,7 +21,6 @@ class Cataleg extends Component
         }
         return $this->pelis;
     }
-
     public function documentals(){
         $this->documentals = [];
         $documentals = Media::where('category_id', 2)->get();
@@ -35,31 +30,30 @@ class Cataleg extends Component
         return $this->documentals;
     }
 
-    public function render(Request $request){
-        $this->documentals();
-        $this->pelis();
-
-        $searchTerm = $this->search;
-
-        // Realiza la búsqueda en la base de datos sin importar si las películas están visibles en la página
-        $pelis = Media::where('category_id', 1);
-        $documentals = Media::where('category_id', 2);
-
-        // Realiza la búsqueda solo si se proporciona un término de búsqueda
-        if ($searchTerm) {
-            $pelis = $pelis->where('name', 'like', '%' . $searchTerm . '%');
-            $documentals = $documentals->where('name', 'like', '%' . $searchTerm . '%');
+    public function peliNoves(){
+        $this->pelis=[];
+        $pelis = Media::where('category_id', 1)
+            ->orderBy('created_at', 'desc')
+            ->take(9)
+            ->get();
+        foreach ($pelis as $peli) {
+            $this->pelis[] = $peli;
         }
 
-        $pelis = $pelis->get();
-
-        return view('livewire.customer.cataleg', [
-            'pelis' => $pelis,
-            'documentals' => $documentals,
-            'search' => $searchTerm,
-        ]);
+        return $pelis;
     }
 
+    public function render()
+    {
+        $this->peliNoves();
+        $this->documentals();
+
+
+        return view('livewire.customer.home-page', [
+            'pelis' => $this->pelis,
+            'documentals' => $this->documentals,
+        ]);
+    }
     public function showOrHideModal($mediaId)
     {
         $this->isModalVisible = true;

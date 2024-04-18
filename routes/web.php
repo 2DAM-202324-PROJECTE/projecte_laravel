@@ -4,6 +4,7 @@
 
 use App\Livewire\Customer\XatInteractiu;
 use App\Livewire\Customer\Cataleg;
+use App\Livewire\Customer\HomePage;
 use App\Livewire\Customer\MediaPreview;
 use App\Livewire\Persona\Persones;
 use App\Livewire\SalaMedia\LligarMedia;
@@ -116,6 +117,8 @@ Route::get('/xatinamedia', LligarMedia::class)->name('xatinamedia');
 Route::get('/cataleg', Cataleg::class)->name('cataleg');
 
 Route::get('/media-preview/{id}', MediaPreview::class)->name('media-preview');
+
+Route::get('/homePage', HomePage::class)->name('home.page');
 
 
 
