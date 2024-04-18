@@ -8,6 +8,9 @@ use Livewire\Component;
 class MediaModal extends Component
 {
     public $media;
+    public $isModalVisible = false;
+    public $modalMediaId;
+
 
     public function mount($mediaId)
     {
@@ -21,10 +24,14 @@ class MediaModal extends Component
 
     public function closeModal()
     {
-        $this->emitUp('closeModal'); // Emit event to parent component
+        $this->isModalVisible = false;
     }
 
-
+    public function showOrHideModal($mediaId)
+    {
+        $this->isModalVisible = true;
+        $this->modalMediaId = $mediaId;
+    }
 
 }
 
