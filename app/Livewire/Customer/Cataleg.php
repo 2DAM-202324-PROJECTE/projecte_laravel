@@ -72,4 +72,13 @@ class Cataleg extends Component
     {
         $this->isModalVisible = false;
     }
+
+    // You can call this method whenever you want to reopen the modal
+    public function openModal($mediaId)
+    {
+        $this->showOrHideModal($mediaId);
+    }
 }
+
+
+
