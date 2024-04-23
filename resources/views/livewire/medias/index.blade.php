@@ -69,6 +69,9 @@
                     <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">
                         Preview
                     </th>
+                    <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">
+                        Play
+                    </th>
                 </tr>
                 </thead>
                 <!-- Table body -->
@@ -110,6 +113,12 @@
                                 Modal
                             </button>
                         </td>
+                        <td class="border-dashed border-t border-gray-200">
+                            <a href="{{ route('media-player', ['id' => $media->id]) }}"
+                               class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                Play
+                            </a>
+                        </td>
                     </tr>
                 @endforeach
 
@@ -123,7 +132,6 @@
             {{ $medias->links() }}
         </div>
     </div>
-
 </div>
 
 

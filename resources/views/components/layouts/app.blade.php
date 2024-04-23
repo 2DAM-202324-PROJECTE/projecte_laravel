@@ -24,7 +24,7 @@
 <body class="antialiased">
 <x-banner />
 
-<div class="min-h-screen bg-gray-100">
+<div class="bg-gray-100">
     <!-- Page Heading -->
     <header class="bg-black">
         <div class="flex justify-center items-center border">

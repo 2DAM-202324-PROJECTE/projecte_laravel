@@ -40,20 +40,6 @@ class Index extends Component
         $this->render();
     }
 
-    public function showOrHideModal($mediaId)
-    {
-        $this->isModalVisible = true;
-        $this->modalMediaId = $mediaId;
-    }
-
-    protected $listeners = ['closeModal'];
-
-    public function closeModal()
-    {
-        $this->isModalVisible = false;
-    }
-
-
     public function render()
     {
         // Applying search query if available
@@ -84,6 +70,25 @@ class Index extends Component
         } else {
             $this->selectedRows = [];
         }
+    }
+
+    public function showOrHideModal($mediaId)
+    {
+        $this->isModalVisible = true;
+        $this->modalMediaId = $mediaId;
+    }
+
+    protected $listeners = ['closeModal'];
+
+    public function closeModal()
+    {
+        $this->isModalVisible = false;
+    }
+
+    // You can call this method whenever you want to reopen the modal
+    public function openModal($mediaId)
+    {
+        $this->showOrHideModal($mediaId);
     }
 
 
