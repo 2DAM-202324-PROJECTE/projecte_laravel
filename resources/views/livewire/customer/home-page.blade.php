@@ -395,9 +395,9 @@
                             <div class="absolute top-0 right-0 ml-2 mb-2">
                                 <div class="h-6 w-6 bg-green-500 rounded-full animate-pulse"></div>
                             </div>
-                            <button style="outline: none"  wire:click="showOrHideModal({{ $peli['id'] }})">
-                                <div class="flex justify-end">
-                                        <img class="rounded-lg justify-end p-2 h-auto w-2/12" src="{{ $peli->image_uri }}" alt="{{$peli->name}}">
+                            <button style="outline: none">
+                                <div style="outline: none" class="flex justify-end">
+                                    <img class="rounded-lg justify-end p-2 h-auto w-2/12" src="{{ $peli->image_uri }}" alt="{{$peli->name}}" wire:click="showOrHideModal({{ $peli['id'] }})">
                                 </div>
                             </button>
                         </div>
