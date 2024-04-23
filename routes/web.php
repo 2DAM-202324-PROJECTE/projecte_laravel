@@ -1,18 +1,16 @@
 <?php
 
 
-
-use App\Livewire\Customer\XatInteractiu;
 use App\Livewire\Customer\Cataleg;
-use App\Livewire\Customer\HomePage;
 use App\Livewire\Customer\MediaPreview;
 use App\Livewire\Persona\Persones;
-use App\Livewire\SalaMedia\LligarMedia;
 use App\Livewire\SalaXat\Xat;
-use App\Livewire\Xats\Createorupdatexat;
-use App\Livewire\Xats\IndexXat;
+//use App\Livewire\SalaXat\XatInteractiu;
+use App\Livewire\Users\User;
+use App\Livewire\Xats\Createorupdatexats;
+use App\Livewire\Xats\Index;
 use Illuminate\Support\Facades\Route;
-
+use App\Livewire\Medias\MediaPlayer;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,54 +72,25 @@ Route::get('/medias/update/{id}', function ($id) {
 });
 
 ///////////////////////////
-///
-///
-///
 Route::middleware(['auth'])->group(function () {
-    Route::get('/xats', function(){
-        return view('xats.index');
-    })->name('xats');
-
-    Route::get('/xats/create', function () {
-        return view('xats.createorupdatexats');
-    })-> name ('xats.create') ;
-
-    Route::get('/xats/update/{id}', function ($id) {
-        return view('xats.createorupdatexats')->with([
-            'id' => $id,
-        ]);
-    })-> name ('xats.update') ;
-});
-//Route::middleware(['auth'])->group(function () {
-//Route::get('/xats', IndexXat::class)->name('xats');
+Route::get('/xats', Index::class)->name('xats');
 //Route::get('/xats/create', Createorupdatexat::class)->name('xats.create');
-//Route::get('/xats/update/{id}', Createorupdatexat::class)->name('xats.update');
-//});
+Route::get('/xats/update/{id}', Createorupdatexats::class)->name('xats.update');
+});
 
-Route::get('/salaxat/xatinteractiu/{query}', XatInteractiu::class)->name('xat');
+//Route::get('/salaxat/xatinteractiu/{query}', XatInteractiu::class)->name('xat');
 
-Route::get('/customer/xatmedia/{id}', function ($id) {
-    return view('customer.xatmedia')->with([
-        'id' => $id,
-    ]);
-})-> name ('customer.xatmedia');
-
-
-//Route::get('/user', \App\Livewire\Users\User::class)->name('user');
+Route::get('/user', \App\Livewire\Users\User::class)->name('user');
 
 Route::get('/persones', Persones::class)->name('persones');
-
-
-Route::get('/xatinamedia', LligarMedia::class)->name('xatinamedia');
 
 Route::get('/cataleg', Cataleg::class)->name('cataleg');
 
 Route::get('/media-preview/{id}', MediaPreview::class)->name('media-preview');
 
-Route::get('/homePage', HomePage::class)->name('home.page');
 
+Route::get('/media-preview/{id}', MediaPreview::class)->name('media-preview');
 
-
-
+Route::get('/media-player/{id}', MediaPlayer::class)->name('media-player');
 
 
