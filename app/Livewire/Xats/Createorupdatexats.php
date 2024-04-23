@@ -5,7 +5,7 @@ namespace App\Livewire\Xats;
 use App\Models\Media;
 use App\Models\User;
 use App\Models\Xat;
-use App\Models\XatInteractiu;
+use App\Models\Xatinteractiu;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Livewire\Component;
 
@@ -43,7 +43,7 @@ class Createorupdatexats extends Component
 
     public function create()
     {
-        $xatInteractiuCreat = XatInteractiu::create([
+        $xatInteractiuCreat = Xatinteractiu::create([
 
 
         ]);

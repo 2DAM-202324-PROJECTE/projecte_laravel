@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class XatInteractiu extends Model
+class Xatinteractiu extends Model
 {
     use HasFactory;
 

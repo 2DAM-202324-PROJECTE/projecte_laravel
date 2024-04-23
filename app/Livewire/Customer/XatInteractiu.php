@@ -3,28 +3,36 @@
 namespace App\Livewire\Customer;
 
 use App\Models\Media;
+use App\Models\Message;
 use App\Models\Xat;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Livewire\Component;
 
 class XatInteractiu extends Component
 {
-    public $nom, $creador_id, $media_id, $descripcio, $url, $password, $foto, $tipus, $privacitat, $idioma;
+    public $nom, $creador_id, $media_id, $descripcio, $url, $password, $foto, $tipus,
+        $missatge, $privacitat, $idioma, $messages;
     public ?Xat $xat;
 
-    public $chat;
 
 
-    public function mount($id = null, $media_id = null)
+    public function mount($xat_id = null)
     {
+        $this->messages = collect();
 
 
-         if ($id !== null) {
+         if ($xat_id !== null) {
+
             try {
-                $this->setXat($id);
+                $this->setXat($xat_id);
+
+                $this->loadMisatges();
             } catch (ModelNotFoundException $e) {
                 session()->flash('message-danger', 'Xat no encontrado.');
             }
+
+
+
         }
     }
 
@@ -36,6 +44,7 @@ class XatInteractiu extends Component
     protected function setXat($id)
     {
         $this->xat = Xat::findOrFail($id);
+
         $this->nom = $this->xat->nom;
         $this->creador_id = $this->xat->creador_id;
         $this->media_id = $this->xat->media_id;
@@ -48,10 +57,36 @@ class XatInteractiu extends Component
         //$this->idioma = $this->xat->idioma;
     }
 
+    public function loadMisatges()
+    {
+        //$this->messages = Message::where('xatinteractiu_id', $this->xat->xatInteractiu->id)->get();
+        $xatInteractiu =  $this->xat->xatinteractiu;
+        if ($xatInteractiu ){
+            $this->messages = $xatInteractiu->messages;
+
+        }
+
+        }
+
+    public function sendMessage()
+    {
+//        $this->validate([
+//            'missatge' => 'required',
+//
+//        ]);
+        Message::create([
+            'body' => $this->missatge,
+            'sender_id' => auth()->id(),
+            'xatinteractiu_id' => $this->xat->xatInteractiu->id,
+        ]);
+
+
+        $this->missatge = '';
+        $this->loadMisatges();
+    }
+
     public function render()
     {
-        return view('livewire.customer.xatinteractiu', [
-            'chat' => $this->chat
-        ]);
+        return view('livewire.customer.xatinteractiu');
     }
 }

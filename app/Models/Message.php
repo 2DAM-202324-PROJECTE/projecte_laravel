@@ -12,32 +12,38 @@ class Message extends Model
     protected $fillable = [
         'body',
         'sender_id',
-        'receiver_id',
-        'conversation_id',
-        'read_at',
-        'sender_deleted_at',
-        'sender_deleted_at',
+        'xatinteractiu_id',
     ];
 
-    protected $dates = ['read_at','receiver_deleted_at','sender_deleted_at',];
+//    protected $dates = ['read_at','receiver_deleted_at','sender_deleted_at',];
 
     /** relacion con el usuario que envia el mensaje */
 
-    public function conversation()
-    {
-        return $this->belongsTo(Conversation::class);
-    }
+//    public function conversation()
+//    {
+//        return $this->belongsTo(Conversation::class);
+//    }
 
-    public function isRead(): bool
-    {
-        return $this->read_at !== null;
-    }
+//    public function isRead(): bool
+//    {
+//        return $this->read_at !== null;
+//    }
 
 
     public function sender()
+
     {
         return $this->belongsTo(User::class, 'sender_id');
     }
+
+
+
+    public function xatinteractiu()
+    {
+        return $this->belongsTo(Xatinteractiu::class);
+    }
+
+
 
 
 }

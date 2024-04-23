@@ -64,15 +64,38 @@
 
             {{-- messsage body --}}
 
+            @foreach($messages as $message)
+
+
             <div @class(['flex flex-wrap text-[15px]  rounded-xl p-2.5 flex flex-col text-black bg-[#f6f6f8fb]',
                          'rounded-bl-none border  border-gray-200/40 '=>false,
-                         'rounded-br-none bg-blue-500/80 text-white'=>true
+                         'rounded-br-none bg-blue-500/80 text-black'=>true
+
                ])>
 
 
+
+
+
+
                 <p class="whitespace-normal truncate text-sm md:text-base tracking-wide lg:tracking-normal">
-                    Loerem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, alias animi atque autem
+                    {{-- message body --}}
+                    {{$message->sender->name}}:
+
+                    {{$message->body}}
+
+
+
+
                 </p>
+
+                    {{-- message time --}}
+
+
+
+
+
+
 
 
                 <div class="ml-auto flex gap-2">
@@ -80,7 +103,7 @@
                     <p @class([
                     'text-xs ',
                     'text-gray-500'=>false,
-                    'text-white'=>true,
+                    'text-black'=>true,
 
                         ]) >
                         12:00 am
@@ -120,6 +143,8 @@
                     </div>
 
                 </div>
+            @endforeach
+
 
             </div>
 
@@ -136,15 +161,14 @@
 
                         <div class=" p-2 border-t">
 
-                            <form
-
-                                method="POST" autocapitalize="off">
+                            <form wire:submit.prevent="sendMessage">
                                 @csrf
+
 
                                 <input type="hidden" autocomplete="false" style="display:none">
 
                                 <div class="grid grid-cols-12">
-                                    <input
+                                    <input wire:model="missatge"
                                         type="text"
                                         autocomplete="off"
                                         autofocus
@@ -153,7 +177,9 @@
                                         class="col-span-10 bg-gray-100 border-0 outline-0 focus:border-0 focus:ring-0 hover:ring-0 rounded-lg  focus:outline-none"
                                     >
 
+
                                     <button class="col-span-2" type='submit'>Send
+
                                     </button>
 
                                 </div>

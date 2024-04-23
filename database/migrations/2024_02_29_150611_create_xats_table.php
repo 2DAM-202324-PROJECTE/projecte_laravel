@@ -23,7 +23,7 @@ return new class extends Migration
             $table->foreignId('creador_id')->constrained('users')
                 ->onDelete('cascade'); // Si un usuario es eliminado, se eliminan todos sus chats.
             $table->unsignedBigInteger('xatinteractiu_id')->unique(); // Asegúrate de que es única para garantizar una relación 1 a 1
-            $table->foreign('xatinteractiu_id')->references('id')->on('xat_interactius')->onDelete('cascade');
+            $table->foreign('xatinteractiu_id')->references('id')->on('xatinteractius')->onDelete('cascade');
             $table->timestamps();
         });
     }

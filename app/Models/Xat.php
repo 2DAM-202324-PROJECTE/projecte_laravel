@@ -47,8 +47,8 @@ class Xat extends Model
         return $this->belongsTo(Media::class);
     }
 
-    public function xatInteractiu()
+    public function xatinteractiu()
     {
-        return $this->belongsTo(XatInteractiu::class);
+        return $this->belongsTo(Xatinteractiu::class);
     }
 }

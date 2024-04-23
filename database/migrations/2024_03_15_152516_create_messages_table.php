@@ -14,22 +14,27 @@ return new class extends Migration
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('conversation_id');
+            $table->unsignedBigInteger('xatinteractiu_id');
+            $table->foreign('xatinteractiu_id')->references('id')->on('xatinteractius');
 
             $table->unsignedBigInteger('sender_id'); //uuid de la persona que envia el missatge
             $table->foreign('sender_id')->references('id')->on('users');
 
-            $table->unsignedBigInteger('receiver_id');
-            $table->foreign('receiver_id')->references('id')->on('users');
+//            $table->unsignedBigInteger('receiver_id');
+//            $table->foreign('receiver_id')->references('id')->on('users');
 
-            $table->timestamp('read_id')->nullable();
+//            $table->timestamp('read_id')->nullable();
 
             //delete actions
-            $table->timestamp('receiver_deleted_at')->nullable();
-            $table->timestamp('sender_deleted_at')->nullable();
+//            $table->timestamp('receiver_deleted_at')->nullable();
+//            $table->timestamp('sender_deleted_at')->nullable();
 
             $table->text('body')->nullable();
 
+            //lligar aquesta taula amb la taula amb xatinteractiu
+            //crear o recuperar un xatinteractiu i tots els missatges que hi hagi
+            //crear un xatinteractiu amb un missatge
+            //recuperar un xatinteractiu amb tots els missatges
 
 
 
