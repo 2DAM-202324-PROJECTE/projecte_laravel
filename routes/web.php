@@ -1,11 +1,15 @@
 <?php
 
 
-use App\Livewire\Customer\Cataleg;
+
+use App\Livewire\Customer\CatalegDocumentals;
+use App\Livewire\Customer\XatInteractiu;
+use App\Livewire\Customer\CatalegPelis;
+use App\Livewire\Customer\HomePage;
 use App\Livewire\Customer\MediaPreview;
 use App\Livewire\Persona\Persones;
-use App\Livewire\SalaXat\Xat;
 //use App\Livewire\SalaXat\XatInteractiu;
+use App\Livewire\SalaMedia\LligarMedia;
 use App\Livewire\Users\User;
 use App\Livewire\Xats\Createorupdatexats;
 use App\Livewire\Xats\Index;
@@ -84,7 +88,12 @@ Route::get('/user', \App\Livewire\Users\User::class)->name('user');
 
 Route::get('/persones', Persones::class)->name('persones');
 
-Route::get('/cataleg', Cataleg::class)->name('cataleg');
+
+Route::get('/xatinamedia', LligarMedia::class)->name('xatinamedia');
+
+Route::get('/catalegPelis', CatalegPelis::class)->name('catalegPelis');
+Route::get('/catalegDocumentals', CatalegDocumentals::class)->name('catalegDocumentals');
+
 
 Route::get('/media-preview/{id}', MediaPreview::class)->name('media-preview');
 
@@ -93,4 +102,6 @@ Route::get('/media-preview/{id}', MediaPreview::class)->name('media-preview');
 
 Route::get('/media-player/{id}', MediaPlayer::class)->name('media-player');
 
+Route::get('/homePage', HomePage::class)->name('home.page');
 
+Route::get('/xatinamedia', LligarMedia::class)->name('xatinamedia');

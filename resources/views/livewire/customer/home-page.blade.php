@@ -321,7 +321,7 @@
                 </svg>
 
             </div>
-            <a href="{{ route('cataleg') }}">
+            <a href="{{ route('catalegPelis') }}">
                 <div class="border btn btn-white btn-animated rounded-full" style="background: #F9F9F9">
                     <svg class="my-2 px-6 py-4" xmlns="http://www.w3.org/2000/svg" width="80" height="72" viewBox="0 0 24 24">
                         <title>movie-film-1</title>
