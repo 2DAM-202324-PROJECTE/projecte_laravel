@@ -24,4 +24,14 @@ class MediaPlayer extends Component
     {
         return view('livewire.medias.media-player');
     }
+
+
+    public function playMedia()
+    {
+        $mediaPlayerUrl = route('media.player', ['id' => $this->media->id]);
+        $this->dispatchBrowserEvent('openNewWindow', ['url' => $mediaPlayerUrl]);
+    }
+
+
 }
+

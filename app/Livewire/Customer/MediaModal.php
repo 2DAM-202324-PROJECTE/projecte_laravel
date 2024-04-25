@@ -33,6 +33,14 @@ class MediaModal extends Component
         $this->modalMediaId = $mediaId;
     }
 
+
+    public function playMedia()
+    {
+        $this->dispatchBrowserEvent('playMediaEvent', ['mediaId' => $this->media->id]);
+    }
+
+
+
 }
 
 
