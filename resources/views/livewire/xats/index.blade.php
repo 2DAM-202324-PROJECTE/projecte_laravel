@@ -85,6 +85,10 @@
                         <td class="border-dashed border-t border-gray-200">
                             <span class="text-gray-700 px-6 py-3 flex items-center text-sm">{{ $xat->updated_ad }}</span>
                         </td>
+                        <!-- Botón para unirse al chat -->
+{{--                        <td class="border-dashed border-t border-gray-200">--}}
+{{--                            <button class="border px-6 py-2 rounded-md text-xs tracking-wide hover:shadow hover:text-gray-800" style="outline: none" wire:click="unirseAlChat({{ $xat->id }})">Unirse</button>--}}
+{{--                        </td>--}}
                     </tr>
                 @endforeach
                 </tbody>

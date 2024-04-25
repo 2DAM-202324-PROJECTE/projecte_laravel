@@ -90,6 +90,12 @@ Route::middleware(['auth'])->group(function () {
             'id' => $id,
         ]);
     })-> name ('xats.update') ;
+
+//    Route::get('/xats/{id}', function ($id) {
+//        return view('xats.show', ['id' => $id]);
+//    })->name('xats.show');
+
+
 });
 //Route::middleware(['auth'])->group(function () {
 //Route::get('/xats', IndexXat::class)->name('xats');

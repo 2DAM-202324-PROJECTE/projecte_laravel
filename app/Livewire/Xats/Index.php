@@ -15,6 +15,16 @@ class Index extends Component
         $this->xats = Xat::all();
     }
 
+
+//    public function unirseAlChat($id)
+//    {
+//        //return redirect()->to('/xats/' . $id);
+//        return view('xats.show')->with([
+//            'id' => $id,
+//        ]);
+//
+//    }
+
     public function cridaCreate()
     {
         return redirect()->to('/xats/create');
