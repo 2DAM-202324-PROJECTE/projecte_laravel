@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('messages', function (Blueprint $table) {
+        Schema::create('missatges', function (Blueprint $table) {
             $table->id();
 
             $table->unsignedBigInteger('xatinteractiu_id');
