@@ -12,15 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('categoria_missatges', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedInteger('categoria_id');
-            $table->unsignedInteger('missatge_id');
+            $table->id(); // Default unsigned bigint
+            $table->unsignedBigInteger('categoria_id'); // Match type of 'id' in 'categories'
+            $table->unsignedBigInteger('missatge_id');   // Assuming 'missatges.id' is also unsigned bigint
             $table->timestamps();
 
-            $table->foreign('categoria_id')->references('id')
-                ->on('categories');
-            $table->foreign('missatge_id')->references('id')
-                ->on('missatges');
+            $table->foreign('categoria_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('missatge_id')->references('id')->on('missatges')->onDelete('cascade');
         });
     }
 
