@@ -17,8 +17,8 @@ return new class extends Migration
             $table->unsignedBigInteger('missatge_id');   // Assuming 'missatges.id' is also unsigned bigint
             $table->timestamps();
 
-            $table->foreign('categoria_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->foreign('missatge_id')->references('id')->on('missatges')->onDelete('cascade');
+            $table->foreign('categoria_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('missatge_id')->references('id')->on('missatges')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
