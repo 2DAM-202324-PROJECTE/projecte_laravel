@@ -16,9 +16,6 @@ return new class extends Migration
             $table->string('name', 20)->unique();
             $table->text('description')->nullable()->max(200);
             $table->timestamps(); //registra data i hora de creació
-
-
-
         });
     }
 
