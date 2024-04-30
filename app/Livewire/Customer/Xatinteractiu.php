@@ -8,7 +8,7 @@ use App\Models\Xat;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Livewire\Component;
 
-class XatInteractiu extends Component
+class Xatinteractiu extends Component
 {
     public $nom, $creador_id, $media_id, $descripcio, $url, $password, $foto, $tipus,
         $missatge, $privacitat, $idioma, $messages;
