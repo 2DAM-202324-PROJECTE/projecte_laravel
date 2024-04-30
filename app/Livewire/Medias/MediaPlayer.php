@@ -11,10 +11,10 @@ class MediaPlayer extends Component
     public $media;
     public $fileExists = false;
 
+
     public function mount($id)
     {
         $this->media = Media::find($id);
-        // revisar si l'arxiu existeix
         if ($this->media) {
             $this->fileExists = Storage::exists($this->media->path);
         }
@@ -25,13 +25,21 @@ class MediaPlayer extends Component
         return view('livewire.medias.media-player');
     }
 
+    protected $listeners = ['playMedia' => 'openPlayer'];
 
-    public function playMedia()
+    public function openPlayer($mediaId)
     {
-        $mediaPlayerUrl = route('media.player', ['id' => $this->media->id]);
-        $this->dispatchBrowserEvent('openNewWindow', ['url' => $mediaPlayerUrl]);
+        $this->media = Media::find($mediaId);
+        if ($this->media) {
+            $this->fileExists = Storage::exists($this->media->path);
+        }
+
+
     }
 
 
 }
+
+
+
 
