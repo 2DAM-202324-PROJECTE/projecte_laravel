@@ -9,8 +9,6 @@ class MediaModal extends Component
 {
     public $media;
     public $isModalVisible = false;
-    public $modalMediaId;
-
 
     public function mount($mediaId)
     {
@@ -22,24 +20,29 @@ class MediaModal extends Component
         return view('livewire.customer.media-modal');
     }
 
-    public function closeModal()
-    {
-        $this->isModalVisible = false;
-    }
-
-    public function showOrHideModal($mediaId)
-    {
-        $this->isModalVisible = true;
-        $this->modalMediaId = $mediaId;
-    }
-
-
     public function playMedia()
     {
-        $this->dispatchBrowserEvent('playMediaEvent', ['mediaId' => $this->media->id]);
+        return redirect()->to('/media-player/' . $this->media->id);
+        // ('media-player', ['id' => $media->id])
     }
 
+//a index.php
+//    public function cridaSave()
+//    {
+//        return redirect()->to('/medias/save');
+//    }
 
+//a Createorupdatemedias.php
+//    public function save(){
+//        $this->validate();
+//        Media::create($this->only([
+//            'name',
+//            'description',
+//            'path',
+//            'category_id'
+//        ]));
+//        return $this->redirectRoute('medias');
+//    }
 
 }
 
