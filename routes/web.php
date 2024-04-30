@@ -9,12 +9,17 @@ use App\Livewire\Customer\MediaPreview;
 use App\Livewire\Persona\Persones;
 use App\Livewire\SalaMedia\LligarMedia;
 //use App\Livewire\SalaXat\Xat;
-//use App\Livewire\SalaXat\XatInteractiu;
 use App\Livewire\Users\User;
 use App\Livewire\Xats\Createorupdatexats;
 use App\Livewire\Xats\Index;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Medias\MediaPlayer;
+use App\Livewire\Customer\Xatinteractiu;
+use App\Livewire\Customer\Cataleg;
+use App\Livewire\SalaXat\Xat;
+use App\Livewire\Xats\Createorupdatexat;
+use App\Livewire\Xats\IndexXat;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -85,6 +90,11 @@ Route::middleware(['auth'])->group(function () {
 //    Route::get('/xats/{id}', function ($id) {
 //        return view('xats.show', ['id' => $id]);
 //    })->name('xats.show');
+    Route::get('/customer/xatmedia/{id}', function ($id) {
+        return view('customer.xatmedia')->with([
+            'id' => $id,
+        ]);
+    })-> name ('customer.xatmedia');
 
 
 });
