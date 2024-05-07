@@ -98,6 +98,10 @@ Route::middleware(['auth'])->group(function () {
         ]);
     })-> name ('customer.xatmedia');
 
+    Route::get('/homepage', function () {
+        return view('customer.homepage');
+    })-> name ('homepage') ;
+
 
 });
 //Route::middleware(['auth'])->group(function () {
