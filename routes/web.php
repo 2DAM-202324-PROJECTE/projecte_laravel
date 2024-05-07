@@ -4,7 +4,7 @@
 //use App\Livewire\Customer\Cataleg;
 use App\Livewire\Customer\CatalegDocumentals;
 use App\Livewire\Customer\CatalegPelis;
-use App\Livewire\Customer\HomePage;
+use App\Livewire\Customer\Homepage;
 use App\Livewire\Customer\MediaPreview;
 use App\Livewire\Persona\Persones;
 use App\Livewire\SalaMedia\LligarMedia;
@@ -60,6 +60,7 @@ Route::middleware(['auth'])->group(function () {
             'id' => $id,
         ]);
     })-> name ('categories.update') ;
+
     Route::get('/medias', function(){
         return view('medias.index');
     })->name('medias');
@@ -73,6 +74,7 @@ Route::middleware(['auth'])->group(function () {
             'id' => $id,
         ]);
     })-> name ('medias.update') ;
+
     Route::get('/xats', function(){
         return view('xats.index');
     })->name('xats');
@@ -100,6 +102,7 @@ Route::middleware(['auth'])->group(function () {
 });
 //Route::middleware(['auth'])->group(function () {
 //Route::get('/xats', IndexXat::class)->name('xats');
+
 Route::get('/xats', Index::class)->name('xats');
 
 //Route::get('/xats/create', Createorupdatexat::class)->name('xats.create');
@@ -125,6 +128,5 @@ Route::get('/media-preview/{id}', MediaPreview::class)->name('media-preview');
 
 Route::get('/media-player/{id}', MediaPlayer::class)->name('media-player');
 
-Route::get('/homePage', HomePage::class)->name('home.page');
 
 Route::get('/xatinamedia', LligarMedia::class)->name('xatinamedia');
