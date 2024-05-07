@@ -5,7 +5,7 @@ namespace App\Livewire\Customer;
 use App\Models\Media;
 use Livewire\Component;
 
-class HomePage extends Component
+class Homepage extends Component
 {
     public array $pelis = [];
     public array $documentals = [];
@@ -49,7 +49,7 @@ class HomePage extends Component
         $this->documentals();
 
 
-        return view('livewire.customer.home-page', [
+        return view('livewire.customer.homepage', [
             'pelis' => $this->pelis,
             'documentals' => $this->documentals,
         ]);
