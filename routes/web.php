@@ -9,17 +9,12 @@ use App\Livewire\Customer\MediaPreview;
 use App\Livewire\Persona\Persones;
 use App\Livewire\SalaMedia\LligarMedia;
 //use App\Livewire\SalaXat\Xat;
+//use App\Livewire\SalaXat\XatInteractiu;
 use App\Livewire\Users\User;
 use App\Livewire\Xats\Createorupdatexats;
 use App\Livewire\Xats\Index;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Medias\MediaPlayer;
-use App\Livewire\Customer\Xatinteractiu;
-use App\Livewire\Customer\Cataleg;
-use App\Livewire\SalaXat\Xat;
-use App\Livewire\Xats\Createorupdatexat;
-use App\Livewire\Xats\IndexXat;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -74,7 +69,6 @@ Route::middleware(['auth'])->group(function () {
             'id' => $id,
         ]);
     })-> name ('medias.update') ;
-
     Route::get('/xats', function(){
         return view('xats.index');
     })->name('xats');
@@ -102,15 +96,13 @@ Route::middleware(['auth'])->group(function () {
         return view('customer.homepage');
     })-> name ('homepage') ;
 
-
 });
-//Route::middleware(['auth'])->group(function () {
-//Route::get('/xats', IndexXat::class)->name('xats');
+
 
 Route::get('/xats', Index::class)->name('xats');
-
 //Route::get('/xats/create', Createorupdatexat::class)->name('xats.create');
 Route::get('/xats/update/{id}', Createorupdatexats::class)->name('xats.update');
+
 
 //Route::get('/salaxat/xatinteractiu/{query}', XatInteractiu::class)->name('xat');
 
