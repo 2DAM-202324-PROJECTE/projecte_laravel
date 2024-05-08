@@ -12,11 +12,7 @@
                     <input type="text" id="nom" wire:model="nom" class="text-gray-700 text-sm font-bold rounded-md title bg-gray-100 border border-gray-300 p-2 outline-none w-full mb-4" spellcheck="false" placeholder="Introdueix el nom..." required>
                     @error('nom') <span class="text-red-500">{{ $message }}</span> @enderror
                 </div>
-                <div>
-                    <label for="descripcio" class="text-gray-700 text-sm font-bold block mb-2">Descripció:</label>
-                    <textarea id="descripcio" wire:model="descripcio" class="text-gray-700 text-sm font-bold description bg-gray-100 sec p-3 h-60 border border-gray-300 outline-none w-full" spellcheck="false" placeholder="Descriu el xat..." required></textarea>
-                    @error('descripcio') <span class="text-red-500">{{ $message }}</span> @enderror
-                </div>
+
 
                 <div>
                     <label for="idioma" class="text-gray-700 text-sm font-bold block mb-2">Idioma:</label>
