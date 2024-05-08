@@ -23,26 +23,12 @@ class MediaModal extends Component
     public function playMedia()
     {
         return redirect()->to('/media-player/' . $this->media->id);
-        // ('media-player', ['id' => $media->id])
     }
 
-//a index.php
-//    public function cridaSave()
-//    {
-//        return redirect()->to('/medias/save');
-//    }
-
-//a Createorupdatemedias.php
-//    public function save(){
-//        $this->validate();
-//        Media::create($this->only([
-//            'name',
-//            'description',
-//            'path',
-//            'category_id'
-//        ]));
-//        return $this->redirectRoute('medias');
-//    }
+    public function joinChatroom()
+    {
+        return redirect()->to('/join-chatroom/' . $this->media->id);
+    }
 
 }
 
