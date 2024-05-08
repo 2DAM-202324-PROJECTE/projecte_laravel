@@ -3,6 +3,8 @@
 
 //use App\Livewire\Customer\Cataleg;
 use App\Livewire\Customer\CatalegDocumentals;
+use App\Livewire\Customer\Xatlist;
+
 use App\Livewire\Customer\CatalegPelis;
 use App\Livewire\Customer\HomePage;
 use App\Livewire\Customer\MediaPreview;
@@ -95,6 +97,17 @@ Route::middleware(['auth'])->group(function () {
             'id' => $id,
         ]);
     })-> name ('customer.xatmedia');
+
+
+    Route::get('/customer/createuserxat/{id}', function ($id) {
+        return view('customer.createuserxat', ['id' => $id]);
+    })->name('customer.createuserxat');
+
+
+
+
+
+
 
 
 });
