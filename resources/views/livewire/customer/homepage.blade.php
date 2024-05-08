@@ -396,24 +396,23 @@
             </div>
         </div>
         <div class="flex justify-center items-center mt-32 pb-48">
-            <div class="border border-gray-600 px-12 mx-6 rounded-md">
+            <div class="border border-gray-600 px-12 mx-20 rounded-md">
                 <p class="text-white text-center p-4 font-semibold tracking-widest text-xl mb-12">SALES DE CHATS MÉS RECENTS</p>
                 <div class="grid grid-cols-1 justify-center">
-                    <livewire:customer.xatlist :media_id="1" />
-{{--                    @foreach(array_slice($pelis, 0, 4) as $peli)--}}
-{{--                        <div class=" mb-8 bg-gray-100 flex gap-x-50 p-2 hover:bg-gray-800 grid-rows rounded-lg relative">--}}
-{{--                            <p class="text-gray-600 mt-16 justify-start text-lg">{{$peli->name}}</p>--}}
-{{--                            <p class="text-center text-sm absolute bottom-2 mt-2 left-2 hover:text-gray-200 flex">x persones</p>--}}
-{{--                            <div class="absolute top-0 right-0 ml-2 mb-2">--}}
-{{--                                <div class="h-6 w-6 bg-green-500 rounded-full animate-pulse"></div>--}}
-{{--                            </div>--}}
-{{--                            <button style="outline: none">--}}
-{{--                                <div style="outline: none" class="flex justify-end">--}}
-{{--                                    <img class="justify-end p-2 h-auto w-2/12" src="{{ $peli->image_uri }}" alt="{{$peli->name}}" wire:click="showOrHideModal({{ $peli['id'] }})">--}}
-{{--                                </div>--}}
-{{--                            </button>--}}
-{{--                        </div>--}}
-{{--                    @endforeach--}}
+                    @foreach(array_slice($xats, 0, 4) as $xat)
+                        <a href="{{ route('customer.xatmedia', ['id' => $xat->id]) }}" style="outline: none; text-decoration: none;">
+                            <div class="mb-8 bg-gray-100 flex gap-x-50 p-2 hover:bg-gray-800 grid-rows-2 rounded-lg relative">
+                                <p class="text-gray-600 mt-8 justify-start text-lg">{{$xat->nom}}</p>
+                                <p class="text-center text-sm absolute bottom-2 mt-2 left-2 hover:text-gray-200 flex">x persones</p>
+                                <div class="absolute top-0 right-0 mb-2">
+                                    <div class="h-6 w-6 absolute bg-green-500 rounded-full animate-pulse"></div>
+                                </div>
+                                <div style="outline: none" class="flex justify-end">
+                                    <img class="justify-end h-auto w-2/5 sm:w-2/5 md:w-2/6 lg:w-2/12" src="https://previews.123rf.com/images/bahtiarmaulana/bahtiarmaulana2204/bahtiarmaulana220400040/185159316-rebanada-de-dibujos-animados-de-pizza-ilustraci%C3%B3n-de-dibujos-animados-vectoriales-im%C3%A1genes.jpg">
+                                </div>
+                            </div>
+                        </a>
+                    @endforeach
                 </div>
             </div>
         </div>
