@@ -52,7 +52,7 @@
             display: inline-block;
         }
         #titol{
-            font-size: 5rem;
+            font-size: 3rem;
             line-height: 80%;
             transform: rotateX(0) rotateY(-25deg);
             text-transform: uppercase;
@@ -233,31 +233,42 @@
                 transform: translateY(0px);
             }
         }
+
+        /* Media Query para pantallas pequeñas */
+        @media (max-width: 1080px) {
+            #iconos {
+                flex-wrap: wrap; /* Permite que los elementos se envuelvan en varias líneas */
+            }
+
+            #iconos > div {
+                /* Ancho del 50% menos el espaciado entre elementos */
+                margin: 0.5rem; /* Espacio entre los elementos */
+            }
+        }
     </style>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
     <link rel="stylesheet" href="/resources/css/customer/home-page.css">
     <div class="pb-32 ">
-        <div class="px-10 shadow-xl py-16" >
+        <div class="px-10 shadow-xl py-12" >
             <h2 id="titol" class="mb-4">HOME PAGE</h2>
-            <p class="text-white ml-10 mt-6 text-2xl font-semibold" style="font-family: 'Kanit', serif; color: #D6EAF8">HOLA JOSEPITA NOSE</p>
+            <p class="text-white ml-6 mt-6 text-xl font-semibold" style="font-family: 'Kanit', serif; color: #D6EAF8">HOLA JOSEPITA NOSE</p>
         </div>
         <div class="mx-12 flex flex-row justify-between pb-20 pt-16 mt-12">
-            <p class="text-start text-white text-3xl mr-4 tracking-wider font-semibold">NOVETATS AFEGIDES!</p>
-            <div class="flex justify-end gap-x-20 sm:mr-12 md:mr-28 lg:mr-64">
-                <button class="text-end font-semibold tracking-wide text-2xl bubbly-button" style="color: #FF297D" onclick="togglePelisContainer()">PEL·LÍCULES</button>
-                <button class="text-end font-semibold tracking-wide text-2xl bubbly-button" style="color: #FF297D" onclick="toggleDocumentalsContainer()">DOCUMENTALS</button> <!-- Modificado -->
+            <p class="text-start text-white text-xl mr-4 tracking-wider font-semibold">NOVETATS AFEGIDES!</p>
+            <div class="flex justify-end md:ml-32 md:gap-x-20 gap-x-12 sm:ml-4 sm:mr-12 lg:mr-32 md:mr-28">
+                <button class="text-end font-semibold tracking-wide text-md bubbly-button" style="color: #FF297D" onclick="togglePelisContainer()">PEL·LÍCULES</button>
+                <button class="text-end font-semibold tracking-wide text-md bubbly-button" style="color: #FF297D" onclick="toggleDocumentalsContainer()">DOCUMENTALS</button> <!-- Modificado -->
             </div>
         </div>
-        <div id="pelisContainer" class="mt-12 px-4 overflow-hidden flex rounded-lg sm:px-12 lg:px-6 py-4 mb-40 sm:mx-24 md:mx-40">
+        <div id="pelisContainer" class="mt-12 px-4 overflow-hidden flex rounded-lg sm:px-12 lg:px-6 py-4 mb-20 sm:mx-24 md:mx-40">
             @foreach($pelis as $peli)
-                <div class="movie flex-shrink-0 p-4 md:p-2 border border-gray-800 rounded-lg bg-gray-800 text-center">
+                <div class="movie flex-shrink-0 p-4 md:p-2 border border-gray-800 rounded-md bg-gray-800 text-center">
                     <button wire:click="showOrHideModal({{ $peli['id'] }})">
                         <div class="flex justify-center items-center h-full"> <!-- Agregamos un contenedor flexbox para centrar verticalmente -->
-                            <img class="rounded-lg shadow-lg max-h-170" src="{{ $peli['image_uri'] }}" alt="{{ $peli['name'] }}" /> <!-- Ajusta el tamaño máximo de la imagen aquí -->
+                            <img class="rounded-md shadow-lg max-h-170" src="{{ $peli['image_uri'] }}" alt="{{ $peli['name'] }}" /> <!-- Ajusta el tamaño máximo de la imagen aquí -->
                         </div>
                     </button>
-                    <p class="text-lg flex justify-center mt-2 text-gray-200 font-medium movie-name" style="font-family: 'Biryani', sans-serif;">{{ $peli['name'] }}</p>
+                    <p class="text-sm flex justify-center mt-2 text-gray-200 font-medium movie-name" style="font-family: 'Biryani', sans-serif;">{{ $peli['name'] }}</p>
                 </div>
             @endforeach
             @if($isModalVisible)
@@ -267,13 +278,13 @@
 
         <div id="documentalsContainer" class="mt-12 px-4 overflow-hidden flex rounded-lg sm:px-12 lg:px-6 py-4 mb-40 sm:mx-24 md:mx-40">
             @foreach($documentals as $documental)
-                <div class="documental flex-shrink-0 p-4 md:p-2 border border-gray-800 rounded-lg bg-gray-800 text-center">
+                <div class="documental flex-shrink-0 p-4 md:p-2 border border-gray-800 rounded-md bg-gray-800 text-center">
                     <button wire:click="showOrHideModal({{ $documental['id'] }})">
                         <div class="flex justify-center items-center h-full"> <!-- Agregamos un contenedor flexbox para centrar verticalmente -->
-                            <img class="rounded-lg shadow-lg max-h-170" src="{{ $documental['image_uri'] }}" alt="{{ $documental['name'] }}" /> <!-- Ajusta el tamaño máximo de la imagen aquí -->
+                            <img class="rounded-md shadow-lg max-h-170" src="{{ $documental['image_uri'] }}" alt="{{ $documental['name'] }}" /> <!-- Ajusta el tamaño máximo de la imagen aquí -->
                         </div>
                     </button>
-                    <p class="text-lg flex justify-center mt-2 text-gray-200 font-medium documental-name" style="font-family: 'Biryani', sans-serif;">{{ $documental['name'] }}</p>
+                    <p class="text-sm flex justify-center mt-2 text-gray-200 font-medium documental-name" style="font-family: 'Biryani', sans-serif;">{{ $documental['name'] }}</p>
                 </div>
             @endforeach
             @if($isModalVisible)
@@ -281,9 +292,9 @@
             @endif
         </div>
 
-        <div id="iconos" class="mt-48 flex justify-center grid-rows gap-x-56 mx-12 items-center pb-32">
+        <div id="iconos" class="mt-24 flex justify-center gap-x-56 mx-12 items-center pb-12">
             <div class="border btn btn-white btn-animated rounded-full flex justify-center items-center" style="background: #F9F9F9">
-                <svg class="my-2 px-6 py-4" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" width="80" height="72"  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+                <svg class=" px-6 py-4" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" width="90" height="90"  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
                     <g>
                         <g>
                             <g>
@@ -323,7 +334,7 @@
             </div>
             <a href="{{ route('catalegPelis') }}">
                 <div class="border btn btn-white btn-animated rounded-full" style="background: #F9F9F9">
-                    <svg class="my-2 px-6 py-4" xmlns="http://www.w3.org/2000/svg" width="80" height="72" viewBox="0 0 24 24">
+                    <svg class="my-2 px-4 py-4" xmlns="http://www.w3.org/2000/svg" width="90" height="70" viewBox="0 0 24 24">
                         <title>movie-film-1</title>
                         <g id="Duotone">
                             <polygon points="20.5 18 10.5 23.5 0.5 18 0.5 7 10.5 1.5 20.5 7 20.5 18" fill="#fff"></polygon>
@@ -346,7 +357,7 @@
             </a>
             <a href="https://2dam-202324-projecte.github.io/ProjecteTeamFlick/index.html">
                 <div class="border btn btn-white btn-animated rounded-full" style="background: #F9F9F9">
-                    <svg class="my-2 px-6 py-4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="72" viewBox="0 0 64.142 63.929">
+                    <svg class="my-2 py-4 px-4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="90" height="70" viewBox="0 0 64.142 63.929">
                         <defs>
                             <clipPath id="clip-path">
                                 <path id="Rectangle_127" data-name="Rectangle 127" d="M0,24.008,24,0,48,24.008V52H0Z" fill="#ecf0f1"></path>
@@ -370,7 +381,7 @@
                 </div>
             </a>
             <div class="border btn btn-white btn-animated rounded-full" style="background: #F9F9F9">
-                <svg class="my-2  px-6 py-4" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" width="80" height="72" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                <svg class="my-2 py-4 px-4" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" width="90" height="70" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
                     <style type="text/css">
                         .st0{fill:#607D8B;}
                         .st1{fill:#ECEFF1;}
@@ -386,22 +397,23 @@
         </div>
         <div class="flex justify-center items-center mt-32 pb-48">
             <div class="border border-gray-600 px-12 mx-6 rounded-md">
-                <p class="text-white text-center p-4 font-semibold tracking-widest text-2xl mb-12">SALES DE CHATS MÉS RECENTS</p>
+                <p class="text-white text-center p-4 font-semibold tracking-widest text-xl mb-12">SALES DE CHATS MÉS RECENTS</p>
                 <div class="grid grid-cols-1 justify-center">
-                    @foreach(array_slice($pelis, 0, 4) as $peli)
-                        <div class=" mb-8 bg-gray-100 flex gap-x-50 p-6 hover:bg-gray-800 grid-rows rounded-lg relative">
-                            <p class="text-gray-600 mt-16 justify-start text-2xl">{{$peli->name}}</p>
-                            <p class="text-center absolute bottom-2 left-2 hover:text-gray-200 flex">x persones</p>
-                            <div class="absolute top-0 right-0 ml-2 mb-2">
-                                <div class="h-6 w-6 bg-green-500 rounded-full animate-pulse"></div>
-                            </div>
-                            <button style="outline: none">
-                                <div style="outline: none" class="flex justify-end">
-                                    <img class="rounded-lg justify-end p-2 h-auto w-2/12" src="{{ $peli->image_uri }}" alt="{{$peli->name}}" wire:click="showOrHideModal({{ $peli['id'] }})">
-                                </div>
-                            </button>
-                        </div>
-                    @endforeach
+                    <livewire:customer.xatlist :media_id="1" />
+{{--                    @foreach(array_slice($pelis, 0, 4) as $peli)--}}
+{{--                        <div class=" mb-8 bg-gray-100 flex gap-x-50 p-2 hover:bg-gray-800 grid-rows rounded-lg relative">--}}
+{{--                            <p class="text-gray-600 mt-16 justify-start text-lg">{{$peli->name}}</p>--}}
+{{--                            <p class="text-center text-sm absolute bottom-2 mt-2 left-2 hover:text-gray-200 flex">x persones</p>--}}
+{{--                            <div class="absolute top-0 right-0 ml-2 mb-2">--}}
+{{--                                <div class="h-6 w-6 bg-green-500 rounded-full animate-pulse"></div>--}}
+{{--                            </div>--}}
+{{--                            <button style="outline: none">--}}
+{{--                                <div style="outline: none" class="flex justify-end">--}}
+{{--                                    <img class="justify-end p-2 h-auto w-2/12" src="{{ $peli->image_uri }}" alt="{{$peli->name}}" wire:click="showOrHideModal({{ $peli['id'] }})">--}}
+{{--                                </div>--}}
+{{--                            </button>--}}
+{{--                        </div>--}}
+{{--                    @endforeach--}}
                 </div>
             </div>
         </div>
