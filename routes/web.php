@@ -149,3 +149,12 @@ Route::get('/join-chat/{id}', function ($id) {
 })-> name ('join-chat') ;
 
 
+// Ruta per a hostejar un xat des del botó host chatroom al modal
+Route::get('/createuserxat/{id}', function ($id) {
+    return view('customer.createuserxat')->with([
+        'id' => $id,
+    ]);
+})-> name ('createuserxat') ;
+
+
+

@@ -30,6 +30,11 @@ class MediaModal extends Component
         return redirect()->to('/join-chat/' . $this->media->id);
     }
 
+    public function hostChatroom()
+    {
+        return redirect()->to('/createuserxat/' . $this->media->id);
+    }
+
 }
 
 
