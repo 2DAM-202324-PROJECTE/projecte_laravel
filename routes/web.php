@@ -3,23 +3,20 @@
 
 //use App\Livewire\Customer\Cataleg;
 use App\Livewire\Customer\CatalegDocumentals;
+use App\Livewire\Customer\Xatlist;
+
 use App\Livewire\Customer\CatalegPelis;
-use App\Livewire\Customer\HomePage;
+use App\Livewire\Customer\Homepage;
 use App\Livewire\Customer\MediaPreview;
 use App\Livewire\Persona\Persones;
 use App\Livewire\SalaMedia\LligarMedia;
 //use App\Livewire\SalaXat\Xat;
+//use App\Livewire\SalaXat\XatInteractiu;
 use App\Livewire\Users\User;
 use App\Livewire\Xats\Createorupdatexats;
 use App\Livewire\Xats\Index;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Medias\MediaPlayer;
-use App\Livewire\Customer\Xatinteractiu;
-use App\Livewire\Customer\Cataleg;
-use App\Livewire\SalaXat\Xat;
-use App\Livewire\Xats\Createorupdatexat;
-use App\Livewire\Xats\IndexXat;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +57,7 @@ Route::middleware(['auth'])->group(function () {
             'id' => $id,
         ]);
     })-> name ('categories.update') ;
+
     Route::get('/medias', function(){
         return view('medias.index');
     })->name('medias');
@@ -96,14 +94,28 @@ Route::middleware(['auth'])->group(function () {
         ]);
     })-> name ('customer.xatmedia');
 
+    Route::get('/homepage', function () {
+        return view('customer.homepage');
+    })-> name ('homepage') ;
+
+    Route::get('/customer/createuserxat/{id}', function ($id) {
+        return view('customer.createuserxat', ['id' => $id]);
+    })->name('customer.createuserxat');
+
+
+
+
+
+
+
 
 });
-//Route::middleware(['auth'])->group(function () {
-//Route::get('/xats', IndexXat::class)->name('xats');
-Route::get('/xats', Index::class)->name('xats');
 
+
+Route::get('/xats', Index::class)->name('xats');
 //Route::get('/xats/create', Createorupdatexat::class)->name('xats.create');
 Route::get('/xats/update/{id}', Createorupdatexats::class)->name('xats.update');
+
 
 //Route::get('/salaxat/xatinteractiu/{query}', XatInteractiu::class)->name('xat');
 
@@ -125,6 +137,5 @@ Route::get('/media-preview/{id}', MediaPreview::class)->name('media-preview');
 
 Route::get('/media-player/{id}', MediaPlayer::class)->name('media-player');
 
-Route::get('/homePage', HomePage::class)->name('home.page');
 
 Route::get('/xatinamedia', LligarMedia::class)->name('xatinamedia');
