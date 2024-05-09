@@ -126,3 +126,13 @@ Route::get('/media-player/{id}', MediaPlayer::class)->name('media-player');
 
 
 Route::get('/xatinamedia', LligarMedia::class)->name('xatinamedia');
+
+
+// Ruta per a veure la llista de xats des del botó join chatroom al modal
+Route::get('/join-chat/{id}', function ($id) {
+    return view('customer.join-chat')->with([
+        'id' => $id,
+    ]);
+})-> name ('join-chat') ;
+
+

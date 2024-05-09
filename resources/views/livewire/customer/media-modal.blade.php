@@ -29,11 +29,13 @@
                     </div>
                 </div>z
                 <div class="px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse" style="background: #907761">
+                    <!-- Close button -->
                     <button type="button"
                             class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-800 text-base font-medium text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm"
                             wire:click="$dispatch('closeModal')">
                         Close
                     </button>
+                    <!-- Favorite button -->
                     <button type="button"
                             class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-yellow-600 text-base font-medium text-white hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm"
                             wire:click="$dispatch('favouriteMedia')">
@@ -45,11 +47,13 @@
                         </svg>
                         Favorite
                     </button>
+                    <!-- Host chatroom button -->
                     <button type="button"
                             class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-gray-700 text-base font-medium text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm"
                             wire:click="hostChatroom">
                         Host Chatroom
                     </button>
+                    <!-- Join Chatroom button -->
                     <button type="button"
                             class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-gray-700 text-base font-medium text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm"
                             wire:click="joinChatroom">

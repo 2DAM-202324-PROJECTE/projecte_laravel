@@ -27,7 +27,7 @@ class MediaModal extends Component
 
     public function joinChatroom()
     {
-        return redirect()->to('/join-chatroom/' . $this->media->id);
+        return redirect()->to('/join-chat/' . $this->media->id);
     }
 
 }
