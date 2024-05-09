@@ -79,16 +79,16 @@
                 <div>
                     <ul>
                         <li class="mb-1">
-                            <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Sales de xat</a>
+                            <a href="#" class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded">Sales de xat</a>
                         </li>
                         <li class="mb-1">
-                            <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Home</a>
+                            <a href="{{ route('homepage') }}" class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded">Home</a>
                         </li>
                         <li class="mb-1">
-                            <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Catàleg pel·lícules</a>
+                            <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="{{ route('catalegPelis') }}">Catàleg pel·lícules</a>
                         </li>
                         <li class="mb-1">
-                            <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Catàleg documentals</a>
+                            <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="{{ route('catalegDocumentals') }}">Catàleg documentals</a>
                         </li>
                     </ul>
                 </div>
