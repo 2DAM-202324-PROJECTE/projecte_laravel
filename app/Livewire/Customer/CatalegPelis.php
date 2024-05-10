@@ -43,7 +43,7 @@ class CatalegPelis extends Component
 
         $pelis = $pelis->get();
 
-        return view('livewire.customer.cataleg-pelis', [
+        return view('livewire.customer.catalegpelis', [
             'pelis' => $pelis,
             'search' => $searchTerm,
         ]);

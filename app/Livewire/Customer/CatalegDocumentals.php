@@ -39,7 +39,7 @@ class CatalegDocumentals extends Component
         }
 
 
-        return view('livewire.customer.cataleg-documentals', [
+        return view('livewire.customer.catalegdocumentals', [
             'documentals' => $documentals,
             'search' => $searchTerm,
         ]);
