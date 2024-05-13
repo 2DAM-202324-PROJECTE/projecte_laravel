@@ -2,6 +2,7 @@
 
 
 //use App\Livewire\Customer\Cataleg;
+use App\Http\Controllers\AdminUsersController;
 use App\Livewire\Customer\CatalegDocumentals;
 use App\Livewire\Customer\Xatlist;
 
@@ -102,12 +103,23 @@ Route::middleware(['auth'])->group(function () {
         return view('customer.createuserxat', ['id' => $id]);
     })->name('customer.createuserxat');
 
+    // Ruta para la lista de usuarios
+    Route::get('admin/users', [AdminUsersController::class, 'index'])->name('admin.users.index');
+
+// Ruta para crear un nuevo usuario
+    Route::get('admin/users/create', [AdminUsersController::class, 'create'])->name('create');
+
+    Route::get('admin/users/update/{id}', [AdminUsersController::class, 'update'])->name('update');
+
+    Route::get('admin/users/delete/{id}', [AdminUsersController::class, 'delete'])->name('delete');
+
+    Route::post('admin/users/store', [AdminUsersController::class, 'store'])->name('admin.users.store');
 
 
 
 
 
-
+    //Route::resource('admin/users', 'AdminUsersController');
 
 });
 
