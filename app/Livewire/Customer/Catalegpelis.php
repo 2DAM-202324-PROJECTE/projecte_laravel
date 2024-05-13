@@ -7,7 +7,7 @@ use App\Models\Media;
 use Illuminate\Http\Request;
 use Livewire\Component;
 
-class CatalegPelis extends Component
+class Catalegpelis extends Component
 {
     public array $pelis = [];
 

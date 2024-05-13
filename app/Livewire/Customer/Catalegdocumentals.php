@@ -7,7 +7,7 @@ use App\Models\Media;
 use Illuminate\Http\Request;
 use Livewire\Component;
 
-class CatalegDocumentals extends Component
+class Catalegdocumentals extends Component
 {
     public array $documentals = [];
     public $search;
