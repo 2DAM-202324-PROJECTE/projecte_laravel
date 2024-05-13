@@ -7,7 +7,7 @@ use App\Models\Media;
 use Illuminate\Http\Request;
 use Livewire\Component;
 
-class CatalegPelis extends Component
+class Catalegpelis extends Component
 {
     public array $pelis = [];
 
@@ -43,7 +43,7 @@ class CatalegPelis extends Component
 
         $pelis = $pelis->get();
 
-        return view('livewire.customer.cataleg-pelis', [
+        return view('livewire.customer.catalegpelis', [
             'pelis' => $pelis,
             'search' => $searchTerm,
         ]);

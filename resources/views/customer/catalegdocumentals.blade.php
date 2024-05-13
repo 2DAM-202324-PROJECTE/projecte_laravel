@@ -1,5 +1,5 @@
 <x-customer-layout>
     <div class="">
-        <x-customer.homepage/>
+        <x-customer.catalegdocumentals/>
     </div>
 </x-customer-layout>
