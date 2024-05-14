@@ -16,6 +16,6 @@ class MediaPreview extends Component
 
     public function render()
     {
-        return view('livewire.customer.media-preview');
+        return view('livewire.customer.medias-preview');
     }
 }

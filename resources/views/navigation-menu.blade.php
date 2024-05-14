@@ -18,6 +18,12 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('homepage') }}"
+                                :active="request()->routeIs('homepage*')">
+                        {{ __('Homepage') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('categories') }}"
                                 :active="request()->routeIs('categories*')">
                         {{ __('Categories') }}

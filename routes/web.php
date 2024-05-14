@@ -1,7 +1,7 @@
 <?php
 
 
-//use App\Livewire\Customer\Cataleg;
+//use App\Livewire\Index\Cataleg;
 use App\Livewire\Customer\CatalegDocumentals;
 use App\Livewire\Customer\Xatlist;
 
@@ -71,6 +71,7 @@ Route::middleware(['auth'])->group(function () {
             'id' => $id,
         ]);
     })-> name ('medias.update') ;
+
     Route::get('/xats', function(){
         return view('xats.index');
     })->name('xats');
@@ -85,9 +86,11 @@ Route::middleware(['auth'])->group(function () {
         ]);
     })-> name ('xats.update') ;
 
+
 //    Route::get('/xats/{id}', function ($id) {
 //        return view('xats.show', ['id' => $id]);
 //    })->name('xats.show');
+
     Route::get('/customer/xatmedia/{id}', function ($id) {
         return view('customer.xatmedia')->with([
             'id' => $id,
@@ -102,7 +105,9 @@ Route::middleware(['auth'])->group(function () {
         return view('customer.createuserxat', ['id' => $id]);
     })->name('customer.createuserxat');
 
-
+    Route::get('/customer', function () {
+        return view('customer.index');
+    })-> name ('customer') ;
 
 
 
@@ -111,8 +116,7 @@ Route::middleware(['auth'])->group(function () {
 
 });
 
-
-Route::get('/xats', Index::class)->name('xats');
+//Route::get('/xats', Index::class)->name('xats');
 //Route::get('/xats/create', Createorupdatexat::class)->name('xats.create');
 Route::get('/xats/update/{id}', Createorupdatexats::class)->name('xats.update');
 
@@ -130,12 +134,12 @@ Route::get('/catalegPelis', CatalegPelis::class)->name('catalegPelis');
 Route::get('/catalegDocumentals', CatalegDocumentals::class)->name('catalegDocumentals');
 
 
-Route::get('/media-preview/{id}', MediaPreview::class)->name('media-preview');
+Route::get('/medias-preview/{id}', MediaPreview::class)->name('medias-preview');
 
 
-Route::get('/media-preview/{id}', MediaPreview::class)->name('media-preview');
+Route::get('/medias-preview/{id}', MediaPreview::class)->name('medias-preview');
 
-Route::get('/media-player/{id}', MediaPlayer::class)->name('media-player');
+Route::get('/medias-player/{id}', MediaPlayer::class)->name('medias-player');
 
 
 Route::get('/xatinamedia', LligarMedia::class)->name('xatinamedia');

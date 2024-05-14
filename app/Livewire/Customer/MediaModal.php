@@ -17,12 +17,12 @@ class MediaModal extends Component
 
     public function render()
     {
-        return view('livewire.customer.media-modal');
+        return view('livewire.customer.medias-modal');
     }
 
     public function playMedia()
     {
-        return redirect()->to('/media-player/' . $this->media->id);
+        return redirect()->to('/medias-player/' . $this->media->id);
     }
 
     public function joinChatroom()

@@ -114,7 +114,7 @@
                             </button>
                         </td>
                         <td class="border-dashed border-t border-gray-200">
-                            <a href="{{ route('media-player', ['id' => $media->id]) }}"
+                            <a href="{{ route('medias-player', ['id' => $media->id]) }}"
                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                                 Play
                             </a>

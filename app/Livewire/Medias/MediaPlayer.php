@@ -22,7 +22,7 @@ class MediaPlayer extends Component
 
     public function render()
     {
-        return view('livewire.medias.media-player');
+        return view('livewire.medias.medias-player');
     }
 
     protected $listeners = ['playMedia' => 'openPlayer'];

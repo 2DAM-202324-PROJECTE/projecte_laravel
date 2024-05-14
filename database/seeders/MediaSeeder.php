@@ -18,23 +18,23 @@ class MediaSeeder extends Seeder
         for ($i = 1; $i <= 40; $i++) {
             Media::create([
                 'name' => "Test Media $i",
-                'description' => "This is a test media $i.",
+                'description' => "This is a test medias $i.",
                 'path' => "test_media_$i.mp4",
                 'category_id' => $categoryId,
                 'image_uri' => "hhh.jpg",
                 'thumbnail_uri' => "hhh.jpg",
-                'duration' => 60 * $i, // Duration increases by 60 seconds for each media
+                'duration' => 60 * $i, // Duration increases by 60 seconds for each medias
             ]);
         }
         for ($i = 1; $i <= 20; $i++) {
             Media::create([
                 'name' => "Test $i",
-                'description' => "This is a test media $i.",
+                'description' => "This is a test medias $i.",
                 'path' => "test_media_$i.mp4",
                 'category_id' => 2,
                 'image_uri' => "aaa.jpg",
                 'thumbnail_uri' => "aaa.jpg",
-                'duration' => 60 * $i, // Duration increases by 60 seconds for each media
+                'duration' => 60 * $i, // Duration increases by 60 seconds for each medias
             ]);
         }
     }

@@ -60,7 +60,7 @@ class IndexTest extends TestCase
         $this->assertEquals(5,Media::count());
         Livewire::test(Index::class)
             ->call('delete', 6)
-            ->assertSee('Can not find the media to be deleted');
+            ->assertSee('Can not find the medias to be deleted');
     }
 
 }

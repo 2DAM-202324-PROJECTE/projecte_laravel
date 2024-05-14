@@ -69,7 +69,7 @@ class Createorupdatemedias extends Component
             try {
                 $this->setMedia($id);
             } catch (ModelNotFoundException $e) {
-                session()->flash('message-danger', 'Can not find the media to be updated');
+                session()->flash('message-danger', 'Can not find the medias to be updated');
             }
         } else {
             $this->isCreation = true;

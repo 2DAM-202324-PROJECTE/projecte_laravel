@@ -23,8 +23,8 @@ class Createorupdatexats extends Component
         'descripcio' => 'required|string',
         'creador_id' => 'required|exists:users,id',
         'url' => 'url',
-        //'media' => 'required|exists:media,id', // Canmbiem de media a media_id
-        'media_id' => 'required|exists:media,id',
+        //'medias' => 'required|exists:medias,id', // Canmbiem de medias a media_id
+        'media_id' => 'required|exists:medias,id',
 
     ];
 
