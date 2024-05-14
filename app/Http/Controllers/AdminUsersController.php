@@ -32,22 +32,26 @@ class AdminUsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $entrada = $request->all(); // Recoger todos los datos del formulario
 
-          $entrada = $request->all();
+        // Procesar la carga de la foto si existe en el formulario
+        if ($archivo = $request->file('foto_id')) {
+            $nombre = $archivo->getClientOriginalName(); // Obtener el nombre original del archivo
+            $archivo->move('images', $nombre); // Mover el archivo a la carpeta 'images'
 
-            if($archivo = $request->file('ruta')){
-                $nombre = $archivo->getClientOriginalName();
-                $archivo->move('images', $nombre);
-                $foto = Foto::create(['ruta'=>$nombre]);
-                $entrada['ruta'] = $foto->id;
+            // Crear una entrada en la tabla de fotos y guardar la referencia
+            $foto = Foto::create(['ruta' => $nombre]);
+            $entrada['foto_id'] = $foto->id; // Guardar el ID de la foto en el array de entrada
+        }
 
-            }else{
-                User::created($entrada);
-            }
+        // Cifrar la contraseña antes de guardarla en la base de datos
+        $entrada['password'] = bcrypt($request->password);
 
-//        User::create( $request->all());
- return redirect()->route('admin.users.index');
+        // Crear el usuario con todos los datos de entrada (incluido el ID de la foto si está presente)
+        User::create($entrada);
+
+        // Redirigir al usuario al índice de usuarios después de crear el usuario
+        return redirect()->route('admin.users.index');
     }
 
     /**

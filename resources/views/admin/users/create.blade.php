@@ -21,8 +21,8 @@
         <td>{!! Form::text('role_id', null, ['class' => 'form-control']) !!}</td>
     </tr>
     <tr>
-        <td>{!! Form::label('foto', 'Foto: ') !!}</td>
-        <td>{!! Form::file('ruta', null, ['class' => 'form-control']) !!}</td>
+        <td>{!! Form::label('foto_id', 'Foto: ') !!}</td>
+        <td>{!! Form::file('foto_id', null, ['class' => 'form-control']) !!}</td>
     </tr>
     <tr>
         <td>{!! Form::submit('Crear usuario', ['class' => 'btn btn-primary']) !!}</td>
