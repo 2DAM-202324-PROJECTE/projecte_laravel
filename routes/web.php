@@ -4,6 +4,8 @@
 //use App\Livewire\Customer\Cataleg;
 use App\Http\Controllers\AdminUsersController;
 use App\Livewire\Customer\CatalegDocumentals;
+use App\Livewire\Customer\Llistatxats;
+use App\Livewire\Customer\Llistaxats;
 use App\Livewire\Customer\Xatlist;
 
 use App\Livewire\Customer\CatalegPelis;
@@ -145,6 +147,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/xatinamedia', LligarMedia::class)->name('xatinamedia');
 
+    Route::get('/llistaxats', Llistaxats::class)->name('llistaxats');
 
     // Ruta per a veure la llista de xats des del botó join chatroom al modal
     Route::get('/join-chat/{id}', function ($id) {
