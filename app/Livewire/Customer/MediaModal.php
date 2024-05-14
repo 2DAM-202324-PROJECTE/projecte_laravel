@@ -9,8 +9,6 @@ class MediaModal extends Component
 {
     public $media;
     public $isModalVisible = false;
-    public $modalMediaId;
-
 
     public function mount($mediaId)
     {
@@ -22,24 +20,20 @@ class MediaModal extends Component
         return view('livewire.customer.media-modal');
     }
 
-    public function closeModal()
-    {
-        $this->isModalVisible = false;
-    }
-
-    public function showOrHideModal($mediaId)
-    {
-        $this->isModalVisible = true;
-        $this->modalMediaId = $mediaId;
-    }
-
-
     public function playMedia()
     {
-        $this->dispatchBrowserEvent('playMediaEvent', ['mediaId' => $this->media->id]);
+        return redirect()->to('/media-player/' . $this->media->id);
     }
 
+    public function joinChatroom()
+    {
+        return redirect()->to('/join-chat/' . $this->media->id);
+    }
 
+    public function hostChatroom()
+    {
+        return redirect()->to('/createuserxat/' . $this->media->id);
+    }
 
 }
 
