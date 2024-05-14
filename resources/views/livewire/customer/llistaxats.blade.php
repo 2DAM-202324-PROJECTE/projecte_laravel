@@ -35,6 +35,7 @@
         </style>
         <div class=" mt-6">
             <h1 class="text-white text-center text-xl">SALES DE XAT DISPONIBLES</h1>
+            <h3 class="text-white text-end text-base mr-2">Les meves sales de xat</h3>
         </div>
         <div class="mb-12 ">
             <button class="btn first">
