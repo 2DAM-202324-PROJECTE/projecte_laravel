@@ -7,7 +7,7 @@ use App\Models\Media;
 use Illuminate\Http\Request;
 use Livewire\Component;
 
-class CatalegDocumentals extends Component
+class Catalegdocumentals extends Component
 {
     public array $documentals = [];
     public $search;
@@ -39,7 +39,7 @@ class CatalegDocumentals extends Component
         }
 
 
-        return view('livewire.customer.cataleg-documentals', [
+        return view('livewire.customer.catalegdocumentals', [
             'documentals' => $documentals,
             'search' => $searchTerm,
         ]);

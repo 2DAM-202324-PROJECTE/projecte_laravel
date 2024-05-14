@@ -1,5 +1,5 @@
 <div>
-    <div>
+    <div class="p-4 bg-gray-100 ">
         <p>Total de xats relacionats amb aquest vídeo: {{ $xatsCount }}</p>
     </div>
 

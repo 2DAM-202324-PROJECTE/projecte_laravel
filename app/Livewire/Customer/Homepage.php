@@ -3,12 +3,14 @@
 namespace App\Livewire\Customer;
 
 use App\Models\Media;
+use App\Models\Xat;
 use Livewire\Component;
 
-class HomePage extends Component
+class Homepage extends Component
 {
     public array $pelis = [];
     public array $documentals = [];
+    public array $xats = [];
 
     public $isModalVisible = false;
     public $modalMediaId;
@@ -43,15 +45,27 @@ class HomePage extends Component
         return $pelis;
     }
 
+    public function xats()
+    {
+        $this->xats = [];
+        $xats = Xat::orderBy('id', 'desc')->get();
+        foreach ($xats as $xat) {
+            $this->xats[] = $xat;
+        }
+        return $this->xats;
+    }
+
     public function render()
     {
         $this->peliNoves();
         $this->documentals();
+        $this->xats();
 
 
-        return view('livewire.customer.home-page', [
+        return view('livewire.customer.homepage', [
             'pelis' => $this->pelis,
             'documentals' => $this->documentals,
+            'xats' => $this->xats,
         ]);
     }
     public function showOrHideModal($mediaId)
