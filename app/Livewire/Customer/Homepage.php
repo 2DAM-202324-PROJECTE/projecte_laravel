@@ -48,14 +48,14 @@ class Homepage extends Component
     public function xats()
     {
         $this->xats = [];
-        $xats = Xat::all();
+        $xats = Xat::orderBy('id', 'desc')->get();
         foreach ($xats as $xat) {
             $this->xats[] = $xat;
         }
         return $this->xats;
     }
 
-        public function render()
+    public function render()
     {
         $this->peliNoves();
         $this->documentals();
