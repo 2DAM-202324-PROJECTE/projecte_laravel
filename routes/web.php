@@ -130,39 +130,36 @@ Route::middleware(['auth'])->group(function () {
 
 });
 
-    Route::get('/user', \App\Livewire\Users\User::class)->name('user');
+Route::get('/user', \App\Livewire\Users\User::class)->name('user');
 
-    Route::get('/persones', Persones::class)->name('persones');
-
-
-    Route::get('/xatinamedia', LligarMedia::class)->name('xatinamedia');
-
-    Route::get('/media-preview/{id}', MediaPreview::class)->name('media-preview');
+Route::get('/persones', Persones::class)->name('persones');
 
 
-    Route::get('/media-preview/{id}', MediaPreview::class)->name('media-preview');
+Route::get('/xatinamedia', LligarMedia::class)->name('xatinamedia');
 
-    Route::get('/media-player/{id}', MediaPlayer::class)->name('media-player');
-
-
-    Route::get('/xatinamedia', LligarMedia::class)->name('xatinamedia');
-
-    Route::get('/llistaxats', Llistaxats::class)->name('llistaxats');
-
-    // Ruta per a veure la llista de xats des del botó join chatroom al modal
-    Route::get('/join-chat/{id}', function ($id) {
-        return view('customer.join-chat')->with([
-            'id' => $id,
-        ]);
-    })-> name ('join-chat') ;
+Route::get('/media-preview/{id}', MediaPreview::class)->name('media-preview');
 
 
-    // Ruta per a hostejar un xat des del botó host chatroom al modal
-    Route::get('/createuserxat/{id}', function ($id) {
-        return view('customer.createuserxat')->with([
-            'id' => $id,
-        ]);
-    })-> name ('createuserxat') ;
+Route::get('/media-preview/{id}', MediaPreview::class)->name('media-preview');
+
+Route::get('/media-player/{id}', MediaPlayer::class)->name('media-player');
 
 
+Route::get('/xatinamedia', LligarMedia::class)->name('xatinamedia');
 
+Route::get('/llistaxats', Llistaxats::class)->name('llistaxats');
+
+// Ruta per a veure la llista de xats des del botó join chatroom al modal
+Route::get('/join-chat/{id}', function ($id) {
+    return view('customer.join-chat')->with([
+        'id' => $id,
+    ]);
+})->name('join-chat');
+
+
+// Ruta per a hostejar un xat des del botó host chatroom al modal
+Route::get('/createuserxat/{id}', function ($id) {
+    return view('customer.createuserxat')->with([
+        'id' => $id,
+    ]);
+})->name('createuserxat');
