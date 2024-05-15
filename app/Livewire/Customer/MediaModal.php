@@ -17,7 +17,7 @@ class MediaModal extends Component
 
     public function render()
     {
-        return view('livewire.customer.medias-modal');
+        return view('livewire.customer.media-modal');
     }
 
     public function playMedia()
