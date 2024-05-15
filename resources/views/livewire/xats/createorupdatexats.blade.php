@@ -45,7 +45,7 @@
                     <label for="tipus" class="text-gray-700 text-sm font-bold block mb-2">Tipus:</label>
                     <select id="tipus" wire:model="tipus" class="text-gray-700 text-sm font-bold rounded-md bg-gray-100 border border-gray-300 p-2 outline-none w-full mb-4" required>
                         <option value="">Selecciona una opció...</option>
-                        <option value="general">General</option>
+                        <option value="public">Públic</option>
                         <option value="privat">Privat</option>
                     </select>
                     @error('tipus') <span class="text-red-500">{{ $message }}</span>
