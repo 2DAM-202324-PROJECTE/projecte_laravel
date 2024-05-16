@@ -90,12 +90,12 @@
         <div id="myChats" class="hidden">
             @foreach($xats2 as $xat)
                 <a href="{{ route('customer.xatmedia', ['id' => $xat->id]) }}" style="outline: none; text-decoration: none;">
-                    <div class="movie flex-shrink-0 hover:bg-gray-800  p-4 md:p-2 border border-gray-800 rounded-md bg-gray-800 mb-2">
-                        <div class="flex gap-x-50 p-2 grid-rows-2 rounded-lg relative">
-                            <p class="text-gray-600 mt-8 justify-start text-lg">{{$xat->nom}}</p>
+                    <div class="movie flex-shrink-0 hover:bg-gray-800 p-4 md:p-2 border border-gray-800 rounded-md bg-gray-800 mb-2">
+                        <div class=" gap-x-50 p-2 grid-rows-2 rounded-lg relative">
+                            <p class="text-gray-600 md:text-center text-lg">{{$xat->nom}}</p>
                             <p class="text-center text-sm absolute bottom-2 mt-2 left-2 hover:text-gray-200 flex">{{$xat->idioma}}</p>
-                            <div style="outline: none" class="flex justify-end">
-                                <img class="justify-end h-auto w-2/5 sm:w-2/5 md:w-2/6 lg:w-2/12" src="https://previews.123rf.com/images/bahtiarmaulana/bahtiarmaulana2204/bahtiarmaulana220400040/185159316-rebanada-de-dibujos-animados-de-pizza-ilustraci%C3%B3n-de-dibujos-animados-vectoriales-im%C3%A1genes.jpg">
+                            <div style="outline: none; display: flex; justify-content: flex-end;">
+                                <img class="h-auto w-2/5 sm:w-2/5 md:w-1/5 lg:w-1/12" src="https://previews.123rf.com/images/bahtiarmaulana/bahtiarmaulana2204/bahtiarmaulana220400040/185159316-rebanada-de-dibujos-animados-de-pizza-ilustraci%C3%B3n-de-dibujos-animados-vectoriales-im%C3%A1genes.jpg">
                             </div>
                         </div>
                     </div>
@@ -137,9 +137,9 @@
                     <!--Body-->
                     <div class="my-5">
                         <div>
-                            <label for="urlInput" class="block text-sm text-gray-500 dark:text-gray-300">URL</label>
-                            <input id="urlInput" type="text" placeholder="http/.." class="block mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-red-400 bg-white px-5 py2.5 text-gray-700 focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40 dark:border-red-400 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-red-300" />
-                            <p class="mt-3 text-xs text-red-400">Ha d'existir.</p>
+                            <label for="idInput" class="block text-sm text-gray-500 dark:text-gray-300">ID de la película</label>
+                            <input id="idInput" type="text" placeholder="ID de la película" class="block mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-red-400 bg-white px-5 py-2.5 text-gray-700 focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40 dark:border-red-400 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-red-300" />
+                            <p class="mt-3 text-xs text-red-400">Debe ser un ID válido.</p>
                         </div>
                     </div>
                     <!--Footer-->
@@ -181,13 +181,14 @@
                 }
             }
             document.getElementById('confirmButton').addEventListener('click', function() {
-                const url = document.getElementById('urlInput').value;
-                if (url) {
-                    window.location.href = url;
+                const id = document.getElementById('idInput').value;
+                if (id) {
+                    window.location.href = `/customer/xatmedia/${id}`;
                 } else {
-                    alert('Por favor, iintrodueix url vàlida.');
+                    alert('Por favor, introduce un ID válido.');
                 }
             });
+
 
 
             let myChatsVisible = false;
