@@ -13,6 +13,17 @@
                     @error('nom') <span class="text-red-500">{{ $message }}</span> @enderror
                 </div>
 
+                <div>
+                    <label for="privacitat" class="text-gray-700 text-sm font-bold block mb-2">Privacitat:</label>
+                    <select id="privacitat" wire:model="privacitat" class="text-gray-700 text-sm font-bold rounded-md bg-gray-100 border border-gray-300 p-2 outline-none w-full mb-4" required>
+                        <option value="">Selecciona una opció...</option>
+                        <option value="pública">Pública</option>
+                        <option value="privada">Privada</option>
+                    </select>
+                    @error('privacitat') <span class="text-red-500">{{ $message }}</span>
+                    @enderror
+                </div>
+
 
                 <div>
                     <label for="idioma" class="text-gray-700 text-sm font-bold block mb-2">Idioma:</label>

@@ -25,7 +25,10 @@ class Homepage extends Component
     }
     public function documentals(){
         $this->documentals = [];
-        $documentals = Media::where('category_id', 2)->get();
+        $documentals = Media::where('category_id', 2)
+            ->orderBy('created_at', 'desc')
+            ->take(9)
+            ->get();
         foreach ($documentals as $documental) {
             $this->documentals[] = $documental;
         }

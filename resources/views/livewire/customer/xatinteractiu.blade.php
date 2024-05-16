@@ -2,8 +2,6 @@
 <div class="w-full overflow-hidden">
 
     <div class="border-b flex flex-col overflow-y-scroll grow h-full">
-
-
     {{-- header --}}
         <header class="w-full sticky top-0 z-10 bg-white border-b shadow">
             <div class="flex items-center justify-between max-w-5xl mx-auto p-4">

@@ -14,7 +14,6 @@ return new class extends Migration
             $table->string('url')->nullable();
             $table->string('password')->nullable();
             $table->string('foto')->nullable();
-            $table->string('tipus')->nullable();
             $table->string('privacitat')->nullable();
             $table->string('idioma')->nullable();
             $table->unsignedBigInteger('media_id')->nullable(); // Haz que media_id sea nullable

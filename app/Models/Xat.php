@@ -22,7 +22,6 @@ class Xat extends Model
         'url',
         'password',
         'foto',
-        'tipus',
         'privacitat',
         'idioma',
         'media_id',

@@ -15,9 +15,6 @@
             @if ($xat->url)
                 <p><strong>URL:</strong> <a href="{{ $xat->url }}" target="_blank">Enllaç</a></p>
             @endif
-            @if ($xat->tipus)
-                <p><strong>Tipo:</strong> {{ $xat->tipus }}</p>
-            @endif
             @if ($xat->privacitat)
                 <p><strong>Privacidad:</strong> {{ $xat->privacitat }}</p>
             @endif
