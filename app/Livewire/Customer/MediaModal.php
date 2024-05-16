@@ -22,7 +22,7 @@ class MediaModal extends Component
 
     public function playMedia()
     {
-        return redirect()->to('/medias-player/' . $this->media->id);
+        return redirect()->to('/media-player/' . $this->media->id);
     }
 
     public function joinChatroom()
