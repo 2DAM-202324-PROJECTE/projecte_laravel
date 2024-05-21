@@ -1,11 +1,11 @@
 <div>
-    <div class="p-4 bg-gray-100 ">
+    <div class="p-4 text-2xl text-gray-200" style="background: #553d2a">
         <p>Total de xats relacionats amb aquest vídeo: {{ $xatsCount }}</p>
     </div>
 
 
     @foreach($xatsRelacionats ?? [] as $xat)
-        <div class="p-4 border-b">
+        <div class="p-4 border-black " style="background: #907761">
             <!-- Mostrar detalls del xat -->
             <p><strong>ID:</strong> {{ $xat->id }}</p>
             <p><strong>Nombre:</strong> {{ $xat->nom }}</p>

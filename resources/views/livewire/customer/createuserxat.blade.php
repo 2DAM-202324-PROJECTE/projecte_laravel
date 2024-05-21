@@ -44,7 +44,7 @@
             let nom = document.getElementById('nom').value;
             let idioma = document.getElementById('idioma').value;
             if (nom.trim() === '' || idioma.trim() === '') {
-                alert('Please fill in all required fields.');
+                alert('Els camps nom i idioma són obligatoris.');
                 return;
             }
         }

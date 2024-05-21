@@ -33,19 +33,23 @@
                     <button type="button"
                             class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-800 text-base font-medium text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm"
                             wire:click="$dispatch('closeModal')">
-                        Close
+                        <!-- X icon -->
+                        <svg class="w-6 h-6 text-gray-100 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                        <span class="inline-block align-middle" style="padding-top: 3px;">Tanca</span>
                     </button>
                     <!-- Host chatroom button -->
                     <button type="button"
                             class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-gray-700 text-base font-medium text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm"
                             wire:click="hostChatroom">
-                        Host Chatroom
+                        <span class="inline-block align-middle" style="padding-top: 3px;">Obrir una sala de xat</span>
                     </button>
                     <!-- Join Chatroom button -->
                     <button type="button"
                             class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-gray-700 text-base font-medium text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm"
                             wire:click="joinChatroom">
-                        Join Chatroom
+                        <span class="inline-block align-middle" style="padding-top: 3px;">Unir-se a una sala de xat</span>
                     </button>
                     <button type="button"
                             class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-700
@@ -55,7 +59,7 @@
                         <svg class="w-6 h-6 text-gray-100 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 18V6l8 6-8 6Z"/>
                         </svg>
-                        Play
+                        <span class="inline-block align-middle" style="padding-top: 3px;">Reproduir</span>
                     </button>
                 </div>
             </div>

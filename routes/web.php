@@ -42,9 +42,9 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/homepage', function () {
+        return view('customer.homepage');
+    })->name('homepage');
 });
 
 Route::middleware(['auth'])->group(function () {
