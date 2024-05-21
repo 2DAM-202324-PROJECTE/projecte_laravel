@@ -10,6 +10,7 @@ class Llistaxats extends Component
 {
     public array $xats = [];
     public array $xats2 = [];
+    public string $nom = '';
 
     public function xats()
     {
@@ -23,6 +24,7 @@ class Llistaxats extends Component
         }
         return $this->xats;
     }
+
 
     public function xatsCreador(){
         $usuari = Auth::user();
