@@ -24,7 +24,7 @@
 <body class="antialiased">
 <x-banner />
 
-<div class="bg-black">
+<div class="bg-gray-900">
     <!-- Page Heading -->
     <header class="">
         <nav class="relative px-4 py-4 flex justify-between items-center" style="background-color: #282828">
@@ -139,8 +139,10 @@
     </header>
 
     <!-- Page Content -->
-    <main>
-        {{ $slot }}
+    <main class="flex justify-center items-center min-h-screen">
+        <div class="w-full max-w-max px-32 mb-64">
+            {{ $slot }}
+        </div>
     </main>
 
 </div>

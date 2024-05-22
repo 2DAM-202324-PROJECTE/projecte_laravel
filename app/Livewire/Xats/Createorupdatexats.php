@@ -13,7 +13,7 @@ use Livewire\Component;
 class Createorupdatexats extends Component
 {
 
-    public $nom, $creador_id, $media_id, $descripcio, $url, $password, $foto, $tipus, $privacitat, $idioma;
+    public $nom, $creador_id, $media_id, $descripcio, $url, $password, $foto, $privacitat, $idioma;
     public $isCreation = true;
     public ?Xat $xat;
 
@@ -63,7 +63,6 @@ class Createorupdatexats extends Component
             'url' => $this->url, // Asegúrate de que 'url' es una propiedad pública en tu componente
             'password' => $this->password, // Asegúrate de manejar esto con cuidado por razones de seguridad
             'foto' => $this->foto,
-            'tipus' => $this->tipus, // Asegúrate de que 'tipus' es una propiedad pública en tu componente
             'privacitat' => $this->privacitat, // Asegúrate de que 'privacitat' es una propiedad pública en tu componente
             'idioma' => $this->idioma, // Asegúrate de que 'idioma' es una propiedad pública en tu componente
             'xatinteractiu_id' => $xatInteractiuCreat->id, // Asegúrate de que 'xatinteractiu_id' es una propiedad pública en tu componente
@@ -95,7 +94,6 @@ class Createorupdatexats extends Component
                 'url' => $this->url,
                 'password' => $this->password,
                 'foto' => $this->foto,
-                'tipus' => $this->tipus,
                 'privacitat' => $this->privacitat,
                 'idioma' => $this->idioma,
             ]);
@@ -139,7 +137,6 @@ class Createorupdatexats extends Component
         $this->url = $this->xat->url;
         $this->password = $this->xat->password;
         $this->foto = $this->xat->foto;
-        $this->tipus = $this->xat->tipus;
         $this->privacitat = $this->xat->privacitat;
         $this->idioma = $this->xat->idioma;
     }
@@ -152,7 +149,6 @@ class Createorupdatexats extends Component
             'url' => $this->url,
             'password' => $this->password,
             'foto' => $this->foto,
-            'tipus' => $this->tipus,
             'privacitat' => $this->privacitat,
             'idioma' => $this->idioma,
         ];

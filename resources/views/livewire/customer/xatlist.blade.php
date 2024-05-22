@@ -5,25 +5,17 @@
 
 
     @foreach($xatsRelacionats ?? [] as $xat)
-        <div class="p-4 border-b">
-            <!-- Mostrar detalls del xat -->
-            <p><strong>ID:</strong> {{ $xat->id }}</p>
-            <p><strong>Nombre:</strong> {{ $xat->nom }}</p>
-            <p><strong>Descripción:</strong> {{ $xat->descripcio }}</p>
-            <p><strong>Media:</strong> {{ $xat->media_id }}</p>
-            <p><strong>Fecha de creació:</strong> {{ $xat->created_at }}</p>
-            @if ($xat->url)
-                <p><strong>URL:</strong> <a href="{{ $xat->url }}" target="_blank">Enllaç</a></p>
-            @endif
-            @if ($xat->tipus)
-                <p><strong>Tipo:</strong> {{ $xat->tipus }}</p>
-            @endif
-            @if ($xat->privacitat)
-                <p><strong>Privacidad:</strong> {{ $xat->privacitat }}</p>
-            @endif
-
-
-        </div>
+        <a href="{{ route('customer.xatmedia', ['id' => $xat->id]) }}" style="outline: none; text-decoration: none;">
+            <div class="movie flex-shrink-0 hover:bg-gray-800 p-4 md:p-2 border border-gray-800 rounded-md bg-gray-800 mb-2">
+                <div class=" gap-x-50 p-2 grid-rows-2 rounded-lg relative">
+                    <p class="text-gray-600 md:text-center text-lg">{{$xat->nom}}</p>
+                    <p class="text-center text-sm absolute bottom-2 mt-2 left-2 hover:text-gray-200 flex">{{$xat->idioma}}</p>
+                    <div style="outline: none; display: flex; justify-content: flex-end;">
+                        <img class="h-auto w-2/5 sm:w-2/5 md:w-1/5 lg:w-1/12" src="https://previews.123rf.com/images/bahtiarmaulana/bahtiarmaulana2204/bahtiarmaulana220400040/185159316-rebanada-de-dibujos-animados-de-pizza-ilustraci%C3%B3n-de-dibujos-animados-vectoriales-im%C3%A1genes.jpg">
+                    </div>
+                </div>
+            </div>
+        </a>
     @endforeach
 
 </div>

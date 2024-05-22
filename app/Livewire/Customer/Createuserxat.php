@@ -25,6 +25,7 @@ class Createuserxat extends Component
 
 
         $this->validate();
+        $randomUrl = uniqid();
 
 
         $this->xat =  Xat::create([
@@ -32,7 +33,8 @@ class Createuserxat extends Component
             'xatinteractiu_id' => $xatInteractiuCreat->id, // 'xatinteractiu_id' => $xatInteractiuCreat->id,
             'nom' => $this->nom,
             'descripcio' => $this->descripcio,
-            'idioma' => $this->idioma
+            'idioma' => $this->idioma,
+            'url' => $randomUrl
         ]);
 
         session()->flash('message', 'Xat cread amb exit.');
@@ -47,10 +49,15 @@ class Createuserxat extends Component
     public function mount($id = null)
     {
 
+        $nomUsuari = auth()->user()->name;
         if ($id !== null) {
             $this->isCreation = false;
             try {
                 $this->setXat($id);
+                $num = Xat::where('creador_id', auth()->id())->count();
+                $num++;
+                $this->nom = "Sala de $nomUsuari $num";
+
             } catch (ModelNotFoundException $e) {
                 session()->flash('message-danger', 'Xat no encontrado.');
             }
