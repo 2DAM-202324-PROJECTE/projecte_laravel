@@ -30,7 +30,7 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'suscriptor',
             'role_id' => 3, // 'suscriptor' role
-            'email' => 'admin@teamflix.com',
+            'email' => 'sub@teamflix.com',
             'password' => Hash::make('admin'),
             'ruta_foto' => 'admin.jpg']);
 
