@@ -401,8 +401,8 @@
                 <div class="grid grid-cols-1 justify-center">
                     @foreach(array_slice($xats, 0, 4) as $xat)
                         <a href="{{ route('customer.xatmedia', ['id' => $xat->id]) }}" style="outline: none; text-decoration: none;">
-                            <div class="mb-8 bg-gray-100 flex gap-x-50 p-2 hover:bg-gray-800 grid-rows-2 rounded-lg relative">
-                                <p class="text-gray-600 mt-8 justify-start text-lg">{{$xat->nom}}</p>
+                            <div class="mb-8 bg-gray-100 flex-shrink-0 gap-x-50 p-2 hover:bg-gray-800 grid-rows-2 rounded-lg relative">
+                                <p class="text-gray-600 text-center text-lg">{{$xat->nom}}</p>
                                 <p class="text-center text-sm absolute bottom-2 mt-2 left-2 hover:text-gray-200 flex">{{$xat->idioma}}</p>
                                 <div class="absolute top-0 right-0 mb-2">
                                     <div class="h-6 w-6 absolute bg-green-500 rounded-full animate-pulse"></div>

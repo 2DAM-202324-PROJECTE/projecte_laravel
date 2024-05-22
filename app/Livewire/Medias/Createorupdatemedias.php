@@ -17,6 +17,7 @@ class Createorupdatemedias extends Component
     #[Validate('required|max:100')]
     public $path = '';
     public $category_id;
+    public $image_uri;
     public ?Media $media;
     public bool $isCreation;
 
@@ -34,7 +35,8 @@ class Createorupdatemedias extends Component
             'name',
             'description',
             'path',
-            'category_id'
+            'category_id',
+            'image_uri'
         ]));
         return $this->redirectRoute('medias');
     }
@@ -47,7 +49,8 @@ class Createorupdatemedias extends Component
                 'name',
                 'description',
                 'path',
-                'category_id'])
+                'category_id',
+                'image_uri'])
         );
         return $this->redirectRoute('medias');
     }
@@ -60,6 +63,7 @@ class Createorupdatemedias extends Component
         $this->description = $media->description;
         $this->path = $media->path;
         $this->category_id = $media->category_id;
+        $this->image_uri = $media->image_uri;
     }
 
     public function mount($id = null)

@@ -22,9 +22,9 @@ class Createorupdatexats extends Component
         'nom' => 'required|string|max:255',
         'descripcio' => 'required|string',
         'creador_id' => 'required|exists:users,id',
-        'url' => 'url',
+        'url' => 'nullable|url',
         //'medias' => 'required|exists:medias,id', // Canmbiem de medias a media_id
-        'media_id' => 'required|exists:medias,id',
+        'media_id' => 'required',
 
     ];
 
@@ -43,11 +43,12 @@ class Createorupdatexats extends Component
 
     public function create()
     {
+
+        $this->validate();
         $xatInteractiuCreat = Xatinteractiu::create([
 
 
         ]);
-
         //ddd($xatInteractiuCreat);
         //ddd($xatInteractiuCreat->id);
 
