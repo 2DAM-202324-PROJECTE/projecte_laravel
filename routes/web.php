@@ -47,7 +47,11 @@ Route::middleware([
     })->name('homepage');
 });
 
+
 Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
     Route::get('/categories', function () {
         return view('categories.index');
     })->name('categories');
@@ -99,9 +103,7 @@ Route::middleware(['auth'])->group(function () {
         ]);
     })->name('customer.xatmedia');
 
-    Route::get('/homepage', function () {
-        return view('customer.homepage');
-    })->name('homepage');
+
 
     Route::get('/catalegPelis', function () {
         return view('customer.catalegpelis');
