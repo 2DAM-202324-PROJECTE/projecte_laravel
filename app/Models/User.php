@@ -79,7 +79,7 @@ class User extends Authenticatable
         return $this->hasMany(Xat::class);
     }
 
-    public function role ()
+    public function Role ()
     {
         return $this->belongsTo(Role::class);
     }
