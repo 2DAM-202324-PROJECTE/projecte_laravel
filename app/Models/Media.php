@@ -25,6 +25,11 @@ class Media extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function Genere()
+    {
+        return $this->belongsTo(Genere::class);
+    }
+
     public function xats()
     {
         return $this->hasMany(Xat::class, 'media_id');
