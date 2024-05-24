@@ -26,13 +26,19 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('medias') }}"
                                 :active="request()->routeIs('medias*')">
-                        {{ __('Medias') }}
+                        {{ __('Medies') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('xats') }}"
                                 :active="request()->routeIs('xats*')">
                         {{ __('Xats') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('generes') }}"
+                                :active="request()->routeIs('generes*')">
+                        {{ __('Gèneres') }}
                     </x-nav-link>
                 </div>
             </div>

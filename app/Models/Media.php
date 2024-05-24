@@ -18,6 +18,7 @@ class Media extends Model
         'image_uri',
         'thumbnail_uri',
         'duration',
+        'genere_id'
     ];
 
     public function Category()

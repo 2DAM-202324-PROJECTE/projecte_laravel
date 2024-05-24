@@ -70,6 +70,9 @@
                         Category
                     </th>
                     <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">
+                        Gènere
+                    </th>
+                    <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">
                         Preview
                     </th>
                     <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">
@@ -111,6 +114,10 @@
                         <td class="border-dashed border-t border-gray-200">
                             <span
                                 class="text-gray-700 px-6 py-3 flex items-center text-sm">{{ $media->category ? $media->category->name : 'N/A' }}</span>
+                        </td>
+                        <td class="border-dashed border-t border-gray-200">
+                            <span
+                                class="text-gray-700 px-6 py-3 flex items-center text-sm">{{ $media->genere ? $media->genere->name : 'N/A' }}</span>
                         </td>
                         <!-- Button column -->
                         <td class="border-dashed border-t border-gray-200">
