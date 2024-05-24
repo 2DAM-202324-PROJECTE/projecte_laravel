@@ -126,9 +126,9 @@
                 <div class="dropdown mr-4">
                     <button class="dropbtn">Gèneres</button>
                     <div class="dropdown-content">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
+                        @foreach($generes as $genere)
+                            <a href="#">{{ $genere->name }}</a>
+                        @endforeach
                     </div>
                 </div>
                 <div class="ml-auto"> <!-- Este div se moverá a la derecha del todo -->

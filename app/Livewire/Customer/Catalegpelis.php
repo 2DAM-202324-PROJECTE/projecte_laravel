@@ -3,6 +3,7 @@
 namespace App\Livewire\Customer;
 
 
+use App\Models\Genere;
 use App\Models\Media;
 use Illuminate\Http\Request;
 use Livewire\Component;
@@ -29,6 +30,7 @@ class Catalegpelis extends Component
 
 
     public function render(Request $request){
+        $generes = Genere::all();
         $this->pelis();
 
         $searchTerm = $this->search;
@@ -46,6 +48,7 @@ class Catalegpelis extends Component
         return view('livewire.customer.catalegpelis', [
             'pelis' => $pelis,
             'search' => $searchTerm,
+            'generes' => $generes,
         ]);
     }
 

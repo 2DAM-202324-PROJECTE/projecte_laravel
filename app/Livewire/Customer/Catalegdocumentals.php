@@ -3,6 +3,7 @@
 namespace App\Livewire\Customer;
 
 
+use App\Models\Genere;
 use App\Models\Media;
 use Illuminate\Http\Request;
 use Livewire\Component;
@@ -27,6 +28,7 @@ class Catalegdocumentals extends Component
     }
 
     public function render(Request $request){
+        $generes = Genere::all();
         $this->documentals();
 
         $searchTerm = $this->search;
@@ -42,6 +44,7 @@ class Catalegdocumentals extends Component
         return view('livewire.customer.catalegdocumentals', [
             'documentals' => $documentals,
             'search' => $searchTerm,
+            'generes' => $generes,
         ]);
     }
 
