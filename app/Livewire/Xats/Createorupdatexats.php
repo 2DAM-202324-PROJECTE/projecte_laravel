@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Xat;
 use App\Models\Xatinteractiu;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 
@@ -20,26 +21,12 @@ class Createorupdatexats extends Component
 
     protected $rules = [
         'nom' => 'required|string|max:255',
-        'descripcio' => 'required|string',
         'creador_id' => 'required|exists:users,id',
         'url' => 'nullable|url',
         //'medias' => 'required|exists:medias,id', // Canmbiem de medias a media_id
         'media_id' => 'required',
 
     ];
-
-//    public function save()
-//    {
-//        $this->validate();
-//
-//        if ($this->isCreation) {
-//            Xat::create($this->getModelData());
-//        } else {
-//            $this->xat->update($this->getModelData());
-//        }
-//
-//        return redirect()->route('xats');
-//    }
 
     public function create()
     {
@@ -106,6 +93,8 @@ class Createorupdatexats extends Component
     }
 
 
+
+
     public function setCategory($id)
     {
         $this->xat = Xat::findOrFail($id);
@@ -116,6 +105,10 @@ class Createorupdatexats extends Component
 
     public function mount($id = null)
     {
+        // Es el creador del xat
+        $this->creador_id = Auth::id();
+
+        $this->media_id = Media::first()->id ?? null;
 
         if ($id !== null) {
             $this->isCreation = false;
