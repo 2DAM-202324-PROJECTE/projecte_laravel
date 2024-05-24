@@ -12,7 +12,7 @@
 </head>
 <body class="antialiased">
 <div
-    class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-900 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+    class="relative sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-900 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
     @if (Route::has('login'))
         @auth
             @php
@@ -23,7 +23,7 @@
             <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                 @if (Route::has('register'))
                     <a href="{{ route('register') }}"
-                       class="font-semibold text-gray-100 hover:text-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 hover:bg-gray-900 hover:bg-opacity-50 px-4 py-2 bg-gray-800 bg-opacity-50"
+                       class="font-semibold text-gray-100 hover:text-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 hover:bg-opacity-50 px-4 py-2 bg-gray-700 bg-opacity-50"
                     >Register</a>
                 @endif
             </div>

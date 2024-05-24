@@ -35,7 +35,7 @@ use App\Livewire\Medias\MediaPlayer;
 
 Route::get('/', function () {
     return view('welcome');
-});
+    })->name('welcome');
 
 Route::middleware([
     'auth:sanctum',
