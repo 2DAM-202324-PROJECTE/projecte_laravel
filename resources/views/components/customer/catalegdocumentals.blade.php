@@ -1,4 +1,4 @@
 <div
-    class="bg-white border-b border-gray-200">
+    class="bg-white">
         <livewire:customer.catalegdocumentals />
 </div>
