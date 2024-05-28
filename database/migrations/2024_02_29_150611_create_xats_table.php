@@ -17,8 +17,7 @@ return new class extends Migration
             $table->string('privacitat')->nullable();
             $table->string('idioma')->nullable();
             $table->unsignedBigInteger('media_id');
-            $table->foreign('media_id')->references('id')->on('media')
-                ->onDelete('set null'); // Cambia onDelete a set null
+            $table->foreign('media_id')->references('id')->on('media'); // Cambia onDelete a set null
             $table->foreignId('creador_id')->constrained('users')
                 ->onDelete('cascade'); // Si un usuario es eliminado, se eliminan todos sus chats.
             $table->unsignedBigInteger('xatinteractiu_id')->unique(); // Asegúrate de que es única para garantizar una relación 1 a 1
