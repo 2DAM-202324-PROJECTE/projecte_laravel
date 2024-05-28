@@ -66,6 +66,20 @@ Route::middleware(['auth'])->group(function () {
         ]);
     })->name('categories.update')->middleware('role:admin');
 
+    Route::get('/generes', function () {
+        return view('generes.index');
+    })->name('generes')->middleware('role:admin');
+
+    Route::get('/generes/create', function () {
+        return view('generes.createorupdate');
+    })->name('generes.create')->middleware('role:admin');
+
+    Route::get('/generes/update/{id}', function ($id) {
+        return view('generes.createorupdate')->with([
+            'id' => $id,
+        ]);
+    })->name('generes.update')->middleware('role:admin');
+
     Route::get('/medias', function () {
         return view('medias.index');
     })->name('medias')->middleware('role:admin');

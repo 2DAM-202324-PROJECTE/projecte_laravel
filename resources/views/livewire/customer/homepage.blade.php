@@ -251,7 +251,7 @@
     <div class="pb-32 ">
         <div class="px-10 shadow-xl py-12" >
             <h2 id="titol" class="mb-4">HOME PAGE</h2>
-            <p class="text-white ml-6 mt-6 text-xl font-semibold" style="font-family: 'Kanit', serif; color: #D6EAF8">HOLA JOSEPITA NOSE</p>
+            <p class="text-white ml-6 mt-6 text-xl font-semibold" style="font-family: 'Kanit', serif; color: #D6EAF8">Hola {{$nom_usuari}}!</p>
         </div>
         <div class="mx-12 flex flex-row justify-between pb-20 pt-16 mt-12">
             <p class="text-start text-white text-xl mr-4 tracking-wider font-semibold">NOVETATS AFEGIDES!</p>

@@ -35,6 +35,16 @@ class Homepage extends Component
         return $this->documentals;
     }
 
+    public function nom_usuari()
+    {
+        $user = auth()->user();
+        if ($user) {
+            return $user->name;
+        } else {
+            return 'Usuari no trobat';
+        }
+    }
+
     public function peliNoves(){
         $this->pelis=[];
         $pelis = Media::where('category_id', 1)
@@ -63,12 +73,14 @@ class Homepage extends Component
         $this->peliNoves();
         $this->documentals();
         $this->xats();
+        $this->nom_usuari();
 
 
         return view('livewire.customer.homepage', [
             'pelis' => $this->pelis,
             'documentals' => $this->documentals,
             'xats' => $this->xats,
+            'nom_usuari' => $this->nom_usuari(),
         ]);
     }
     public function showOrHideModal($mediaId)

@@ -18,11 +18,17 @@ class Media extends Model
         'image_uri',
         'thumbnail_uri',
         'duration',
+        'genere_id'
     ];
 
     public function Category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function Genere()
+    {
+        return $this->belongsTo(Genere::class);
     }
 
     public function xats()

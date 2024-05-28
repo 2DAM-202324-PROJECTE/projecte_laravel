@@ -1,5 +1,5 @@
 <div>
-    <div class="text-center bg-blue-900" style="height: 100vh; padding-top: 50px;">
+    <div class="text-center bg-blue-900" style="height: 50vh; padding-top: 50px;">
         @if ($media)
             @if ($fileExists)
                 <video controls width="100%" style="max-width: 2000px; border: 1px solid #ccc; border-radius: 8px; margin: 0 auto; display: block; padding: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); background-color: darkred;">

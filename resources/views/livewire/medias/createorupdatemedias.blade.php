@@ -43,6 +43,16 @@
                         @endforeach
                     </select>
                 </div>
+                <div>
+                    <label for="genere" class="text-gray-700 text-sm font-bold block mb-2">Gènere:</label>
+                    <select id="genere" wire:model="genere_id"
+                            class="text-gray-700 text-sm font-bold rounded-md title bg-gray-100 border border-gray-300 p-2 outline-none w-full mb-4">
+                        <option value="">Selecciona un gènere</option>
+                        @foreach($generes as $genere)
+                            <option value="{{ $genere->id }}">{{ $genere->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <div class="buttons flex">
                     <button type="button"
                             class="btn border border-gray-300 p-1 px-4 font-semibold cursor-pointer text-gray-500 ml-auto rounded-md text-sm"

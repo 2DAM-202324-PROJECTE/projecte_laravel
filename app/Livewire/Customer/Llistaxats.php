@@ -29,7 +29,9 @@ class Llistaxats extends Component
     public function xatsCreador(){
         $usuari = Auth::user();
         $this->xats2 = [];
-        $xats2 = Xat::where('creador_id', $usuari->id)->get();
+        $xats2 = Xat::where('creador_id', $usuari->id)
+            ->orderBy('id', 'desc')
+            ->get();
         foreach ($xats2 as $xat) {
             $this->xats2[] = $xat;
         }

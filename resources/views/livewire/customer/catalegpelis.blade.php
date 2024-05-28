@@ -30,117 +30,95 @@
         .right-20 {
             right: 20px; /* Ajusta el valor según tu diseño */
         }
+        /* Style The Dropdown Button */
+        .dropbtn {
+            background-color: #AED6F1;
+            color: white;
+            padding: 10px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            border: 2px solid #AED6F1;
+            border-radius: 10px;
+            letter-spacing: 2px;
+        }
+
+        /* The container <div> - needed to position the dropdown content */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+            margin-top: 2px;
+            display: none;
+            position: absolute;
+            background-color: rgba(248, 249, 249, 0.9);
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border: rgba(248, 249, 249, 0.9);
+            border-radius: 10px;
+
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: #85C1E9;
+            padding: 12px 16px;
+            font-size: 13px;
+            text-decoration: none;
+            display: block;
+            border: rgba(248, 249, 249, 0.9);
+            border-radius: 10px;
+            letter-spacing: 2px;
+            font-weight: bold;
+
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {background-color: #f1f1f1}
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Change the background color of the dropdown button when the dropdown content is shown */
+        .dropdown:hover .dropbtn {
+            background-color: #D6EAF8;
+            color: #5DADE2;
+            font-weight: bold;
+        }
     </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var sidebar = document.getElementById('vertical');
-            var toggleButton = document.getElementById('toggleSidebar');
-
-            toggleButton.addEventListener('click', function() {
-                if (sidebar.classList.contains('hidden')) {
-                    // Mostrar la barra lateral
-                    sidebar.classList.remove('hidden');
-                    sidebar.style.width = '20rem'; // O cualquier ancho que desees
-
-                    // Mover el botón toggle al lado derecho del sidebar
-                    toggleButton.classList.add('right-20'); // Agrega una clase con la propiedad right para ajustar la posición
-                } else {
-                    // Ocultar la barra lateral
-                    sidebar.classList.add('hidden');
-                    sidebar.style.width = '0';
-
-                    // Mover el botón toggle a su posición original
-                    toggleButton.classList.remove('right-20'); // Elimina la clase para restaurar la posición original
-                }
-            });
-        });
-    </script>
-    <!-- component -->
-    <div class="container relative">
-        <button id="toggleSidebar" class=" mt-2 absolute top-4 right-4 bg-white rounded-full p-2" style="outline: none">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-            </svg>
-        </button>
-
-        <div id="vertical" class="hidden  flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 w-full p-4 shadow-xl shadow-blue-gray-900/5">
-
-            <div class="mb-2 p-4">
-                <h5 class="block antialiased tracking-normal font-sans text-xl font-semibold leading-snug text-gray-900">Categories</h5>
-            </div>
-            <nav class="flex flex-col gap-1 min-w-[240px] p-2 font-sans text-base font-normal text-gray-700">
-                <div role="button" tabindex="0" class="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none">
-                    <div class="grid place-items-center mr-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-5 w-5">
-                            <path fill-rule="evenodd" d="M2.25 2.25a.75.75 0 000 1.5H3v10.5a3 3 0 003 3h1.21l-1.172 3.513a.75.75 0 001.424.474l.329-.987h8.418l.33.987a.75.75 0 001.422-.474l-1.17-3.513H18a3 3 0 003-3V3.75h.75a.75.75 0 000-1.5H2.25zm6.04 16.5l.5-1.5h6.42l.5 1.5H8.29zm7.46-12a.75.75 0 00-1.5 0v6a.75.75 0 001.5 0v-6zm-3 2.25a.75.75 0 00-1.5 0v3.75a.75.75 0 001.5 0V9zm-3 2.25a.75.75 0 00-1.5 0v1.5a.75.75 0 001.5 0v-1.5z" clip-rule="evenodd"></path>
-                        </svg>
-                    </div>
-                    Blocks
-                </div>
-                <div role="button" tabindex="0" class="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-blue-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none">
-                    <div class="grid place-items-center mr-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-5 w-5">
-                            <path fill-rule="evenodd" d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 004.25 22.5h15.5a1.875 1.875 0 001.865-2.071l-1.263-12a1.875 1.875 0 00-1.865-1.679H16.5V6a4.5 4.5 0 10-9 0zM12 3a3 3 0 00-3 3v.75h6V6a3 3 0 00-3-3zm-3 8.25a3 3 0 106 0v-.75a.75.75 0 011.5 0v.75a4.5 4.5 0 11-9 0v-.75a.75.75 0 011.5 0v.75z" clip-rule="evenodd"></path>
-                        </svg>
-                    </div>Books
-                </div>
-                <div role="button" tabindex="0" class="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-blue-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none">
-                    <div class="grid place-items-center mr-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-5 w-5">
-                            <path fill-rule="evenodd" d="M6.912 3a3 3 0 00-2.868 2.118l-2.411 7.838a3 3 0 00-.133.882V18a3 3 0 003 3h15a3 3 0 003-3v-4.162c0-.299-.045-.596-.133-.882l-2.412-7.838A3 3 0 0017.088 3H6.912zm13.823 9.75l-2.213-7.191A1.5 1.5 0 0017.088 4.5H6.912a1.5 1.5 0 00-1.434 1.059L3.265 12.75H6.11a3 3 0 012.684 1.658l.256.513a1.5 1.5 0 001.342.829h3.218a1.5 1.5 0 001.342-.83l.256-.512a3 3 0 012.684-1.658h2.844z" clip-rule="evenodd"></path>
-                        </svg>
-                    </div>Example Pages <div class="grid place-items-center ml-auto justify-self-end">
-                        <div class="relative grid items-center font-sans font-bold uppercase whitespace-nowrap select-none bg-blue-500/20 text-blue-900 py-1 px-2 text-xs rounded-full" style="opacity: 1;">
-                            <span class="">14</span>
-                        </div>
-                    </div>
-                </div>
-                <div role="button" tabindex="0" class="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-blue-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none">
-                    <div class="grid place-items-center mr-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-5 w-5">
-                            <path fill-rule="evenodd" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clip-rule="evenodd"></path>
-                        </svg>
-                    </div>Profile
-                </div>
-                <div role="button" tabindex="0" class="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-blue-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none">
-                    <div class="grid place-items-center mr-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-5 w-5">
-                            <path fill-rule="evenodd" d="M11.078 2.25c-.917 0-1.699.663-1.85 1.567L9.05 4.889c-.02.12-.115.26-.297.348a7.493 7.493 0 00-.986.57c-.166.115-.334.126-.45.083L6.3 5.508a1.875 1.875 0 00-2.282.819l-.922 1.597a1.875 1.875 0 00.432 2.385l.84.692c.095.078.17.229.154.43a7.598 7.598 0 000 1.139c.015.2-.059.352-.153.43l-.841.692a1.875 1.875 0 00-.432 2.385l.922 1.597a1.875 1.875 0 002.282.818l1.019-.382c.115-.043.283-.031.45.082.312.214.641.405.985.57.182.088.277.228.297.35l.178 1.071c.151.904.933 1.567 1.85 1.567h1.844c.916 0 1.699-.663 1.85-1.567l.178-1.072c.02-.12.114-.26.297-.349.344-.165.673-.356.985-.57.167-.114.335-.125.45-.082l1.02.382a1.875 1.875 0 002.28-.819l.923-1.597a1.875 1.875 0 00-.432-2.385l-.84-.692c-.095-.078-.17-.229-.154-.43a7.614 7.614 0 000-1.139c-.016-.2.059-.352.153-.43l.84-.692c.708-.582.891-1.59.433-2.385l-.922-1.597a1.875 1.875 0 00-2.282-.818l-1.02.382c-.114.043-.282.031-.449-.083a7.49 7.49 0 00-.985-.57c-.183-.087-.277-.227-.297-.348l-.179-1.072a1.875 1.875 0 00-1.85-1.567h-1.843zM12 15.75a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5z" clip-rule="evenodd"></path>
-                        </svg>
-                    </div>Settings
-                </div>
-                <div role="button" tabindex="0" class="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-blue-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none">
-                    <div class="grid place-items-center mr-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-5 w-5">
-                            <path fill-rule="evenodd" d="M12 2.25a.75.75 0 01.75.75v9a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM6.166 5.106a.75.75 0 010 1.06 8.25 8.25 0 1011.668 0 .75.75 0 111.06-1.06c3.808 3.807 3.808 9.98 0 13.788-3.807 3.808-9.98 3.808-13.788 0-3.808-3.807-3.808-9.98 0-13.788a.75.75 0 011.06 0z" clip-rule="evenodd"></path>
-                        </svg>
-                    </div>Log Out
-                </div>
-            </nav>
-        </div>
-    </div>
-
     <div class="">
-        <p class="text-white">
-            Aa
-        </p>
         <div class="  sm:justify-center md:justify-center lg:justify-end p-6">
             <h2 class="pt-12 mb-8 text-center text-5xl tracking-wide font-semibold" style="font-family: 'Dosis', sans-serif; color: #0092FF">PEL·LÍCULES</h2>
-
-            <div class="w-full grid lg:justify-items-end sm:justify-items-center lg:pr-8">
-                <form class="mt-5 mb-16 sm:flex sm:items-center">
-                    <input id="searchbar" name="q" class="inline w-full rounded-md bg-white py-2 pl-3 pr-3 leading-5 placeholder-gray-500 focus:placeholder-gray-400 focus:outline-none sm:text-sm" style="border: none; --tw-ring-color: #5CDBFF; font-size: 12px; letter-spacing: 1px" placeholder="Buscar.." type="search" autofocus="" onkeyup="search_media()">
-
-                    <div class="flex justify-center sm:justify-start">
-                        <button id="botoBuscar" type="submit" class="bg-white ml-4 py-2 px-4 text-sm tracking-wide rounded-lg text-white">Search</button>
+            <div class="w-full md:grid lg:flex lg:pr-8">
+                <div class="dropdown mr-4 flex text-center">
+                    <button class="dropbtn text-center">Gèneres</button>
+                    <div class="dropdown-content">
+                        <a href="#" wire:click.prevent="filterByGenere('Tots')">Tots</a>
+                        @foreach($generes as $genere)
+                            <a href="#" wire:click.prevent="filterByGenere('{{ $genere->name }}')">{{ $genere->name }}</a>
+                        @endforeach
                     </div>
-                </form>
+                </div>
+                <div class="lg:ml-auto mt-4 mb-2"> <!-- Este div se moverá a la derecha del todo -->
+                    <form class="sm:flex justify-center">
+                        <input id="searchbar" name="q" class="inline w-48 rounded-md bg-white py-2 pl-3 pr-3 leading-5 placeholder-gray-500 focus:placeholder-gray-400 focus:outline-none sm:text-sm" style="border: none; --tw-ring-color: #5CDBFF; font-size: 12px; letter-spacing: 1px" placeholder="Buscar.." type="search" autofocus="" onkeyup="search_media()">
+                        <div class="flex justify-center ">
+                            <button id="botoBuscar" type="submit" class="bg-white md:ml-4 py-2 px-4 text-sm tracking-wide rounded-lg text-white">Search</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
 
         <div id="pelisContainer" class="sm:flex sm:flex-wrap justify-center gap-4 mx-20 mb-4">
             @foreach($pelis as $index => $peli)
-                <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 m-2 md:flex-wrap mb-4 movie"> <!-- Ajusta el ancho de cada película aquí -->
+                <div class="w-full  md:w-1/3 lg:w-1/4 xl:w-1/6 m-2 md:flex-wrap mb-4 movie"> <!-- Ajusta el ancho de cada película aquí -->
                     <div>
                         <button wire:click="showOrHideModal({{ $peli['id'] }})">
                             <img class="rounded-lg shadow-lg" src="{{ $peli['image_uri'] }}" alt="{{ $peli['name'] }}" />
@@ -154,99 +132,76 @@
             @endif
         </div>
 
-
-
-        <div class="flex justify-center mt-4 pb-32"> <!-- Contenedor flex para centrar el botón -->
-            <button id="loadMorePelis" class="bg-white py-2 px-4 text-sm tracking-wide rounded-lg text-white" style="background: #39A9FE;">Cargar més</button>
+        <div id="paginationControls" class="flex justify-center my-4">
+            <button id="prevPage" class="bg-gray-700 text-white px-4 py-2 m-1 rounded" onclick="changePage(-1)">Atràs</button>
+            <button id="nextPage" class="bg-gray-700 text-white px-4 py-2 m-1 rounded" onclick="changePage(1)">Davant</button>
         </div>
 
+
+
+
         <script>
+
             document.addEventListener('DOMContentLoaded', function() {
-                var container = document.getElementById('pelisContainer');
-                var rows = container.querySelectorAll('.movie');
-                var rowsPerPage = 6;
-                var currentPage = 1;
-                var totalPages = Math.ceil(rows.length / rowsPerPage);
+                const pelisContainer = document.getElementById('pelisContainer');
+                const movies = pelisContainer.querySelectorAll('.movie');
+                const paginationControls = document.getElementById('paginationControls');
+                const rowsPerPage = 15;
+                let currentPage = 1;
 
-                // Ocultar todas las filas excepto la primera página al cargar la página
-                rows.forEach(function(row, index) {
-                    if (index >= rowsPerPage) {
-                        row.style.display = 'none';
-                    }
-                });
+                function displayMovies(page) {
+                    const start = (page - 1) * rowsPerPage;
+                    const end = start + rowsPerPage;
 
-                // Manejar clic en el botón "Cargar más" y "Ocultar"
-                var loadMoreButton = document.getElementById('loadMorePelis');
-                loadMoreButton.addEventListener('click', function() {
-                    var start = currentPage * rowsPerPage;
-                    var end = (currentPage + 1) * rowsPerPage;
-
-                    // Si estamos mostrando todas las filas, ocultar todas menos la primera fila
-                    if (currentPage === totalPages) {
-                        rows.forEach(function(row, index) {
-                            if (index >= rowsPerPage) {
-                                row.style.display = 'none';
-                            }
-                        });
-                        loadMoreButton.textContent = 'Cargar más';
-                        currentPage = 1;
-                        return;
-                    }
-
-                    // Mostrar las filas de la página actual
-                    for (var i = start; i < end; i++) {
-                        if (rows[i]) {
-                            rows[i].style.display = 'block';
-                        }
-                    }
-
-                    // Cambiar el texto del botón a "Ocultar" si estamos mostrando todas las filas
-                    if (end >= rows.length) {
-                        loadMoreButton.textContent = 'Ocultar';
-                    }
-
-                    currentPage++;
-
-                    // Ocultar el botón si estamos en la última página
-                    if (currentPage > totalPages) {
-                        loadMoreButton.style.display = 'none';
-                    }
-                });
-
-                // Función para manejar la búsqueda
-                function search_media() {
-                    let input = document.getElementById('searchbar').value.toLowerCase();
-                    let movies = document.querySelectorAll('.movie');
-
-                    // Mostrar todas las películas y documentales
-                    movies.forEach(function(movie) {
-                        movie.style.display = "block";
+                    movies.forEach((movie, index) => {
+                        movie.style.display = (index >= start && index < end) ? 'block' : 'none';
                     });
 
-                    // Filtrar según el término de búsqueda
-                    if (input.trim() !== "") {
-                        movies.forEach(function(movie) {
-                            let movieName = movie.querySelector('.movie-name').innerText.toLowerCase();
-                            if (!movieName.includes(input)) {
-                                movie.style.display = "none";
-                            }
-                        });
-                    }
+                    // Disable prev button if on first page
+                    document.getElementById('prevPage').disabled = (page === 1);
 
-                    // Verificar si el campo de búsqueda está vacío y restaurar el estado inicial si es así
-                    if (input.trim() === "") {
-                        currentPage = 1;
-                        for (var i = rowsPerPage; i < rows.length; i++) {
-                            rows[i].style.display = 'none';
-                        }
-                        loadMoreButton.textContent = 'Cargar más';
-                        loadMoreButton.style.display = 'block';
-                    }
+                    // Disable next button if on last page
+                    document.getElementById('nextPage').disabled = (end >= movies.length);
                 }
 
-                // Escuchar el evento de cambio en el campo de búsqueda
-                document.getElementById('searchbar').addEventListener('input', search_media);
+                function changePage(direction) {
+                    currentPage += direction;
+                    displayMovies(currentPage);
+                }
+
+                displayMovies(currentPage); // Initial call to display movies
+
+                // Add event listeners to buttons
+                document.getElementById('prevPage').addEventListener('click', () => changePage(-1));
+                document.getElementById('nextPage').addEventListener('click', () => changePage(1));
             });
+
+            function search_media() {
+                let input = document.getElementById('searchbar').value.toLowerCase();
+                let movies = document.querySelectorAll('.movie');
+
+                // Mostrar todas las películas y documentales
+                movies.forEach(function(movie) {
+                    movie.style.display = "block";
+                });
+
+                // Filtrar según el término de búsqueda
+                if (input.trim() !== "") {
+                    movies.forEach(function(movie) {
+                        let movieName = movie.querySelector('.movie-name').innerText.toLowerCase();
+                        if (!movieName.includes(input)) {
+                            movie.style.display = "none";
+                        }
+                    });
+                } else {
+                    currentPage = 1;
+                    displayMovies(currentPage);
+                }
+            }
+
+            // Escuchar el evento de cambio en el campo de búsqueda
+            document.getElementById('searchbar').addEventListener('input', search_media);
+
         </script>
 
 
