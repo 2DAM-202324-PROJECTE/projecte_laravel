@@ -88,4 +88,10 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Foto::class);
     }
+
+    // Això és el mètode que permet als usuaris veure els vídeos
+    public function hasPermissionToAccessVideo($filename)
+    {
+        return true;
+    }
 }

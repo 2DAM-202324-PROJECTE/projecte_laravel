@@ -19,6 +19,7 @@ use App\Livewire\SalaMedia\LligarMedia;
 use App\Livewire\Users\User;
 use App\Livewire\Xats\Createorupdatexats;
 use App\Livewire\Xats\Index;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Medias\MediaPlayer;
 
@@ -134,11 +135,19 @@ Route::middleware(['auth'])->group(function () {
     })->name('customer.createuserxat');
 
 
+    // Ruta per a reproduir un vídeo
+    Route::get('/videos/{filename}', function ($filename) {
 
+        // Serveix el vídeo
+        $path = storage_path('app/videos/' . $filename);
+        if (!file_exists($path)) {
+            abort(404);
+        }
 
+        // lògica per a servir el vídeo
 
-
-
+        return response()->file($path);
+    })->name('video.stream');
 
 
 //    // Ruta para la lista de usuarios
