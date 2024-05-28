@@ -95,10 +95,9 @@
     <div class="">
         <div class="  sm:justify-center md:justify-center lg:justify-end p-6">
             <h2 class="pt-12 mb-8 text-center text-5xl tracking-wide font-semibold" style="font-family: 'Dosis', sans-serif; color: #0092FF">PEL·LÍCULES</h2>
-
-            <div class="w-full flex items-center lg:pr-8">
-                <div class="dropdown mr-4">
-                    <button class="dropbtn">Gèneres</button>
+            <div class="w-full md:grid lg:flex lg:pr-8">
+                <div class="dropdown mr-4 flex text-center">
+                    <button class="dropbtn text-center">Gèneres</button>
                     <div class="dropdown-content">
                         <a href="#" wire:click.prevent="filterByGenere('Tots')">Tots</a>
                         @foreach($generes as $genere)
@@ -106,23 +105,20 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="ml-auto"> <!-- Este div se moverá a la derecha del todo -->
-                    <form class="sm:flex sm:items-center">
+                <div class="lg:ml-auto mt-4 mb-2"> <!-- Este div se moverá a la derecha del todo -->
+                    <form class="sm:flex justify-center">
                         <input id="searchbar" name="q" class="inline w-48 rounded-md bg-white py-2 pl-3 pr-3 leading-5 placeholder-gray-500 focus:placeholder-gray-400 focus:outline-none sm:text-sm" style="border: none; --tw-ring-color: #5CDBFF; font-size: 12px; letter-spacing: 1px" placeholder="Buscar.." type="search" autofocus="" onkeyup="search_media()">
-                        <div class="flex justify-center sm:justify-start">
-                            <button id="botoBuscar" type="submit" class="bg-white ml-4 py-2 px-4 text-sm tracking-wide rounded-lg text-white">Search</button>
+                        <div class="flex justify-center ">
+                            <button id="botoBuscar" type="submit" class="bg-white md:ml-4 py-2 px-4 text-sm tracking-wide rounded-lg text-white">Search</button>
                         </div>
                     </form>
                 </div>
             </div>
-
-
-
         </div>
 
         <div id="pelisContainer" class="sm:flex sm:flex-wrap justify-center gap-4 mx-20 mb-4">
             @foreach($pelis as $index => $peli)
-                <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 m-2 md:flex-wrap mb-4 movie"> <!-- Ajusta el ancho de cada película aquí -->
+                <div class="w-full  md:w-1/3 lg:w-1/4 xl:w-1/6 m-2 md:flex-wrap mb-4 movie"> <!-- Ajusta el ancho de cada película aquí -->
                     <div>
                         <button wire:click="showOrHideModal({{ $peli['id'] }})">
                             <img class="rounded-lg shadow-lg" src="{{ $peli['image_uri'] }}" alt="{{ $peli['name'] }}" />
