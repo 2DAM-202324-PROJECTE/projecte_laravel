@@ -92,31 +92,6 @@
             font-weight: bold;
         }
     </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var sidebar = document.getElementById('vertical');
-            var toggleButton = document.getElementById('toggleSidebar');
-
-            toggleButton.addEventListener('click', function() {
-                if (sidebar.classList.contains('hidden')) {
-                    // Mostrar la barra lateral
-                    sidebar.classList.remove('hidden');
-                    sidebar.style.width = '20rem'; // O cualquier ancho que desees
-
-                    // Mover el botón toggle al lado derecho del sidebar
-                    toggleButton.classList.add('right-20'); // Agrega una clase con la propiedad right para ajustar la posición
-                } else {
-                    // Ocultar la barra lateral
-                    sidebar.classList.add('hidden');
-                    sidebar.style.width = '0';
-
-                    // Mover el botón toggle a su posición original
-                    toggleButton.classList.remove('right-20'); // Elimina la clase para restaurar la posición original
-                }
-            });
-        });
-    </script>
-
 
     <div class="">
         <div class="  sm:justify-center md:justify-center lg:justify-end p-6">
@@ -126,8 +101,9 @@
                 <div class="dropdown mr-4">
                     <button class="dropbtn">Gèneres</button>
                     <div class="dropdown-content">
+                        <a href="#" wire:click.prevent="filterByGenere('Tots')">Tots</a>
                         @foreach($generes as $genere)
-                            <a href="#">{{ $genere->name }}</a>
+                            <a href="#" wire:click.prevent="filterByGenere('{{ $genere->name }}')">{{ $genere->name }}</a>
                         @endforeach
                     </div>
                 </div>
@@ -161,99 +137,73 @@
             @endif
         </div>
 
-
-
-        <div class="flex justify-center mt-4 pb-32"> <!-- Contenedor flex para centrar el botón -->
-            <button id="loadMoreDocumentals" class="bg-white py-2 px-4 text-sm tracking-wide rounded-lg text-white" style="background: #39A9FE;">Cargar més</button>
+        <div id="paginationControls" class="flex justify-center my-4">
+            <button id="prevPage" class="bg-gray-700 text-white px-4 py-2 m-1 rounded" onclick="changePage(-1)">Atràs</button>
+            <button id="nextPage" class="bg-gray-700 text-white px-4 py-2 m-1 rounded" onclick="changePage(1)">Davant</button>
         </div>
+
+
 
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-                var container = document.getElementById('documentalsContainer');
-                var rows = container.querySelectorAll('.documental');
-                var rowsPerPage = 6;
-                var currentPage = 1;
-                var totalPages = Math.ceil(rows.length / rowsPerPage);
+                const documentalsContainer = document.getElementById('documentalsContainer');
+                const documentals = documentalsContainer.querySelectorAll('.documental');
+                const paginationControls = document.getElementById('paginationControls');
+                const rowsPerPage = 15;
+                let currentPage = 1;
 
-                // Ocultar todas las filas excepto la primera página al cargar la página
-                rows.forEach(function(row, index) {
-                    if (index >= rowsPerPage) {
-                        row.style.display = 'none';
-                    }
-                });
+                function displayDocumentals(page) {
+                    const start = (page - 1) * rowsPerPage;
+                    const end = start + rowsPerPage;
 
-                // Manejar clic en el botón "Cargar más" y "Ocultar"
-                var loadMoreButton = document.getElementById('loadMoreDocumentals');
-                loadMoreButton.addEventListener('click', function() {
-                    var start = currentPage * rowsPerPage;
-                    var end = (currentPage + 1) * rowsPerPage;
-
-                    // Si estamos mostrando todas las filas, ocultar todas menos la primera fila
-                    if (currentPage === totalPages) {
-                        rows.forEach(function(row, index) {
-                            if (index >= rowsPerPage) {
-                                row.style.display = 'none';
-                            }
-                        });
-                        loadMoreButton.textContent = 'Cargar más';
-                        currentPage = 1;
-                        return;
-                    }
-
-                    // Mostrar las filas de la página actual
-                    for (var i = start; i < end; i++) {
-                        if (rows[i]) {
-                            rows[i].style.display = 'block';
-                        }
-                    }
-
-                    // Cambiar el texto del botón a "Ocultar" si estamos mostrando todas las filas
-                    if (end >= rows.length) {
-                        loadMoreButton.textContent = 'Ocultar';
-                    }
-
-                    currentPage++;
-
-                    // Ocultar el botón si estamos en la última página
-                    if (currentPage > totalPages) {
-                        loadMoreButton.style.display = 'none';
-                    }
-                });
-
-                // Función para manejar la búsqueda
-                function search_media() {
-                    let input = document.getElementById('searchbar').value.toLowerCase();
-                    let documentals = document.querySelectorAll('.documental');
-
-                    // Mostrar todas las películas y documentales
-                    documentals.forEach(function(documental) {
-                        documental.style.display = "block";
+                    documentals.forEach((documental, index) => {
+                        documental.style.display = (index >= start && index < end) ? 'block' : 'none';
                     });
 
-                    // Filtrar según el término de búsqueda
-                    if (input.trim() !== "") {
-                        documentals.forEach(function(documental) {
-                            let documentalName = documental.querySelector('.documental-name').innerText.toLowerCase();
-                            if (!documentalName.includes(input)) {
-                                documental.style.display = "none";
-                            }
-                        });
-                    }
+                    // Disable prev button if on first page
+                    document.getElementById('prevPage').disabled = (page === 1);
 
-                    // Verificar si el campo de búsqueda está vacío y restaurar el estado inicial si es así
-                    if (input.trim() === "") {
-                        currentPage = 1;
-                        for (var i = rowsPerPage; i < rows.length; i++) {
-                            rows[i].style.display = 'none';
-                        }
-                        loadMoreButton.textContent = 'Cargar más';
-                        loadMoreButton.style.display = 'block';
-                    }
+                    // Disable next button if on last page
+                    document.getElementById('nextPage').disabled = (end >= documentals.length);
                 }
 
-                // Escuchar el evento de cambio en el campo de búsqueda
-                document.getElementById('searchbar').addEventListener('input', search_media);
+                function changePage(direction) {
+                    currentPage += direction;
+                    displayDocumentals(currentPage);
+                }
+
+                displayDocumentals(currentPage); // Initial call to display documentals
+
+                // Add event listeners to buttons
+                document.getElementById('prevPage').addEventListener('click', () => changePage(-1));
+                document.getElementById('nextPage').addEventListener('click', () => changePage(1));
             });
+
+            function search_media() {
+                let input = document.getElementById('searchbar').value.toLowerCase();
+                let documentals = document.querySelectorAll('.documental');
+
+                // Mostrar todas las películas y documentales
+                documentals.forEach(function(documental) {
+                    documental.style.display = "block";
+                });
+
+                // Filtrar según el término de búsqueda
+                if (input.trim() !== "") {
+                    documentals.forEach(function(documental) {
+                        let documentalName = documental.querySelector('.documental-name').innerText.toLowerCase();
+                        if (!documentalName.includes(input)) {
+                            documental.style.display = "none";
+                        }
+                    });
+                } else {
+                    currentPage = 1;
+                    displayDocumentals(currentPage);
+                }
+            }
+
+            // Escuchar el evento de cambio en el campo de búsqueda
+            document.getElementById('searchbar').addEventListener('input', search_media);
         </script>
 
 
