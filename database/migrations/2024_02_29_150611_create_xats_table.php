@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('foto')->nullable();
             $table->string('privacitat')->nullable();
             $table->string('idioma')->nullable();
-            $table->unsignedBigInteger('media_id')();
+            $table->unsignedBigInteger('media_id');
             $table->foreign('media_id')->references('id')->on('media')
                 ->onDelete('set null'); // Cambia onDelete a set null
             $table->foreignId('creador_id')->constrained('users')
