@@ -16,7 +16,9 @@ class MediaPlayer extends Component
     {
         $this->media = Media::find($id);
         if ($this->media) {
-            $this->fileExists = Storage::exists($this->media->path);
+            $this->fileExists = Storage::exists('videos/' . $this->media->path);
+            //dd($this->fileExists);
+            //dd($this->fileExists, 'videos/' . $this->media->path);
         }
     }
 
@@ -30,15 +32,12 @@ class MediaPlayer extends Component
     public function openPlayer($mediaId)
     {
         $this->media = Media::find($mediaId);
-        if ($this->media) {
-            $this->fileExists = Storage::exists($this->media->path);
+        if ($this->media && $this->media->category->user_id == auth()->id()) {
+            $this->fileExists = Storage::exists('videos/' . $this->media->path);
         }
-
-
     }
-
-
 }
+
 
 
 
