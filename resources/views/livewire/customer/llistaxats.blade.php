@@ -126,7 +126,7 @@
                 <div class="modal-content py-4 text-left px-6">
                     <!--Title-->
                     <div class="flex justify-between items-center pb-3">
-                        <p class="text-2xl font-bold">Introdueix URL de la sala</p>
+                        <p class="text-2xl font-bold">Introdueix l'id de la sala</p>
                         <div class="modal-close cursor-pointer z-50">
                             <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                  viewBox="0 0 18 18">
@@ -141,7 +141,6 @@
                         <div>
                             <label for="idInput" class="block text-sm text-gray-500 dark:text-gray-300">ID de la película</label>
                             <input id="idInput" type="text" placeholder="ID de la película" class="block mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-red-400 bg-white px-5 py-2.5 text-gray-700 focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40 dark:border-red-400 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-red-300" />
-                            <p class="mt-3 text-xs text-red-400">Debe ser un ID válido.</p>
                         </div>
                     </div>
                     <!--Footer-->
@@ -187,7 +186,7 @@
                 if (id) {
                     window.location.href = `/customer/xatmedia/${id}`;
                 } else {
-                    alert('Por favor, introduce un ID válido.');
+                    alert('No deixis el camp buit!');
                 }
             });
 
