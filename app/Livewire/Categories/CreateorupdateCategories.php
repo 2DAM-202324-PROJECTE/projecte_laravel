@@ -19,6 +19,7 @@ class CreateorupdateCategories extends Component
 
     public function create()
     {
+        $this->validate();
         Category::create([
             'name' => $this->name,
             'description' => $this->description,
@@ -35,6 +36,7 @@ class CreateorupdateCategories extends Component
 
     public function update()
     {
+        $this->validate();
         $this->category->update([
             'name' => $this->name,
             'description' => $this->description,

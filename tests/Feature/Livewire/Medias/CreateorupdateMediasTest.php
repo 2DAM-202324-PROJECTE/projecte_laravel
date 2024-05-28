@@ -84,7 +84,7 @@ class CreateorupdateMediasTest extends TestCase
     {
         $this->assertEquals(5,Media::count());
         Livewire::test(Createorupdatemedias::class, ['id' => 6])
-            ->assertSee('Can not find the media to be updated');
+            ->assertSee('Can not find the medias to be updated');
     }
 
     /** @test */

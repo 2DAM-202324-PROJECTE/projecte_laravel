@@ -10,14 +10,13 @@ return new class extends Migration
         Schema::create('xats', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
-            $table->string('descripcio');
+            $table->string('descripcio')->nullable();
             $table->string('url')->nullable();
             $table->string('password')->nullable();
             $table->string('foto')->nullable();
-            $table->string('tipus')->nullable();
             $table->string('privacitat')->nullable();
             $table->string('idioma')->nullable();
-            $table->unsignedBigInteger('media_id')->nullable(); // Haz que media_id sea nullable
+            $table->unsignedBigInteger('media_id');
             $table->foreign('media_id')->references('id')->on('media')
                 ->onDelete('set null'); // Cambia onDelete a set null
             $table->foreignId('creador_id')->constrained('users')

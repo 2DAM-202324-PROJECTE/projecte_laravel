@@ -25,11 +25,24 @@ class Homepage extends Component
     }
     public function documentals(){
         $this->documentals = [];
-        $documentals = Media::where('category_id', 2)->get();
+        $documentals = Media::where('category_id', 2)
+            ->orderBy('created_at', 'desc')
+            ->take(9)
+            ->get();
         foreach ($documentals as $documental) {
             $this->documentals[] = $documental;
         }
         return $this->documentals;
+    }
+
+    public function nom_usuari()
+    {
+        $user = auth()->user();
+        if ($user) {
+            return $user->name;
+        } else {
+            return 'Usuari no trobat';
+        }
     }
 
     public function peliNoves(){
@@ -60,12 +73,14 @@ class Homepage extends Component
         $this->peliNoves();
         $this->documentals();
         $this->xats();
+        $this->nom_usuari();
 
 
         return view('livewire.customer.homepage', [
             'pelis' => $this->pelis,
             'documentals' => $this->documentals,
             'xats' => $this->xats,
+            'nom_usuari' => $this->nom_usuari(),
         ]);
     }
     public function showOrHideModal($mediaId)

@@ -20,7 +20,6 @@ class XatSeeder extends Seeder
                 'url' => null,
                 'password' => null,
                 'foto' => null,
-                'tipus' => 'general',
                 'privacitat' => 'pública',
                 'idioma' => 'Catala',
                 'xatinteractiu_id' => Xatinteractiu::create([])->id,

@@ -7,47 +7,35 @@ use App\Models\User;
 use App\Models\Xat;
 use App\Models\Xatinteractiu;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 
 class Createorupdatexats extends Component
 {
 
-    public $nom, $creador_id, $media_id, $descripcio, $url, $password, $foto, $tipus, $privacitat, $idioma;
+    public $nom, $creador_id, $media_id, $descripcio, $url, $password, $foto, $privacitat, $idioma;
     public $isCreation = true;
     public ?Xat $xat;
 
 
     protected $rules = [
         'nom' => 'required|string|max:255',
-        'descripcio' => 'required|string',
         'creador_id' => 'required|exists:users,id',
-        'url' => 'url',
-        //'media' => 'required|exists:media,id', // Canmbiem de media a media_id
-        'media_id' => 'required|exists:media,id',
+        'url' => 'nullable|url',
+        //'medias' => 'required|exists:medias,id', // Canmbiem de medias a media_id
+        'media_id' => 'required',
 
     ];
 
-//    public function save()
-//    {
-//        $this->validate();
-//
-//        if ($this->isCreation) {
-//            Xat::create($this->getModelData());
-//        } else {
-//            $this->xat->update($this->getModelData());
-//        }
-//
-//        return redirect()->route('xats');
-//    }
-
     public function create()
     {
+
+        $this->validate();
         $xatInteractiuCreat = Xatinteractiu::create([
 
 
         ]);
-
         //ddd($xatInteractiuCreat);
         //ddd($xatInteractiuCreat->id);
 
@@ -63,7 +51,6 @@ class Createorupdatexats extends Component
             'url' => $this->url, // Asegúrate de que 'url' es una propiedad pública en tu componente
             'password' => $this->password, // Asegúrate de manejar esto con cuidado por razones de seguridad
             'foto' => $this->foto,
-            'tipus' => $this->tipus, // Asegúrate de que 'tipus' es una propiedad pública en tu componente
             'privacitat' => $this->privacitat, // Asegúrate de que 'privacitat' es una propiedad pública en tu componente
             'idioma' => $this->idioma, // Asegúrate de que 'idioma' es una propiedad pública en tu componente
             'xatinteractiu_id' => $xatInteractiuCreat->id, // Asegúrate de que 'xatinteractiu_id' es una propiedad pública en tu componente
@@ -95,7 +82,6 @@ class Createorupdatexats extends Component
                 'url' => $this->url,
                 'password' => $this->password,
                 'foto' => $this->foto,
-                'tipus' => $this->tipus,
                 'privacitat' => $this->privacitat,
                 'idioma' => $this->idioma,
             ]);
@@ -105,6 +91,8 @@ class Createorupdatexats extends Component
 
         return $this->redirectRoute('xats');
     }
+
+
 
 
     public function setCategory($id)
@@ -117,6 +105,10 @@ class Createorupdatexats extends Component
 
     public function mount($id = null)
     {
+        // Es el creador del xat
+        $this->creador_id = Auth::id();
+
+        $this->media_id = Media::first()->id ?? null;
 
         if ($id !== null) {
             $this->isCreation = false;
@@ -139,7 +131,6 @@ class Createorupdatexats extends Component
         $this->url = $this->xat->url;
         $this->password = $this->xat->password;
         $this->foto = $this->xat->foto;
-        $this->tipus = $this->xat->tipus;
         $this->privacitat = $this->xat->privacitat;
         $this->idioma = $this->xat->idioma;
     }
@@ -152,7 +143,6 @@ class Createorupdatexats extends Component
             'url' => $this->url,
             'password' => $this->password,
             'foto' => $this->foto,
-            'tipus' => $this->tipus,
             'privacitat' => $this->privacitat,
             'idioma' => $this->idioma,
         ];

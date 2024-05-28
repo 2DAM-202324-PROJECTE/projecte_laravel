@@ -1,10 +1,10 @@
 <div>
-    <div class="text-center bg-blue-900" style="height: 100vh; padding-top: 50px;">
+    <div class="text-center bg-blue-900" style="height: 50vh; padding-top: 50px;">
         @if ($media)
             @if ($fileExists)
-                <video controls width="100%" style="max-width: 2000px; border: 1px solid #ccc; border-radius: 8px; margin: 0 auto; display: block; padding: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); background-color: darkred;">
-                    <source src="{{ Storage::url($media->path) }}" type="{{ $media->type }}">
-                    Your browser does not support the video tag.
+                <video controls controlsList="nodownload" width="100%" style="max-width: 2000px; border: 1px solid #ccc; border-radius: 8px; margin: 0 auto; display: block; padding: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); background-color: darkred;">
+                    <source src="{{ route('video.stream', ['filename' => $media->path]) }}" type="video/mp4">
+                    El teu navegador no suporta aquest tipus de vídeo.
                 </video>
             @else
                 <div class="text-center items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800 max-w-lg mx-auto" role="alert">
@@ -13,7 +13,7 @@
                     </svg>
                     <span class="sr-only">Info</span>
                     <div>
-                        <span class="font-medium">Sorry, the media file cannot be found. It may have been moved or deleted.</span>
+                        <span class="font-medium">Disculpes, no s'ha trobat cap fitxer multimèdia. Potser s'ha mogut o eliminat.</span>
                     </div>
                 </div>
             @endif
@@ -24,7 +24,7 @@
                 </svg>
                 <span class="sr-only">Info</span>
                 <div>
-                    <span class="font-medium">Sorry, the media you are looking for does not exist.</span>
+                    <span class="font-medium">Disculpes, no s'ha trobat cap fitxer multimèdia. Potser s'ha mogut o eliminat.</span>
                 </div>
             </div>
         @endif

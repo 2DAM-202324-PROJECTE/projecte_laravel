@@ -10,7 +10,7 @@ use Livewire\Component;
 
 class Xatinteractiu extends Component
 {
-    public $nom, $creador_id, $media_id, $descripcio, $url, $password, $foto, $tipus,
+    public $nom, $creador_id, $media_id, $descripcio, $url, $password, $foto,
         $missatge, $privacitat, $idioma, $messages;
     public ?Xat $xat;
 

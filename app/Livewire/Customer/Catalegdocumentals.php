@@ -3,6 +3,7 @@
 namespace App\Livewire\Customer;
 
 
+use App\Models\Genere;
 use App\Models\Media;
 use Illuminate\Http\Request;
 use Livewire\Component;
@@ -14,34 +15,53 @@ class Catalegdocumentals extends Component
     public $filter = '';
     public $isModalVisible = false;
     public $modalMediaId;
+    public $selectedGenere = null;
 
 
 
-    public function documentals(){
-        $this->documentals = [];
-        $documentals = Media::where('category_id', 2)->get();
-        foreach ($documentals as $documental) {
-            $this->documentals[] = $documental;
+    public function loadDocumentals()
+    {
+        $query = Media::where('category_id', 2);
+
+        if ($this->selectedGenere) {
+            $genere = Genere::where('name', $this->selectedGenere)->first();
+            if ($genere) {
+                $query = $query->where('genere_id', $genere->id);
+            }
         }
-        return $this->documentals;
+
+        if ($this->search) {
+            $query = $query->where('name', 'like', '%' . $this->search . '%');
+        }
+
+        $this->documentals = $query->get()->toArray();
     }
 
-    public function render(Request $request){
-        $this->documentals();
+    public function filterByGenere($genereName)
+    {
+        $this->selectedGenere = $genereName === 'Tots' ? null : $genereName;
+        $this->loadDocumentals();
+    }
 
-        $searchTerm = $this->search;
+    public function mount()
+    {
+        $this->loadDocumentals();
+    }
 
-        $documentals = Media::where('category_id', 2);
+    public function updatedSearch()
+    {
+        $this->loadDocumentals();
+    }
 
-        // Realiza la búsqueda solo si se proporciona un término de búsqueda
-        if ($searchTerm) {
-            $documentals = $documentals->where('name', 'like', '%' . $searchTerm . '%');
-        }
 
+    public function render(Request $request)
+    {
+        $generes = Genere::all();
 
         return view('livewire.customer.catalegdocumentals', [
-            'documentals' => $documentals,
-            'search' => $searchTerm,
+            'documentals' => $this->documentals,
+            'search' => $this->search,
+            'generes' => $generes,
         ]);
     }
 

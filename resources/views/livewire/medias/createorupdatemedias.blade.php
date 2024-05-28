@@ -11,27 +11,45 @@
                         Name:</label>
                     <input type="text" id="name" wire:model="name"
                            class="text-gray-700 text-sm font-bold rounded-md title bg-gray-100 border border-gray-300 p-2 outline-none w-full mb-4"
-                           spellcheck="false" placeholder="Introdueix el nom..">
+                           spellcheck="false" placeholder="Introdueix el nom.." required title="Ompliu aquest camp.">
+                </div>
+                <div>
+                    <label for="image_uri" class="block text-gray-700 text-sm font-bold mb-2 mt-4">
+                        Image_uri:</label>
+                    <input type="text" id="image_uri" wire:model="image_uri"
+                           class="text-gray-700 text-sm font-bold rounded-md title bg-gray-100 border border-gray-300 p-2 outline-none w-full mb-4"
+                           spellcheck="false" placeholder="Introdueix la url de la imatge.." required title="Ompliu aquest camp.">
+                </div>
+                <div>
+                    <label for="path" class="block text-gray-700 text-sm font-bold mb-2 mt-4">
+                        Path:</label>
+                    <input type="text" id="path" wire:model="path"
+                           class="text-gray-700 text-sm font-bold rounded-md title bg-gray-100 border border-gray-300 p-2 outline-none w-full mb-4"
+                           spellcheck="false" placeholder="Introdueix la localització de la media.." required title="Ompliu aquest camp.">
                 </div>
                 <div>
                     <label for="description" class="text-gray-700 text-sm font-bold block mb-2">Description:</label>
                     <textarea id="description" wire:model="description"
                               class="text-gray-700 text-sm font-bold description bg-gray-100 sec p-3 h-60 border border-gray-300 outline-none w-full"
-                              spellcheck="false" placeholder="Descriu la nova media..."></textarea>
-                </div>
-                <div>
-                    <label for="path" class="text-gray-700 text-sm font-bold block mb-2">Path:</label>
-                    <textarea id="path" wire:model="path"
-                              class="text-gray-700 text-sm font-bold description bg-gray-100 sec p-3 h-60 border border-gray-300 outline-none w-full"
-                              spellcheck="false" placeholder="Localització de la media..."></textarea>
+                              spellcheck="false" placeholder="Descriu la nova media..." required title="Ompliu aquest camp."></textarea>
                 </div>
                 <div>
                     <label for="category" class="text-gray-700 text-sm font-bold block mb-2">Category:</label>
                     <select id="category" wire:model="category_id"
-                            class="text-gray-700 text-sm font-bold rounded-md title bg-gray-100 border border-gray-300 p-2 outline-none w-full mb-4">
+                            class="text-gray-700 text-sm font-bold rounded-md title bg-gray-100 border border-gray-300 p-2 outline-none w-full mb-4" required title="Ompliu aquest camp.">
                         <option value="">Selecciona una categoria</option>
                         @foreach($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div>
+                    <label for="genere" class="text-gray-700 text-sm font-bold block mb-2">Gènere:</label>
+                    <select id="genere" wire:model="genere_id"
+                            class="text-gray-700 text-sm font-bold rounded-md title bg-gray-100 border border-gray-300 p-2 outline-none w-full mb-4">
+                        <option value="">Selecciona un gènere</option>
+                        @foreach($generes as $genere)
+                            <option value="{{ $genere->id }}">{{ $genere->name }}</option>
                         @endforeach
                     </select>
                 </div>

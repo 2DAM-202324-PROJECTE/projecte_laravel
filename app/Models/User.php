@@ -79,7 +79,7 @@ class User extends Authenticatable
         return $this->hasMany(Xat::class);
     }
 
-    public function role ()
+    public function Role ()
     {
         return $this->belongsTo(Role::class);
     }
@@ -87,5 +87,11 @@ class User extends Authenticatable
     public function foto()
     {
         return $this->belongsTo(Foto::class);
+    }
+
+    // Això és el mètode que permet als usuaris veure els vídeos
+    public function hasPermissionToAccessVideo($filename)
+    {
+        return true;
     }
 }

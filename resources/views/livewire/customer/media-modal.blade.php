@@ -8,7 +8,7 @@
             <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
 
             <div
-                class="inline-block align-bottom bg-black rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full sm:h-96">
+                class="inline-block align-bottom bg-black rounded-lg text-left shadow-xl transform transition-all border-gray-900 border-4 sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full">
                 <div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4" style="background: #553d2a"
                     @click.away="open = false; $dispatch('closeModal')">
                     <div class="sm:flex sm:items-start">
@@ -27,37 +27,29 @@
                             </div>
                         </div>
                     </div>
-                </div>z
+                </div>
                 <div class="px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse" style="background: #907761">
                     <!-- Close button -->
                     <button type="button"
                             class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-800 text-base font-medium text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm"
                             wire:click="$dispatch('closeModal')">
-                        Close
-                    </button>
-                    <!-- Favorite button -->
-                    <button type="button"
-                            class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-yellow-600 text-base font-medium text-white hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm"
-                            wire:click="$dispatch('favouriteMedia')">
-                        <!-- Star icon -->
-                        <svg class="w-6 h-6 text-gray-100 dark:text-white" aria-hidden="true"
-                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-width="2"
-                                  d="M11.083 5.104c.35-.8 1.485-.8 1.834 0l1.752 4.022a1 1 0 0 0 .84.597l4.463.342c.9.069 1.255 1.2.556 1.771l-3.33 2.723a1 1 0 0 0-.337 1.016l1.03 4.119c.214.858-.71 1.552-1.474 1.106l-3.913-2.281a1 1 0 0 0-1.008 0L7.583 20.8c-.764.446-1.688-.248-1.474-1.106l1.03-4.119A1 1 0 0 0 6.8 14.56l-3.33-2.723c-.698-.571-.342-1.702.557-1.771l4.462-.342a1 1 0 0 0 .84-.597l1.753-4.022Z"/>
+                        <!-- X icon -->
+                        <svg class="w-6 h-6 text-gray-100 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                         </svg>
-                        Favorite
+                        <span class="inline-block align-middle" style="padding-top: 3px;">Tanca</span>
                     </button>
                     <!-- Host chatroom button -->
                     <button type="button"
                             class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-gray-700 text-base font-medium text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm"
                             wire:click="hostChatroom">
-                        Host Chatroom
+                        <span class="inline-block align-middle" style="padding-top: 3px;">Obrir una sala de xat</span>
                     </button>
                     <!-- Join Chatroom button -->
                     <button type="button"
                             class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-gray-700 text-base font-medium text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm"
                             wire:click="joinChatroom">
-                        Join Chatroom
+                        <span class="inline-block align-middle" style="padding-top: 3px;">Unir-se a una sala de xat</span>
                     </button>
                     <button type="button"
                             class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-700
@@ -67,7 +59,7 @@
                         <svg class="w-6 h-6 text-gray-100 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 18V6l8 6-8 6Z"/>
                         </svg>
-                        Play
+                        <span class="inline-block align-middle" style="padding-top: 3px;">Reproduir</span>
                     </button>
                 </div>
             </div>

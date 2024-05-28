@@ -251,7 +251,7 @@
     <div class="pb-32 ">
         <div class="px-10 shadow-xl py-12" >
             <h2 id="titol" class="mb-4">HOME PAGE</h2>
-            <p class="text-white ml-6 mt-6 text-xl font-semibold" style="font-family: 'Kanit', serif; color: #D6EAF8">HOLA JOSEPITA NOSE</p>
+            <p class="text-white ml-6 mt-6 text-xl font-semibold" style="font-family: 'Kanit', serif; color: #D6EAF8">Hola {{$nom_usuari}}!</p>
         </div>
         <div class="mx-12 flex flex-row justify-between pb-20 pt-16 mt-12">
             <p class="text-start text-white text-xl mr-4 tracking-wider font-semibold">NOVETATS AFEGIDES!</p>
@@ -401,8 +401,8 @@
                 <div class="grid grid-cols-1 justify-center">
                     @foreach(array_slice($xats, 0, 4) as $xat)
                         <a href="{{ route('customer.xatmedia', ['id' => $xat->id]) }}" style="outline: none; text-decoration: none;">
-                            <div class="mb-8 bg-gray-100 flex gap-x-50 p-2 hover:bg-gray-800 grid-rows-2 rounded-lg relative">
-                                <p class="text-gray-600 mt-8 justify-start text-lg">{{$xat->nom}}</p>
+                            <div class="mb-8 bg-gray-100 flex-shrink-0 gap-x-50 p-2 hover:bg-gray-800 grid-rows-2 rounded-lg relative">
+                                <p class="text-gray-600 text-center text-lg">{{$xat->nom}}</p>
                                 <p class="text-center text-sm absolute bottom-2 mt-2 left-2 hover:text-gray-200 flex">{{$xat->idioma}}</p>
                                 <div class="absolute top-0 right-0 mb-2">
                                     <div class="h-6 w-6 absolute bg-green-500 rounded-full animate-pulse"></div>

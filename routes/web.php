@@ -19,6 +19,7 @@ use App\Livewire\SalaMedia\LligarMedia;
 use App\Livewire\Users\User;
 use App\Livewire\Xats\Createorupdatexats;
 use App\Livewire\Xats\Index;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Medias\MediaPlayer;
 
@@ -35,60 +36,79 @@ use App\Livewire\Medias\MediaPlayer;
 
 Route::get('/', function () {
     return view('welcome');
-});
+    })->name('welcome');
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/homepage', function () {
+        return view('customer.homepage');
+    })->name('homepage');
 });
 
+
 Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard')->middleware('role:admin');
     Route::get('/categories', function () {
         return view('categories.index');
-    })->name('categories');
+    })->name('categories')->middleware('role:admin');
 
     Route::get('/categories/create', function () {
         return view('categories.createorupdate');
-    })->name('categories.create');
+    })->name('categories.create')->middleware('role:admin');
 
     Route::get('/categories/update/{id}', function ($id) {
         return view('categories.createorupdate')->with([
             'id' => $id,
         ]);
-    })->name('categories.update');
+    })->name('categories.update')->middleware('role:admin');
+
+    Route::get('/generes', function () {
+        return view('generes.index');
+    })->name('generes')->middleware('role:admin');
+
+    Route::get('/generes/create', function () {
+        return view('generes.createorupdate');
+    })->name('generes.create')->middleware('role:admin');
+
+    Route::get('/generes/update/{id}', function ($id) {
+        return view('generes.createorupdate')->with([
+            'id' => $id,
+        ]);
+    })->name('generes.update')->middleware('role:admin');
 
     Route::get('/medias', function () {
         return view('medias.index');
-    })->name('medias');
+    })->name('medias')->middleware('role:admin');
 
     Route::get('/medias/save', function () {
         return view('medias.createorupdatemedias');
-    })->name('medias.save');
+    })->name('medias.save')->middleware('role:admin');
 
     Route::get('/medias/update/{id}', function ($id) {
         return view('medias.createorupdatemedias')->with([
             'id' => $id,
         ]);
-    })->name('medias.update');
+    })->name('medias.update')->middleware('role:admin');
 
     Route::get('/xats', function () {
         return view('xats.index');
-    })->name('xats');
+    })->name('xats')->middleware('role:admin');
 
     Route::get('/xats/create', function () {
         return view('xats.createorupdatexats');
-    })->name('xats.create');
+    })->name('xats.create')->middleware('role:admin');
 
     Route::get('/xats/update/{id}', function ($id) {
         return view('xats.createorupdatexats')->with([
             'id' => $id,
         ]);
-    })->name('xats.update');
+    })->name('xats.update')->middleware('role:admin');
+
 
 //    Route::get('/xats/{id}', function ($id) {
 //        return view('xats.show', ['id' => $id]);
@@ -99,9 +119,7 @@ Route::middleware(['auth'])->group(function () {
         ]);
     })->name('customer.xatmedia');
 
-    Route::get('/homepage', function () {
-        return view('customer.homepage');
-    })->name('homepage');
+
 
     Route::get('/catalegPelis', function () {
         return view('customer.catalegpelis');
@@ -116,26 +134,44 @@ Route::middleware(['auth'])->group(function () {
         return view('customer.createuserxat', ['id' => $id]);
     })->name('customer.createuserxat');
 
-    // Ruta para la lista de usuarios
-    Route::get('admin/users', [AdminUsersController::class, 'index'])->name('admin.users.index');
 
-// Ruta para crear un nuevo usuario
-    Route::get('admin/users/create', [AdminUsersController::class, 'create'])->name('create');
+    // Ruta per a reproduir un vídeo
+    Route::get('/videos/{filename}', function ($filename) {
 
-    Route::get('admin/users/update/{id}', [AdminUsersController::class, 'update'])->name('update');
+        // Serveix el vídeo
+        $path = storage_path('app/videos/' . $filename);
+        if (!file_exists($path)) {
+            abort(404);
+        }
 
-    Route::get('admin/users/delete/{id}', [AdminUsersController::class, 'delete'])->name('delete');
+        // lògica per a servir el vídeo
 
-    Route::post('admin/users/store', [AdminUsersController::class, 'store'])->name('admin.users.store');
-
-});
-
-    Route::get('/user', \App\Livewire\Users\User::class)->name('user');
-
-    Route::get('/persones', Persones::class)->name('persones');
+        return response()->file($path);
+    })->name('video.stream');
 
 
-    Route::get('/xatinamedia', LligarMedia::class)->name('xatinamedia');
+//    // Ruta para la lista de usuarios
+//    Route::get('admin/users', [AdminUsersController::class, 'index'])->name('admin.users.index');
+//
+//// Ruta para crear un nuevo usuario
+//    Route::get('admin/users/create', [AdminUsersController::class, 'create'])->name('create');
+//
+//    Route::get('admin/users/update/{id}', [AdminUsersController::class, 'update'])->name('update');
+//
+//    Route::get('admin/users/delete/{id}', [AdminUsersController::class, 'delete'])->name('delete');
+//
+//    Route::post('admin/users/store', [AdminUsersController::class, 'store'])->name('admin.users.store');
+
+
+
+//    Route::get('/user', \App\Livewire\Users\User::class)->name('user');
+//
+//    Route::get('/persones', Persones::class)->name('persones');
+//
+//
+//    Route::get('/xatinamedia', LligarMedia::class)->name('xatinamedia');
+
+
 
     Route::get('/media-preview/{id}', MediaPreview::class)->name('media-preview');
 
@@ -144,8 +180,6 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/media-player/{id}', MediaPlayer::class)->name('media-player');
 
-
-    Route::get('/xatinamedia', LligarMedia::class)->name('xatinamedia');
 
     Route::get('/llistaxats', Llistaxats::class)->name('llistaxats');
 
@@ -164,5 +198,5 @@ Route::middleware(['auth'])->group(function () {
         ]);
     })-> name ('createuserxat') ;
 
-
+});
 
