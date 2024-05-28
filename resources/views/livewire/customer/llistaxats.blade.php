@@ -79,10 +79,12 @@
             }
         </style>
         <div class="mt-6 items-center">
-            <h1 class="text-white text-center text-xl">SALES DE XAT DISPONIBLES</h1>
+            <h1 class="text-white text-center mb-4 text-xl">SALES DE XAT DISPONIBLES</h1>
+        </div>
+        <div class="flex">
             <button id="showChatsButton" class="btn first text-white text-end text-base hover:text-gray-600 {{ $myChatsVisible ? 'bg-white' : '' }}">Les meves sales de xat</button>
         </div>
-        <div class="mb-12 ">
+        <div class="mb-12 flex">
             <button onclick="openModal()" class="btn first">
                 Entrar a sala privada
             </button>
