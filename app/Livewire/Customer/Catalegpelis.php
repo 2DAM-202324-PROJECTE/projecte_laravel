@@ -17,39 +17,30 @@ class Catalegpelis extends Component
     public $isModalVisible = false;
     public $modalMediaId;
     public $hideAllRowsExceptFirst = true;
+    public $selectedGenere = null;
 
+    public function loadPelis()
+    {
+        $query = Media::where('category_id', 1);
 
-    public function pelis(){
-        $this->pelis=[];
-        $pelis = Media::where('category_id', 1)->get();
-        foreach ($pelis as $peli) {
-            $this->pelis[] = $peli;
+        if ($this->selectedGenere) {
+            $genere = Genere::where('name', $this->selectedGenere)->first();
+            if ($genere) {
+                $query = $query->where('genere_id', $genere->id);
+            }
         }
-        return $this->pelis;
+
+        if ($this->search) {
+            $query = $query->where('name', 'like', '%' . $this->search . '%');
+        }
+
+        $this->pelis = $query->get()->toArray();
     }
 
-
-    public function render(Request $request){
-        $generes = Genere::all();
-        $this->pelis();
-
-        $searchTerm = $this->search;
-
-        // Realiza la búsqueda en la base de datos sin importar si las películas están visibles en la página
-        $pelis = Media::where('category_id', 1);
-
-        // Realiza la búsqueda solo si se proporciona un término de búsqueda
-        if ($searchTerm) {
-            $pelis = $pelis->where('name', 'like', '%' . $searchTerm . '%');
-        }
-
-        $pelis = $pelis->get();
-
-        return view('livewire.customer.catalegpelis', [
-            'pelis' => $pelis,
-            'search' => $searchTerm,
-            'generes' => $generes,
-        ]);
+    public function filterByGenere($genereName)
+    {
+        $this->selectedGenere = $genereName === 'Tots' ? null : $genereName;
+        $this->loadPelis();
     }
 
     public function showOrHideModal($mediaId)
@@ -64,15 +55,31 @@ class Catalegpelis extends Component
     {
         $this->isModalVisible = false;
         $this->hideAllRowsExceptFirst = true;
-
     }
 
-    // You can call this method whenever you want to reopen the modal
     public function openModal($mediaId)
     {
         $this->showOrHideModal($mediaId);
     }
+
+    public function mount()
+    {
+        $this->loadPelis();
+    }
+
+    public function updatedSearch()
+    {
+        $this->loadPelis();
+    }
+
+    public function render(Request $request)
+    {
+        $generes = Genere::all();
+
+        return view('livewire.customer.catalegpelis', [
+            'pelis' => $this->pelis,
+            'search' => $this->search,
+            'generes' => $generes,
+        ]);
+    }
 }
-
-
-

@@ -126,8 +126,9 @@
                 <div class="dropdown mr-4">
                     <button class="dropbtn">Gèneres</button>
                     <div class="dropdown-content">
+                        <a href="#" wire:click.prevent="filterByGenere('Tots')">Tots</a>
                         @foreach($generes as $genere)
-                            <a href="#">{{ $genere->name }}</a>
+                            <a href="#" wire:click.prevent="filterByGenere('{{ $genere->name }}')">{{ $genere->name }}</a>
                         @endforeach
                     </div>
                 </div>
