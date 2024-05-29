@@ -127,7 +127,7 @@
                 <div>
                     <ul>
                         <li class="mb-1">
-                            <a href="#" class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded">Sales de xat</a>
+                            <a href="{{ route('llistaxats') }}" class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded">Sales de xat</a>
                         </li>
                         <li class="mb-1">
                             <a href="{{ route('homepage') }}" class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded">Home</a>
