@@ -61,7 +61,9 @@ class Homepage extends Component
     public function xats()
     {
         $this->xats = [];
-        $xats = Xat::orderBy('id', 'desc')->get();
+        $xats = Xat::where('privacitat', 'pública')
+            ->orderBy('id', 'desc')
+            ->get();
         foreach ($xats as $xat) {
             $this->xats[] = $xat;
         }
