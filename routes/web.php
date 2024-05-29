@@ -36,7 +36,7 @@ use App\Livewire\Medias\MediaPlayer;
 
 Route::get('/', function () {
     return view('welcome');
-    })->name('welcome');
+})->name('welcome');
 
 Route::middleware([
     'auth:sanctum',
@@ -199,4 +199,3 @@ Route::middleware(['auth'])->group(function () {
     })-> name ('createuserxat') ;
 
 });
-
