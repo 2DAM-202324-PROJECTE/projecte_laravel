@@ -294,6 +294,7 @@
 
         <div id="iconos" class="mt-24 flex justify-center gap-x-56 mx-12 items-center pb-12">
             <div class="border btn btn-white btn-animated rounded-full flex justify-center items-center" style="background: #F9F9F9">
+                <a href="{{ route('llistaxats') }}">
                 <svg class=" px-6 py-4" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" width="90" height="90"  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
                     <g>
                         <g>
@@ -330,6 +331,7 @@
                         </g>
                     </g>
                 </svg>
+            </a>
 
             </div>
             <a href="{{ route('catalegPelis') }}">
@@ -355,6 +357,11 @@
                     </svg>
                 </div>
             </a>
+            <div class="border btn btn-white btn-animated rounded-full" style="background: #F9F9F9">
+                <a href="{{ route('catalegDocumentals') }}">
+                    <svg class="my-2 py-4 px-4" viewBox="0 -2 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" width="90" height="70" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>movie-recorder</title> <desc>Created with Sketch Beta.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-204.000000, -517.000000)" fill="#000000"> <path d="M234,543 L228,538 L228,535 L234,531 L234,543 L234,543 Z M223,529.012 C220.232,529.012 217.989,526.768 217.989,524 C217.989,521.232 220.232,518.989 223,518.989 C225.768,518.989 228.011,521.232 228.011,524 C228.011,526.768 225.768,529.012 223,529.012 L223,529.012 Z M226,541 C226,542.104 225.104,543 224,543 L208,543 C206.896,543 206,542.104 206,541 L206,533 C206,531.896 206.896,531 208,531 L224,531 C225.104,531 226,531.896 226,533 L226,541 L226,541 Z M206,525 C206,522.791 207.791,521 210,521 C212.209,521 214,522.791 214,525 C214,527.209 212.209,529 210,529 C207.791,529 206,527.209 206,525 L206,525 Z M234,529 L228,533 C228,531.786 227.448,530.712 226.594,529.979 C228.626,528.753 230,526.546 230,524 C230,520.134 226.866,517 223,517 C219.134,517 216,520.134 216,524 C216,525.962 216.812,527.729 218.111,529 L214.443,529 C215.4,527.937 216,526.544 216,525 C216,521.687 213.313,519 210,519 C206.687,519 204,521.687 204,525 C204,526.809 204.816,528.41 206.082,529.511 C204.847,530.191 204,531.49 204,533 L204,541 C204,543.209 205.791,545 208,545 L224,545 C226.209,545 228,543.209 228,541 L228,540 L234,545 C235.104,545 236,544.104 236,543 L236,531 C236,529.896 235.104,529 234,529 L234,529 Z" id="movie-recorder" sketch:type="MSShapeGroup"> </path> </g> </g> </g></svg>
+                </a>
+            </div>
             <a href="https://2dam-202324-projecte.github.io/ProjecteTeamFlick/index.html">
                 <div class="border btn btn-white btn-animated rounded-full" style="background: #F9F9F9">
                     <svg class="my-2 py-4 px-4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="90" height="70" viewBox="0 0 64.142 63.929">
@@ -380,20 +387,7 @@
                     </svg>
                 </div>
             </a>
-            <div class="border btn btn-white btn-animated rounded-full" style="background: #F9F9F9">
-                <svg class="my-2 py-4 px-4" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" width="90" height="70" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                    <style type="text/css">
-                        .st0{fill:#607D8B;}
-                        .st1{fill:#ECEFF1;}
-                        .st2{fill:#FAFAFA;}
-                    </style>
-                                        <path class="st0" d="M256,0C114.8,0,0,114.8,0,256s114.8,256,256,256s256-114.8,256-256S397.2,0,256,0z"></path>
-                                        <path class="st1" d="M277.3,384c0,11.8-9.6,21.3-21.3,21.3s-21.3-9.6-21.3-21.3s9.6-21.3,21.3-21.3S277.3,372.2,277.3,384z"></path>
-                                        <path class="st2" d="M289.8,269.7c-7.6,3.5-12.4,11.1-12.4,19.4v9.6c0,11.8-9.5,21.3-21.3,21.3s-21.3-9.6-21.3-21.3v-9.6
-                        c0-24.9,14.6-47.7,37.2-58.2c21.7-10,37.4-36.6,37.4-49.6c0-29.4-23.9-53.3-53.3-53.3s-53.3,23.9-53.3,53.3
-                        c0,11.8-9.5,21.3-21.3,21.3s-21.3-9.6-21.3-21.3c0-52.9,43.1-96,96-96s96,43.1,96,96C352,210.2,327,252.5,289.8,269.7z"></path>
-                    </svg>
-            </div>
+
         </div>
         <div class="flex justify-center items-center mt-32 pb-48">
             <div class="border border-gray-600 px-12 mx-20 rounded-md">

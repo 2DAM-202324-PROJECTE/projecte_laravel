@@ -15,7 +15,6 @@
                 <div class="shrink-0">
                     <x-avatar class="h-9 w-9 lg:w-11 lg:h-11"/>
                 </div>
-
                 <h6 class="font-bold truncate"> {{$nom}} </h6>
             </div>
         </header>
