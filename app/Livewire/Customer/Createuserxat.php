@@ -12,6 +12,7 @@ class Createuserxat extends Component
     public $nom, $descripcio, $url, $idioma;
     public $isCreation = true;
     public ?Xat $xat = null;
+    public ?int $mediaId = null; // Add mediaId property
 
     protected $rules = [
         'nom' => 'required|string|max:255',
@@ -23,32 +24,31 @@ class Createuserxat extends Component
     {
         $xatInteractiuCreat = Xatinteractiu::create();
 
-
         $this->validate();
         $randomUrl = uniqid();
 
-
         $this->xat =  Xat::create([
-            'creador_id' => auth()->id(), // 'creador_id' => auth()->id(),
-            'xatinteractiu_id' => $xatInteractiuCreat->id, // 'xatinteractiu_id' => $xatInteractiuCreat->id,
+            'creador_id' => auth()->id(),
+            'xatinteractiu_id' => $xatInteractiuCreat->id,
             'nom' => $this->nom,
             'descripcio' => $this->descripcio,
             'idioma' => $this->idioma,
-            'url' => $randomUrl
+            'url' => $randomUrl,
+            'media_id' => $this->mediaId // Use the mediaId property
         ]);
 
-        session()->flash('message', 'Xat cread amb exit.');
+        session()->flash('message', 'Xat creat amb èxit.');
         return $this->redirectRoute('customer.xatmedia', ['id' => $this->xat->id]);
     }
 
-        public function cancel()
+    public function cancel()
     {
         return redirect()->to('/customer');
     }
 
     public function mount($id = null)
     {
-
+        $this->mediaId = $id; // Set the mediaId property
         $nomUsuari = auth()->user()->name;
         if ($id !== null) {
             $this->isCreation = false;
@@ -57,7 +57,6 @@ class Createuserxat extends Component
                 $num = Xat::where('creador_id', auth()->id())->count();
                 $num++;
                 $this->nom = "Sala de $nomUsuari $num";
-
             } catch (ModelNotFoundException $e) {
                 session()->flash('message-danger', 'Xat no encontrado.');
             }
@@ -71,6 +70,7 @@ class Createuserxat extends Component
         $this->descripcio = $this->xat->descripcio;
         $this->url = $this->xat->url;
         $this->idioma = $this->xat->idioma;
+        $this->mediaId = $this->xat->media_id; // Ensure mediaId is set
     }
 
     public function resetForm()
@@ -81,6 +81,7 @@ class Createuserxat extends Component
         $this->idioma = '';
         $this->xat = null;
         $this->isCreation = true;
+        $this->mediaId = null; // Reset mediaId
     }
 
     public function render()
